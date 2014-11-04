@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="94">
+<configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>DayOfTheYear.h</itemPath>
-      <itemPath>Series.h</itemPath>
-      <itemPath>SeriesInterval.h</itemPath>
-      <itemPath>SeriesSample.h</itemPath>
+      <logicalFolder name="f1" displayName="Series" projectFiles="true">
+        <itemPath>DayOfTheYear.h</itemPath>
+        <itemPath>Series.h</itemPath>
+        <itemPath>SeriesInterval.h</itemPath>
+        <itemPath>SeriesSample.h</itemPath>
+      </logicalFolder>
+      <itemPath>Helpers.h</itemPath>
       <itemPath>Strategy.h</itemPath>
       <itemPath>root.h</itemPath>
     </logicalFolder>
@@ -18,8 +21,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Series.cpp</itemPath>
-      <itemPath>SeriesSample.cpp</itemPath>
+      <logicalFolder name="f1" displayName="Series" projectFiles="true">
+        <itemPath>Series.cpp</itemPath>
+        <itemPath>SeriesSample.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>Helpers.cpp</itemPath>
       <itemPath>Strategy.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -27,6 +33,9 @@
                    displayName="Test Files"
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f1" displayName="tests" projectFiles="true" kind="TEST">
+        <itemPath>SeriesTests.cpp</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -50,6 +59,10 @@
       </compileType>
       <item path="DayOfTheYear.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Helpers.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Helpers.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Series.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Series.h" ex="false" tool="3" flavor2="0">
@@ -60,10 +73,44 @@
       </item>
       <item path="SeriesSample.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SeriesTests.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Strategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>../../../Downloads/gtest-1.7.0</pElem>
+            <pElem>../../../Downloads/gtest-1.7.0/include</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../../googleTest"
+                            CT="3"
+                            CN="Debug"
+                            AC="true"
+                            BL="true"
+                            WD="../../googleTest"
+                            BC="${MAKE}  -f Makefile CONF=Debug"
+                            CC="${MAKE}  -f Makefile CONF=Debug clean"
+                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgoogletest.a">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="root.h" ex="false" tool="3" flavor2="0">
@@ -91,6 +138,10 @@
       </compileType>
       <item path="DayOfTheYear.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Helpers.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Helpers.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Series.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Series.h" ex="false" tool="3" flavor2="0">
@@ -101,10 +152,27 @@
       </item>
       <item path="SeriesSample.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SeriesTests.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Strategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+        </linkerTool>
+      </folder>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="root.h" ex="false" tool="3" flavor2="0">

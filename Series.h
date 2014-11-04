@@ -8,6 +8,7 @@
 #include "SeriesSample.h"
 #include "DayOfTheYear.h"
 #include "SeriesInterval.h"
+#include "Helpers.h"
 
 #ifndef SERIES_H
 #define	SERIES_H
@@ -19,7 +20,7 @@ public:
     virtual ~Series();
     
     void LoadFromFinamTickFile(const char* fileName);
-    void NormalizeSeconds();
+    void Normalize();
     
     double GetValue(long datetime);
 private:

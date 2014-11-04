@@ -21,6 +21,8 @@
 #include <algorithm>
 #include <sstream>
 
+#include <stdexcept>
+
 using namespace std;
 
 #endif	/* ROOT_H */

@@ -18,7 +18,8 @@ int main(int argc, char** argv) {
     Series series;
     
     series.LoadFromFinamTickFile("../data/SPFB.RTS-9.14_140814_140814.txt");
-    series.NormalizeSeconds();
+    series.LoadFromFinamTickFile("../data/SPFB.RTS-9.14_140815_140815.txt");
+    series.Normalize();
     return 0;
 }
 

@@ -9,23 +9,18 @@
 #define	DAYOFTHEYEAR_H
 struct DayOfTheYear
 {
-    int year;
+    int year_corrected;
     int day_of_year;
-    
-    DayOfTheYear(tm* datetime) : year(datetime->tm_year), day_of_year(datetime->tm_yday) {
+
+    DayOfTheYear(tm* datetime) : year_corrected(datetime->tm_year), day_of_year(datetime->tm_yday) {
     }
-    
-    bool operator < (const DayOfTheYear& day_of_year) const
-    {
-        return (this->year * 365 + this->day_of_year < day_of_year.year*365 + day_of_year.day_of_year);
+
+    bool operator<(const DayOfTheYear& day_of_year) const {
+        return (this->year_corrected * 365 + this->day_of_year < day_of_year.year_corrected * 365 + day_of_year.day_of_year);
     }
-    
-    long GetDatetimeOffset(long datetime_seconds) {
-        tm datetime;
-        memset(&datetime, sizeof(tm), 0);
-        datetime.tm_year = this->year;
-        datetime.tm_yday = this->day_of_year;
-        return datetime_seconds - mktime(&datetime);
+
+    bool operator==(const DayOfTheYear& day_of_year) const {
+        return this->year_corrected == day_of_year.year_corrected && this->day_of_year == day_of_year.day_of_year;
     }
 };
 
