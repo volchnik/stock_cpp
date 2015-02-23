@@ -85,3 +85,13 @@ time_t Helpers::GetTimeUtcFromTimezone(int year, int month, int date, int hour, 
     return Helpers::mktimeTimezone(&time_structure);
 }
 
+void Helpers::GetDayMonthfromDayOfTheYear(int yearCorrected, int dayOfTheYear, Timezone timezone, int &month, int &day) {
+    tm time_structure;
+    memset(&time_structure, 0, sizeof(tm));
+    time_structure.tm_year = yearCorrected;
+    time_structure.tm_mday = dayOfTheYear + 1;
+    Helpers::mktimeTimezone(&time_structure);
+    month = time_structure.tm_mon + 1;
+    day = time_structure.tm_mday;
+}
+

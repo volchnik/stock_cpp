@@ -14,6 +14,7 @@ public:
     static time_t mktimeTimezone(struct tm *src);
     static int GetTimezoneOffset(struct tm *src, Timezone timezone);
     static time_t GetTimeUtcFromTimezone(int year, int month, int date, int hour, int munite, int second, Timezone timezone);
+    static void GetDayMonthfromDayOfTheYear(int yearCorrected, int dayOfTheYear, Timezone timezone, int &month, int &day);
 private:
 
 };

@@ -10,6 +10,8 @@ Series::Series() {
 }
 
 Series::Series(const Series& orig) {
+    this->series_ = orig.series_;
+    this->datetime_map_ = orig.datetime_map_;
 }
 
 Series::~Series() {
@@ -59,7 +61,7 @@ void Series::LoadFromFinamTickFile(const char* fileName) {
 void InsertIntoDateTimeMap(map<DayOfTheYear, SeriesInterval> *map_insert, 
         const long& datetime_sample, const long& interval_start, const long& interval_end) {
 
-        DayOfTheYear day_of_year(localtime(&datetime_sample));
+        DayOfTheYear day_of_year(gmtime(&datetime_sample));
         SeriesInterval series_interval(interval_start, interval_end);
         map_insert->insert(pair<DayOfTheYear, SeriesInterval>(day_of_year, series_interval));
 }
@@ -75,19 +77,20 @@ void Series::Normalize() {
     sample_insert.volume = 0;
     long series_index_start = 0;
 
-    for (auto sample : this->series_) {
+    for (auto& sample : this->series_) {
         if (sample.datetime != datetime_sample) {
 
             sample_insert.volume = floor(sample_insert.volume / (double) sample_count);
             
-            if (localtime(&sample.datetime)->tm_yday != localtime(&datetime_sample)->tm_yday) {
+            if (gmtime(&sample.datetime)->tm_yday != gmtime(&datetime_sample)->tm_yday) {
+                sample_insert.datetime = datetime_sample + 1;
                 normalized_series.push_back(sample_insert);
                 InsertIntoDateTimeMap(&datetime_map_, datetime_sample, series_index_start, normalized_series.size());
                 series_index_start = normalized_series.size() + 1;
             } else {
                 for (long time_delta = 0; time_delta < sample.datetime - datetime_sample; time_delta++) {
 
-                    sample_insert.datetime = datetime_sample + time_delta;
+                    sample_insert.datetime = datetime_sample + time_delta + 1;
                     if (time_delta > 0) {
                         sample_insert.volume = 0;
                     }
@@ -109,19 +112,176 @@ void Series::Normalize() {
     this->series_ = normalized_series;
 }
 
-double Series::GetValue(long datetime) {
-    DayOfTheYear day_of_year(localtime(&datetime));
-    map<DayOfTheYear, SeriesInterval>::iterator findIterator = datetime_map_.find(day_of_year);
+double Series::GetValue(const long datetime) const {
+    DayOfTheYear day_of_year(gmtime(&datetime));
+    map<DayOfTheYear, SeriesInterval>::const_iterator findIterator = datetime_map_.find(day_of_year);
     if (findIterator == datetime_map_.end()) {
         throw new out_of_range("Value request time is out of range for current series");
     }
     SeriesInterval series_interval = findIterator->second;
 
-    if(datetime > this->series_.at(series_interval.begin_interval).datetime
-            && datetime < this->series_.at(series_interval.end_interval).datetime) {
-        return this->series_.at(series_interval.begin_interval + 
+    if (datetime >= this->series_.at(series_interval.begin_interval).datetime
+            && datetime <= this->series_.at(series_interval.end_interval - 1).datetime) {
+        return this->series_.at(series_interval.begin_interval +
                 datetime - this->series_.at(series_interval.begin_interval).datetime).value;
+    } else if (findIterator != datetime_map_.begin()) {
+        return this->series_.at((--findIterator)->second.end_interval - 1).value;
+    } else {
+        throw new out_of_range("Value request time is out of range for current series");
     }
-    return 0;
 }
 
+Series& Series::operator=(const Series& series) {
+    if (this != &series) {
+        this->series_ = series.series_;
+        this->datetime_map_ = series.datetime_map_;
+    }
+    return *this;
+}
+
+Series& Series::operator+=(const Series& series) {
+    for (auto& sample : this->series_) {
+        sample.value += series.GetValue(sample.datetime);
+    }
+    return *this;
+}
+
+const Series Series::operator+(const Series& series) const{
+    return Series(*this) += series;
+}
+
+Series& Series::operator-=(const Series& series) {
+    for (auto& sample : this->series_) {
+        sample.value -= series.GetValue(sample.datetime);
+    }
+    return *this;
+}
+
+const Series Series::operator-(const Series& series) const{
+    return Series(*this) -= series;
+}
+
+Series& Series::operator*=(const double& multiplier) {
+    for (auto& sample : this->series_) {
+        sample.value *= multiplier;
+    }
+    return *this;
+}
+
+Series& Series::operator/=(const double& divider) {
+    if (divider == 0) {
+        throw std::overflow_error("Divide by zero exception");
+    }
+    return (*this) *= (1 / divider);
+}
+
+const Series Series::operator*(const double& multiplier) const{
+    return Series(*this) *= multiplier;
+}
+
+const Series operator*(const double& multiplier, const Series& series){
+    return series * multiplier;
+}
+
+const Series Series::operator/(const double& divider) const{
+    return Series(*this) /= divider;
+}
+
+const Series Series::EmaIndicator(long delta) const {    
+    if(delta <= 1 || this->series_.size() <= 2) {
+        return *this;
+    }
+    
+    Series copy(*this);
+    
+    long lastIntervalValueCurrent = 0;
+    long lastIntervalValueOld = 0;
+
+    for (auto sample = copy.series_.begin() + 1; (sample + 1) != copy.series_.end(); sample++) {
+        
+        if ((sample + 1)->datetime > sample->datetime + 1) {
+            lastIntervalValueCurrent = sample->value;
+        }
+        if (sample->datetime == (sample - 1)->datetime + 1) {
+            sample->value = ((sample - 1)->value * (delta - 1) + sample->value * 2 ) / (double)(delta + 1);
+        } else {
+            double tempValue = (sample - 1)->value;
+            for (long datetimeIndex = (sample - 1)->datetime + 1; datetimeIndex < sample->datetime; datetimeIndex++) {
+                tempValue = (tempValue * (delta - 1) + lastIntervalValueOld * 2 ) / (double)(delta + 1);
+            }
+            sample->value = (tempValue * (delta - 1) + sample->value * 2 ) / (double)(delta + 1);
+        }
+        
+        lastIntervalValueOld = lastIntervalValueCurrent;
+    }
+    return copy;
+}
+
+const Series Series::SmaIndicator(long delta) const {
+    if(delta <= 1 || this->series_.size() <= delta) {
+        return *this;
+    }
+    
+    Series copy(*this);
+    Series copyResult(*this);
+    
+    double initial = 0.0;
+    for (auto sample = copyResult.series_.begin(); sample != copyResult.series_.begin() + delta; sample++) {
+        initial += sample->value;
+        sample->value *= delta;
+    }
+
+    (copyResult.series_.begin() + delta - 1)->value = initial;
+    
+    auto sampleCopy = copy.series_.begin() + delta;
+    
+    for (auto sample = copyResult.series_.begin() + delta; 
+            sample != copyResult.series_.end(), sampleCopy != copy.series_.end(); 
+            sample++, sampleCopy++) {
+        sample->value = (sample - 1)->value + (sample->value - (sampleCopy - delta)->value);
+    }
+    
+    copyResult /= (double)delta;
+    
+    return copyResult;
+}
+
+const Series Series::GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds) const {
+    Series allowSeries(*this);
+    
+    for (auto& date : this->datetime_map_) {
+        int dayAllowInterval = 0;
+        int monthAllowInterval = 0;
+        Helpers::GetDayMonthfromDayOfTheYear(date.first.year_corrected, date.first.day_of_year, Helpers::Timezone::msk,
+                monthAllowInterval, dayAllowInterval);
+
+        long beginAllowInterval = Helpers::GetTimeUtcFromTimezone(date.first.year_corrected + 1900,
+                monthAllowInterval, dayAllowInterval,
+                tradeBegin.hour, tradeBegin.minute, tradeBegin.second, Helpers::Timezone::msk);
+
+        long endAllowInterval = Helpers::GetTimeUtcFromTimezone(date.first.year_corrected + 1900,
+                monthAllowInterval, dayAllowInterval,
+                tradeEnd.hour, tradeEnd.minute, tradeEnd.second, Helpers::Timezone::msk);
+        for (long index = date.second.begin_interval; index < date.second.end_interval; index++) {
+            if (this->series_.at(index).datetime >= beginAllowInterval && 
+                    this->series_.at(index).datetime < endAllowInterval - cooldownSeconds) {
+                allowSeries.series_.at(index).value = 1.0;
+            } else if (this->series_.at(index).datetime < endAllowInterval) {
+                allowSeries.series_.at(index).value = (endAllowInterval - this->series_.at(index).datetime) /
+                        (double)cooldownSeconds;
+            } else {
+                allowSeries.series_.at(index).value = 0.0;
+            }
+        }
+    }
+    
+    return allowSeries;
+}
+
+void Series::PlotGnu(long step) const {
+    printf("%s\n", "plot '-' using 1:2 with lines");
+    
+    for (auto sample = this->series_.begin(); sample < this->series_.end(); sample+=min(step, this->series_.end() - sample)) {
+        printf ("%ld \t %.3f \n", sample->datetime, sample->value);
+    }
+}

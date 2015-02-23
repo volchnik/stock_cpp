@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Series.o \
 	${OBJECTDIR}/SeriesSample.o \
 	${OBJECTDIR}/Strategy.o \
+	${OBJECTDIR}/Trader.o \
 	${OBJECTDIR}/main.o
 
 # Test Directory
@@ -72,27 +73,32 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stock_analyze: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stock_analyze ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Helpers.o: Helpers.cpp 
+${OBJECTDIR}/Helpers.o: nbproject/Makefile-${CND_CONF}.mk Helpers.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Helpers.o Helpers.cpp
 
-${OBJECTDIR}/Series.o: Series.cpp 
+${OBJECTDIR}/Series.o: nbproject/Makefile-${CND_CONF}.mk Series.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Series.o Series.cpp
 
-${OBJECTDIR}/SeriesSample.o: SeriesSample.cpp 
+${OBJECTDIR}/SeriesSample.o: nbproject/Makefile-${CND_CONF}.mk SeriesSample.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SeriesSample.o SeriesSample.cpp
 
-${OBJECTDIR}/Strategy.o: Strategy.cpp 
+${OBJECTDIR}/Strategy.o: nbproject/Makefile-${CND_CONF}.mk Strategy.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Strategy.o Strategy.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
+${OBJECTDIR}/Trader.o: nbproject/Makefile-${CND_CONF}.mk Trader.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Trader.o Trader.cpp
+
+${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
@@ -163,6 +169,19 @@ ${OBJECTDIR}/Strategy_nomain.o: ${OBJECTDIR}/Strategy.o Strategy.cpp
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Strategy_nomain.o Strategy.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Strategy.o ${OBJECTDIR}/Strategy_nomain.o;\
+	fi
+
+${OBJECTDIR}/Trader_nomain.o: ${OBJECTDIR}/Trader.o Trader.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Trader.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Trader_nomain.o Trader.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Trader.o ${OBJECTDIR}/Trader_nomain.o;\
 	fi
 
 ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.cpp 
