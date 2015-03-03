@@ -5,6 +5,7 @@
  * Created on February 23, 2015, 11:56 AM
  */
 #include "Series.h"
+#include "TraderOperation.h"
 
 #ifndef TRADER_H
 #define	TRADER_H
@@ -16,7 +17,6 @@ public:
     
     double Trade();
 private:
-    enum signal {STAY, BUY, SELL};
     Series tradeStock_;
     Series tradeSignal_;
     Series tradeAllowSignal_;
@@ -24,8 +24,8 @@ private:
     int currenPosition;
     double currentAccount;
     
-    signal GetCurrentSignal(long datetime);
-    void makeDeal(signal Signal, long datetime);
+    TraderOperation::operationType GetCurrentSignal(long datetime);
+    void makeDeal(TraderOperation::operationType Signal, long datetime);
 };
 
 #endif	/* TRADER_H */

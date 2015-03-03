@@ -42,7 +42,7 @@ public:
     
     const Series GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds = 1800) const;
     
-    void PlotGnu(long step) const;
+    static void PlotGnu(long step, vector<Series> plotSerieses);
 private:
     // Данные датасерии
     vector<SeriesSample> series_;

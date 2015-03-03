@@ -16,6 +16,7 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
+    srand(time(NULL));
     Series series;
     
     series.LoadFromFinamTickFile("../data/SPFB.RTS-9.14_140814_140814.txt");
@@ -32,7 +33,10 @@ int main(int argc, char** argv) {
 
     Trader trader(series, seriesDiff, allowSeries);
     
-    cout << trader.Trade() << endl;
+//    cout << trader.Trade() << endl;
+    
+    vector<Series> plotSeries = {series, seriesEma1000};
+    Series::PlotGnu(100, plotSeries);
 
     return 0;
 }

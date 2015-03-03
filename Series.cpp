@@ -278,10 +278,26 @@ const Series Series::GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tr
     return allowSeries;
 }
 
-void Series::PlotGnu(long step) const {
-    printf("%s\n", "plot '-' using 1:2 with lines");
-    
-    for (auto sample = this->series_.begin(); sample < this->series_.end(); sample+=min(step, this->series_.end() - sample)) {
-        printf ("%ld \t %.3f \n", sample->datetime, sample->value);
+void Series::PlotGnu(long step, vector<Series> plotSerieses) {
+    if (plotSerieses.empty()) {
+        return;
     }
+    printf("plot");
+    
+    int index = 1;
+    for (auto& series : plotSerieses) {
+        printf("'-' using 1:2 with lines,");
+    }
+    
+    printf("\n");
+    
+    for (auto& series : plotSerieses) {
+        for (auto sample = series.series_.begin();
+                sample < series.series_.end();
+                sample += min(step, series.series_.end() - sample)) {
+            printf("%ld \t %.3f \n", sample->datetime, sample->value);
+        }
+        printf("\ne\n");
+    }
+    
 }

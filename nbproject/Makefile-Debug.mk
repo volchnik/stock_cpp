@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/SeriesSample.o \
 	${OBJECTDIR}/Strategy.o \
 	${OBJECTDIR}/Trader.o \
+	${OBJECTDIR}/TraderOperation.o \
 	${OBJECTDIR}/main.o
 
 # Test Directory
@@ -97,6 +98,11 @@ ${OBJECTDIR}/Trader.o: nbproject/Makefile-${CND_CONF}.mk Trader.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Trader.o Trader.cpp
+
+${OBJECTDIR}/TraderOperation.o: nbproject/Makefile-${CND_CONF}.mk TraderOperation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TraderOperation.o TraderOperation.cpp
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -182,6 +188,19 @@ ${OBJECTDIR}/Trader_nomain.o: ${OBJECTDIR}/Trader.o Trader.cpp
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Trader_nomain.o Trader.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Trader.o ${OBJECTDIR}/Trader_nomain.o;\
+	fi
+
+${OBJECTDIR}/TraderOperation_nomain.o: ${OBJECTDIR}/TraderOperation.o TraderOperation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/TraderOperation.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TraderOperation_nomain.o TraderOperation.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/TraderOperation.o ${OBJECTDIR}/TraderOperation_nomain.o;\
 	fi
 
 ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.cpp 
