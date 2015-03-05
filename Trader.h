@@ -16,13 +16,20 @@ public:
     virtual ~Trader();
     
     double Trade();
+    
+    Series GetTradePosition() { return tradePosition_; }
+    Series GetTradeAccount() { return tradeAccount_; }
 private:
     Series tradeStock_;
     Series tradeSignal_;
     Series tradeAllowSignal_;
     
+    Series tradePosition_;
+    Series tradeAccount_;
+    
     int currenPosition;
     double currentAccount;
+    double currentProfit;
     
     TraderOperation::operationType GetCurrentSignal(long datetime);
     void makeDeal(TraderOperation::operationType Signal, long datetime);

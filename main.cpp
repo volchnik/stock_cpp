@@ -23,20 +23,22 @@ int main(int argc, char** argv) {
     series.LoadFromFinamTickFile("../data/SPFB.RTS-9.14_140815_140815.txt");
     series.Normalize();
 
+    Series seriesEma80 = series.EmaIndicator(80);
     Series seriesEma100 = series.EmaIndicator(100);
     Series seriesEma1000 = series.EmaIndicator(1000);
-    Series seriesDiff = 0.01 * (seriesEma100 - seriesEma1000);
+    Series seriesDiff = -0.01 * (seriesEma80 - 0.15 * seriesEma100 - 0.85 * seriesEma1000);
     
     TimeOfDay beginTod = {10, 0, 1};
-    TimeOfDay endTod = {17, 0, 0};
+    TimeOfDay endTod = {19, 0, 0};
     Series allowSeries = series.GenerateTradeAllowSingal(beginTod, endTod, 3600);
 
     Trader trader(series, seriesDiff, allowSeries);
     
-//    cout << trader.Trade() << endl;
+    trader.Trade();
     
-    vector<Series> plotSeries = {series, seriesEma1000};
-    Series::PlotGnu(100, plotSeries);
+    vector<Series> plotSeries = {series, allowSeries * 1000.0 + 120000.0, seriesDiff * 1000 + 120000.0, trader.GetTradePosition() * 1000 + 120000.0,
+        trader.GetTradeAccount() + 120000.0};
+    Series::PlotGnu(10, plotSeries);
 
     return 0;
 }

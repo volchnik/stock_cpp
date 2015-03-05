@@ -86,7 +86,7 @@ void Series::Normalize() {
                 sample_insert.datetime = datetime_sample + 1;
                 normalized_series.push_back(sample_insert);
                 InsertIntoDateTimeMap(&datetime_map_, datetime_sample, series_index_start, normalized_series.size());
-                series_index_start = normalized_series.size() + 1;
+                series_index_start = normalized_series.size();
             } else {
                 for (long time_delta = 0; time_delta < sample.datetime - datetime_sample; time_delta++) {
 
@@ -126,6 +126,23 @@ double Series::GetValue(const long datetime) const {
                 datetime - this->series_.at(series_interval.begin_interval).datetime).value;
     } else if (findIterator != datetime_map_.begin()) {
         return this->series_.at((--findIterator)->second.end_interval - 1).value;
+    } else {
+        throw new out_of_range("Value request time is out of range for current series");
+    }
+}
+
+void Series::SetValue(const long datetime, const double& value) {
+    DayOfTheYear day_of_year(gmtime(&datetime));
+    map<DayOfTheYear, SeriesInterval>::const_iterator findIterator = datetime_map_.find(day_of_year);
+    if (findIterator == datetime_map_.end()) {
+        throw new out_of_range("Value request time is out of range for current series");
+    }
+    SeriesInterval series_interval = findIterator->second;
+
+    if (datetime >= this->series_.at(series_interval.begin_interval).datetime
+            && datetime <= this->series_.at(series_interval.end_interval - 1).datetime) {
+        this->series_.at(series_interval.begin_interval +
+                datetime - this->series_.at(series_interval.begin_interval).datetime).value = value;
     } else {
         throw new out_of_range("Value request time is out of range for current series");
     }
@@ -185,6 +202,19 @@ const Series operator*(const double& multiplier, const Series& series){
 
 const Series Series::operator/(const double& divider) const{
     return Series(*this) /= divider;
+}
+
+Series& Series::operator+=(const double& level) {
+    for (auto& sample : this->series_) {
+        sample.value += level;
+    }
+    return *this;
+}
+const Series Series::operator+(const double& level) const {
+    return Series(*this) += level;
+}
+const Series operator+(const double& level, const Series& series) {
+    return series + level;
 }
 
 const Series Series::EmaIndicator(long delta) const {    
@@ -247,7 +277,7 @@ const Series Series::SmaIndicator(long delta) const {
 }
 
 const Series Series::GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds) const {
-    Series allowSeries(*this);
+    Series allowSeries(*this * 0.0);
     
     for (auto& date : this->datetime_map_) {
         int dayAllowInterval = 0;

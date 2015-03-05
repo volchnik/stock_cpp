@@ -25,6 +25,7 @@ public:
     void Normalize();
     
     double GetValue(const long datetime) const;
+    void SetValue(const long datetime, const double& value);
     
     Series& operator=(const Series& series);
     Series& operator+=(const Series& series);
@@ -36,6 +37,9 @@ public:
     const Series operator*(const double& multiplier) const;
     friend const Series operator*(const double& multiplier, const Series& series);
     const Series operator/(const double& divider) const;
+    Series& operator+=(const double& level);
+    const Series operator+(const double& level) const;
+    friend const Series operator+(const double& level, const Series& series);
     
     const Series EmaIndicator(long delta) const;
     const Series SmaIndicator(long delta) const;

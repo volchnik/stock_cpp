@@ -105,6 +105,11 @@ TEST(SeriesTest, SeriesOperations) {
             Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 15, 28, 44, Helpers::Timezone::msk)));
     
     seriesCopy = series;
+    seriesCopy.SetValue(Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 17, 42, 31, Helpers::Timezone::msk), 100000);
+    EXPECT_EQ(100000, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 17, 42, 31, Helpers::Timezone::msk)));
+    
+    seriesCopy = series;
     EXPECT_EQ(123110, seriesCopy.GetValue(
             Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 17, 42, 31, Helpers::Timezone::msk)));
     EXPECT_EQ(123780, seriesCopy.GetValue(
@@ -184,4 +189,22 @@ TEST(SeriesTest, SeriesOperations) {
             Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 15, 28, 44, Helpers::Timezone::msk)));
     EXPECT_NEAR(123646.666666, seriesCopy.GetValue(
             Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 15, 31, 51, Helpers::Timezone::msk)), 0.000001);
+    
+    seriesCopy = series + 1.0;
+    EXPECT_EQ(123111, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 17, 42, 31, Helpers::Timezone::msk)));
+    EXPECT_EQ(123781, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 15, 28, 44, Helpers::Timezone::msk)));
+    
+    seriesCopy = 1.0 + series;
+    EXPECT_EQ(123111, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 17, 42, 31, Helpers::Timezone::msk)));
+    EXPECT_EQ(123781, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 15, 28, 44, Helpers::Timezone::msk)));
+    
+    seriesCopy += 1.0;
+    EXPECT_EQ(123112, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 17, 42, 31, Helpers::Timezone::msk)));
+    EXPECT_EQ(123782, seriesCopy.GetValue(
+            Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 15, 28, 44, Helpers::Timezone::msk)));
 }

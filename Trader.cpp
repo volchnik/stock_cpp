@@ -12,6 +12,9 @@ Trader::Trader(const Series& stock, const Series& signal, const Series& allow) {
     this->tradeSignal_ = signal;
     this->tradeAllowSignal_ = allow;
     
+    this->tradePosition_ = signal * 0.0;
+    this->tradeAccount_ = signal * 0.0;
+    
     currenPosition = 0;
     currentAccount = 0.0;
 }
@@ -40,6 +43,8 @@ double Trader::Trade() {
         } else if (tradeOperation.GetDuration() != 0) {
             tradeOperation.SetDuration(tradeOperation.GetDuration() - 1);
         }
+        this->tradePosition_.SetValue(sample.datetime, this->currenPosition);
+        this->tradeAccount_.SetValue(sample.datetime, this->currentProfit);
     }
     return this->currentAccount;
 }
@@ -47,11 +52,11 @@ double Trader::Trade() {
 TraderOperation::operationType Trader::GetCurrentSignal(long datetime) {
     if (this->tradeSignal_.GetValue(datetime) > currenPosition + 
             ((currenPosition >= 0.0) ? (1.0 / this->tradeAllowSignal_.GetValue(datetime)) :
-                (1.0 - 1.0 / this->tradeAllowSignal_.GetValue(datetime)))) {
+                (2.0 - 1.0 / this->tradeAllowSignal_.GetValue(datetime)))) {
         return TraderOperation::operationType::BUY;
     } else if (this->tradeSignal_.GetValue(datetime) < currenPosition - 
             ((currenPosition <= 0.0) ? (1.0 / this->tradeAllowSignal_.GetValue(datetime)) :
-                (1.0 - 1.0 / this->tradeAllowSignal_.GetValue(datetime)))) {
+                (2.0 - 1.0 / this->tradeAllowSignal_.GetValue(datetime)))) {
         return TraderOperation::operationType::SELL;
     }
     return TraderOperation::operationType::STAY;
@@ -61,5 +66,8 @@ void Trader::makeDeal(TraderOperation::operationType Signal, long datetime){
     if (Signal != TraderOperation::operationType::STAY) {
         this->currentAccount += ((Signal == TraderOperation::operationType::BUY) ? -1 : 1) * this->tradeStock_.GetValue(datetime);
         this->currenPosition += ((Signal == TraderOperation::operationType::BUY) ? 1 : -1);
+        if (this->currenPosition == 0) {
+            this->currentProfit = this->currentAccount;
+        }
     }
 }
