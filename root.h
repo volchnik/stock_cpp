@@ -23,6 +23,11 @@
 
 #include <stdexcept>
 
+#include <limits>
+
+#include <random>
+#include <iterator>
+
 using namespace std;
 
 #endif	/* ROOT_H */

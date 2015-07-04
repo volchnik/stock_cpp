@@ -4,6 +4,22 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f3" displayName="Genetics" projectFiles="true">
+        <itemPath>Genetics/Generation.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Operator" projectFiles="true">
+        <itemPath>Operator/Operator.h</itemPath>
+        <itemPath>Operator/OperatorAdd.h</itemPath>
+        <itemPath>Operator/OperatorBinary.h</itemPath>
+        <itemPath>Operator/OperatorDivide.h</itemPath>
+        <itemPath>Operator/OperatorEma.h</itemPath>
+        <itemPath>Operator/OperatorMultiply.h</itemPath>
+        <itemPath>Operator/OperatorNumber.h</itemPath>
+        <itemPath>Operator/OperatorSeries.h</itemPath>
+        <itemPath>Operator/OperatorSma.h</itemPath>
+        <itemPath>Operator/OperatorSubtract.h</itemPath>
+        <itemPath>Operator/OperatorUnary.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="Series" projectFiles="true">
         <itemPath>DayOfTheYear.h</itemPath>
         <itemPath>Series.h</itemPath>
@@ -24,6 +40,22 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f3" displayName="Genetics" projectFiles="true">
+        <itemPath>Genetics/Generation.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Operator" projectFiles="true">
+        <itemPath>Operator/Operator.cpp</itemPath>
+        <itemPath>Operator/OperatorAdd.cpp</itemPath>
+        <itemPath>Operator/OperatorBinary.cpp</itemPath>
+        <itemPath>Operator/OperatorDivide.cpp</itemPath>
+        <itemPath>Operator/OperatorEma.cpp</itemPath>
+        <itemPath>Operator/OperatorMultiply.cpp</itemPath>
+        <itemPath>Operator/OperatorNumber.cpp</itemPath>
+        <itemPath>Operator/OperatorSeries.cpp</itemPath>
+        <itemPath>Operator/OperatorSma.cpp</itemPath>
+        <itemPath>Operator/OperatorSubtract.cpp</itemPath>
+        <itemPath>Operator/OperatorUnary.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="Series" projectFiles="true">
         <itemPath>Series.cpp</itemPath>
         <itemPath>SeriesSample.cpp</itemPath>
@@ -65,9 +97,57 @@
       </compileType>
       <item path="DayOfTheYear.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Genetics/Generation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Genetics/Generation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Helpers.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Helpers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/Operator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/Operator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorAdd.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorAdd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorBinary.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorBinary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorDivide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorDivide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorEma.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorEma.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorMultiply.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorMultiply.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorNumber.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorNumber.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSeries.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSeries.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSma.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSma.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSubtract.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSubtract.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorUnary.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorUnary.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Series.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -155,9 +235,57 @@
       </compileType>
       <item path="DayOfTheYear.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Genetics/Generation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Genetics/Generation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Helpers.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Helpers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/Operator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/Operator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorAdd.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorAdd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorBinary.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorBinary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorDivide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorDivide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorEma.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorEma.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorMultiply.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorMultiply.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorNumber.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorNumber.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSeries.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSeries.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSma.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSma.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSubtract.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorSubtract.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Operator/OperatorUnary.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Operator/OperatorUnary.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Series.cpp" ex="false" tool="1" flavor2="0">
       </item>

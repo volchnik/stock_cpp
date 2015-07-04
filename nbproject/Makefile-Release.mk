@@ -35,7 +35,19 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Genetics/Generation.o \
 	${OBJECTDIR}/Helpers.o \
+	${OBJECTDIR}/Operator/Operator.o \
+	${OBJECTDIR}/Operator/OperatorAdd.o \
+	${OBJECTDIR}/Operator/OperatorBinary.o \
+	${OBJECTDIR}/Operator/OperatorDivide.o \
+	${OBJECTDIR}/Operator/OperatorEma.o \
+	${OBJECTDIR}/Operator/OperatorMultiply.o \
+	${OBJECTDIR}/Operator/OperatorNumber.o \
+	${OBJECTDIR}/Operator/OperatorSeries.o \
+	${OBJECTDIR}/Operator/OperatorSma.o \
+	${OBJECTDIR}/Operator/OperatorSubtract.o \
+	${OBJECTDIR}/Operator/OperatorUnary.o \
 	${OBJECTDIR}/Series.o \
 	${OBJECTDIR}/SeriesSample.o \
 	${OBJECTDIR}/Strategy.o \
@@ -74,10 +86,70 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stock_analyze: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/stock_analyze ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Genetics/Generation.o: Genetics/Generation.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Genetics
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Genetics/Generation.o Genetics/Generation.cpp
+
 ${OBJECTDIR}/Helpers.o: Helpers.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Helpers.o Helpers.cpp
+
+${OBJECTDIR}/Operator/Operator.o: Operator/Operator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/Operator.o Operator/Operator.cpp
+
+${OBJECTDIR}/Operator/OperatorAdd.o: Operator/OperatorAdd.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorAdd.o Operator/OperatorAdd.cpp
+
+${OBJECTDIR}/Operator/OperatorBinary.o: Operator/OperatorBinary.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorBinary.o Operator/OperatorBinary.cpp
+
+${OBJECTDIR}/Operator/OperatorDivide.o: Operator/OperatorDivide.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorDivide.o Operator/OperatorDivide.cpp
+
+${OBJECTDIR}/Operator/OperatorEma.o: Operator/OperatorEma.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorEma.o Operator/OperatorEma.cpp
+
+${OBJECTDIR}/Operator/OperatorMultiply.o: Operator/OperatorMultiply.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorMultiply.o Operator/OperatorMultiply.cpp
+
+${OBJECTDIR}/Operator/OperatorNumber.o: Operator/OperatorNumber.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorNumber.o Operator/OperatorNumber.cpp
+
+${OBJECTDIR}/Operator/OperatorSeries.o: Operator/OperatorSeries.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorSeries.o Operator/OperatorSeries.cpp
+
+${OBJECTDIR}/Operator/OperatorSma.o: Operator/OperatorSma.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorSma.o Operator/OperatorSma.cpp
+
+${OBJECTDIR}/Operator/OperatorSubtract.o: Operator/OperatorSubtract.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorSubtract.o Operator/OperatorSubtract.cpp
+
+${OBJECTDIR}/Operator/OperatorUnary.o: Operator/OperatorUnary.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorUnary.o Operator/OperatorUnary.cpp
 
 ${OBJECTDIR}/Series.o: Series.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -125,6 +197,19 @@ ${TESTDIR}/SeriesTests.o: SeriesTests.cpp
 	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${TESTDIR}/SeriesTests.o SeriesTests.cpp
 
 
+${OBJECTDIR}/Genetics/Generation_nomain.o: ${OBJECTDIR}/Genetics/Generation.o Genetics/Generation.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Genetics
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Genetics/Generation.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Genetics/Generation_nomain.o Genetics/Generation.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Genetics/Generation.o ${OBJECTDIR}/Genetics/Generation_nomain.o;\
+	fi
+
 ${OBJECTDIR}/Helpers_nomain.o: ${OBJECTDIR}/Helpers.o Helpers.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	@NMOUTPUT=`${NM} ${OBJECTDIR}/Helpers.o`; \
@@ -136,6 +221,149 @@ ${OBJECTDIR}/Helpers_nomain.o: ${OBJECTDIR}/Helpers.o Helpers.cpp
 	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Helpers_nomain.o Helpers.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Helpers.o ${OBJECTDIR}/Helpers_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/Operator_nomain.o: ${OBJECTDIR}/Operator/Operator.o Operator/Operator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/Operator.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/Operator_nomain.o Operator/Operator.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/Operator.o ${OBJECTDIR}/Operator/Operator_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorAdd_nomain.o: ${OBJECTDIR}/Operator/OperatorAdd.o Operator/OperatorAdd.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorAdd.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorAdd_nomain.o Operator/OperatorAdd.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorAdd.o ${OBJECTDIR}/Operator/OperatorAdd_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorBinary_nomain.o: ${OBJECTDIR}/Operator/OperatorBinary.o Operator/OperatorBinary.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorBinary.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorBinary_nomain.o Operator/OperatorBinary.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorBinary.o ${OBJECTDIR}/Operator/OperatorBinary_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorDivide_nomain.o: ${OBJECTDIR}/Operator/OperatorDivide.o Operator/OperatorDivide.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorDivide.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorDivide_nomain.o Operator/OperatorDivide.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorDivide.o ${OBJECTDIR}/Operator/OperatorDivide_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorEma_nomain.o: ${OBJECTDIR}/Operator/OperatorEma.o Operator/OperatorEma.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorEma.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorEma_nomain.o Operator/OperatorEma.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorEma.o ${OBJECTDIR}/Operator/OperatorEma_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorMultiply_nomain.o: ${OBJECTDIR}/Operator/OperatorMultiply.o Operator/OperatorMultiply.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorMultiply.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorMultiply_nomain.o Operator/OperatorMultiply.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorMultiply.o ${OBJECTDIR}/Operator/OperatorMultiply_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorNumber_nomain.o: ${OBJECTDIR}/Operator/OperatorNumber.o Operator/OperatorNumber.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorNumber.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorNumber_nomain.o Operator/OperatorNumber.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorNumber.o ${OBJECTDIR}/Operator/OperatorNumber_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorSeries_nomain.o: ${OBJECTDIR}/Operator/OperatorSeries.o Operator/OperatorSeries.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorSeries.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorSeries_nomain.o Operator/OperatorSeries.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorSeries.o ${OBJECTDIR}/Operator/OperatorSeries_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorSma_nomain.o: ${OBJECTDIR}/Operator/OperatorSma.o Operator/OperatorSma.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorSma.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorSma_nomain.o Operator/OperatorSma.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorSma.o ${OBJECTDIR}/Operator/OperatorSma_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorSubtract_nomain.o: ${OBJECTDIR}/Operator/OperatorSubtract.o Operator/OperatorSubtract.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorSubtract.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorSubtract_nomain.o Operator/OperatorSubtract.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorSubtract.o ${OBJECTDIR}/Operator/OperatorSubtract_nomain.o;\
+	fi
+
+${OBJECTDIR}/Operator/OperatorUnary_nomain.o: ${OBJECTDIR}/Operator/OperatorUnary.o Operator/OperatorUnary.cpp 
+	${MKDIR} -p ${OBJECTDIR}/Operator
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Operator/OperatorUnary.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Operator/OperatorUnary_nomain.o Operator/OperatorUnary.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Operator/OperatorUnary.o ${OBJECTDIR}/Operator/OperatorUnary_nomain.o;\
 	fi
 
 ${OBJECTDIR}/Series_nomain.o: ${OBJECTDIR}/Series.o Series.cpp 

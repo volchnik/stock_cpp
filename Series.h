@@ -33,13 +33,21 @@ public:
     Series& operator-=(const Series& series);
     const Series operator-(const Series& series) const;
     Series& operator*=(const double& multiplier);
+    Series& operator*=(const Series& series);
     Series& operator/=(const double& divider);
+    Series& operator/=(const Series& series);
     const Series operator*(const double& multiplier) const;
+    const Series operator*(const Series& series) const;
     friend const Series operator*(const double& multiplier, const Series& series);
     const Series operator/(const double& divider) const;
+    const Series operator/(const Series& series) const;
+    friend const Series operator/(const double& dividend, const Series& series);
     Series& operator+=(const double& level);
     const Series operator+(const double& level) const;
+    Series& operator-=(const double& level);
+    const Series operator-(const double& level) const;
     friend const Series operator+(const double& level, const Series& series);
+    friend const Series operator-(const double& level, const Series& series);
     
     const Series EmaIndicator(long delta) const;
     const Series SmaIndicator(long delta) const;

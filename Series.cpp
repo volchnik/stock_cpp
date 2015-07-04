@@ -192,16 +192,53 @@ Series& Series::operator/=(const double& divider) {
     return (*this) *= (1 / divider);
 }
 
-const Series Series::operator*(const double& multiplier) const{
+Series& Series::operator/=(const Series& series) {
+    double divider = 0.0;
+    for (auto& sample : this->series_) {
+        divider = series.GetValue(sample.datetime);
+        if (divider != 0.0) {
+            sample.value /= divider;
+        } else {
+            sample.value = 0.0;
+        }
+    }
+    return *this;
+}
+
+Series& Series::operator*=(const Series& series) {
+    for (auto& sample : this->series_) {
+        sample.value *= series.GetValue(sample.datetime);
+    }
+    return *this;
+}
+
+const Series Series::operator*(const double& multiplier) const {
     return Series(*this) *= multiplier;
+}
+
+const Series Series::operator*(const Series& series) const {
+    return Series(*this) *= series;
 }
 
 const Series operator*(const double& multiplier, const Series& series){
     return series * multiplier;
 }
 
-const Series Series::operator/(const double& divider) const{
+const Series operator/(const double& dividend, const Series& series){
+    Series returnSeries(series);
+    for (auto& sample : returnSeries.series_) {
+        sample.value = dividend / sample.value;
+    }
+    
+    return returnSeries;
+}
+
+const Series Series::operator/(const double& divider) const {
     return Series(*this) /= divider;
+}
+
+const Series Series::operator/(const Series& series) const {
+    return Series(*this) /= series;
 }
 
 Series& Series::operator+=(const double& level) {
@@ -210,11 +247,28 @@ Series& Series::operator+=(const double& level) {
     }
     return *this;
 }
+
 const Series Series::operator+(const double& level) const {
     return Series(*this) += level;
 }
+
+Series& Series::operator-=(const double& level) {
+    for (auto& sample : this->series_) {
+        sample.value -= level;
+    }
+    return *this;
+}
+
+const Series Series::operator-(const double& level) const {
+    return Series(*this) -= level;
+}
+
 const Series operator+(const double& level, const Series& series) {
     return series + level;
+}
+
+const Series operator-(const double& level, const Series& series) {
+    return series - level;
 }
 
 const Series Series::EmaIndicator(long delta) const {    
@@ -225,7 +279,7 @@ const Series Series::EmaIndicator(long delta) const {
     Series copy(*this);
     
     long lastIntervalValueCurrent = 0;
-    long lastIntervalValueOld = 0;
+    long lastIntervalValueOld = copy.series_.begin()->value;
 
     for (auto sample = copy.series_.begin() + 1; (sample + 1) != copy.series_.end(); sample++) {
         
@@ -254,21 +308,25 @@ const Series Series::SmaIndicator(long delta) const {
     
     Series copy(*this);
     Series copyResult(*this);
+    bool gotInitial = false;
     
-    double initial = 0.0;
-    for (auto sample = copyResult.series_.begin(); sample != copyResult.series_.begin() + delta; sample++) {
-        initial += sample->value;
-        sample->value *= delta;
-    }
-
-    (copyResult.series_.begin() + delta - 1)->value = initial;
+    auto sampleCopy = copy.series_.begin();
     
-    auto sampleCopy = copy.series_.begin() + delta;
-    
-    for (auto sample = copyResult.series_.begin() + delta; 
+    for (auto sample = copyResult.series_.begin(); 
             sample != copyResult.series_.end(), sampleCopy != copy.series_.end(); 
             sample++, sampleCopy++) {
-        sample->value = (sample - 1)->value + (sample->value - (sampleCopy - delta)->value);
+        if (sample->datetime - copyResult.series_.begin()->datetime <  delta) {
+            sample->value *= delta;
+        } else if ((sample->datetime - (sample - delta)->datetime) == delta && gotInitial) {
+            sample->value = (sample - 1)->value + (sample->value - (sampleCopy - delta)->value);
+        } else {
+            double initial = 0.0;
+            for(long datetime = sample->datetime; datetime > sample->datetime - delta; datetime--) {
+                initial += copy.GetValue(datetime);
+            }
+            sample->value = initial;
+            gotInitial = true;
+        }
     }
     
     copyResult /= (double)delta;
@@ -325,7 +383,7 @@ void Series::PlotGnu(long step, vector<Series> plotSerieses) {
         for (auto sample = series.series_.begin();
                 sample < series.series_.end();
                 sample += min(step, series.series_.end() - sample)) {
-            printf("%ld \t %.3f \n", sample->datetime, sample->value);
+            printf("%ld \t %.8f \n", sample->datetime, sample->value);
         }
         printf("\ne\n");
     }
