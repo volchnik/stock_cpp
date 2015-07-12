@@ -17,13 +17,15 @@
 class Series {
     friend class Trader;
 public:
-    Series();
+    Series(const std::string& series_name);
     Series(const Series& orig);
     virtual ~Series();
     
     void LoadFromFinamTickFile(const char* fileName);
     void Normalize();
     
+    std::string GetName() const;
+    void SetName(const std::string& series_name);
     double GetValue(const long datetime) const;
     void SetValue(const long datetime, const double& value);
     
@@ -53,9 +55,12 @@ public:
     const Series SmaIndicator(long delta) const;
     
     const Series GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds = 1800) const;
+    const Series GenerateZeroBaseSeries() const;
     
     static void PlotGnu(long step, vector<Series> plotSerieses);
 private:
+    // Наименование серии
+    std::string series_name_;
     // Данные датасерии
     vector<SeriesSample> series_;
     // Справочник отступов индексов времени внутри дней

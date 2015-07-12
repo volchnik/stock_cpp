@@ -44,3 +44,7 @@ std::shared_ptr<Operator> OperatorSubtract::perform() {
     }    
 }
 
+std::string OperatorSubtract::ToString() {
+    return std::string("(" + operatorPair_.first->ToString() + " - " + operatorPair_.second->ToString() + ")");
+}
+

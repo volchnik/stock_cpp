@@ -13,7 +13,7 @@ Trader::Trader(const Series& stock, const Series& signal, const Series& allow,
     timeoutAfterDeal_(timeoutAfterDeal), currenPosition_(0), currentAccount_(0.0),
     updateLevelCooldownSeconds_(0), updateLevelInterval_(updateLevelInterval),
     maxPosition_(maxPosition), timeoutAfterDealCooldown_(0), diffOffsetPersent_(diffOffsetPersent),
-    tradeLimitBuy_(stock), tradeLimitSell_(stock) {
+    tradeLimitBuy_(stock), tradeLimitSell_(stock), tradePosition_("TradePosition"), tradeAccount_("TradeAccount") {
 
     this->tradePosition_ = signal * 0.0;
     this->tradeAccount_ = signal * 0.0;

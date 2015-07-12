@@ -22,3 +22,6 @@ std::shared_ptr<Series> OperatorSeries::getSeries() {
     return this->series_ptr_;
 }
 
+std::string OperatorSeries::ToString() {
+    return std::string(series_ptr_->GetName());
+}

@@ -34,8 +34,8 @@ public:
     static const unsigned long operator_finite_series_distribution_ = 1;
     static const unsigned long operator_finite_number_distribution_ = 1;
     
-    static constexpr double number_range = 1000;
-    static constexpr double max_coef = 1000;
+    static constexpr double number_range = 100;
+    static constexpr double max_coef = 100;
     
     std::shared_ptr<Operator> GenerateRandom(unsigned long max_ganarate_depth = max_operator_depth_);
 

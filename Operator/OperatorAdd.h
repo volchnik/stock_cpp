@@ -17,6 +17,7 @@ public:
     virtual ~OperatorAdd();
     
     std::shared_ptr<Operator> perform();
+    std::string ToString();
 private:
 
 };

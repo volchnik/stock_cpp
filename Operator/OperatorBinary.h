@@ -16,6 +16,7 @@ public:
     virtual ~OperatorBinary();
     
     virtual std::shared_ptr<Operator> perform() = 0;
+    virtual std::string ToString() = 0;
 protected:
     std::pair<std::shared_ptr<Operator>, std::shared_ptr<Operator>> operatorPair_;
 };

@@ -6,12 +6,14 @@
  */
 #include "Series.h"
 
-Series::Series() {
+Series::Series(const std::string& series_name) : series_name_(series_name) {
+    if (series_name_.empty()) {
+        throw std::invalid_argument("series_name can't be empty");
+    }
 }
 
-Series::Series(const Series& orig) {
-    this->series_ = orig.series_;
-    this->datetime_map_ = orig.datetime_map_;
+Series::Series(const Series& orig) : series_(orig.series_), datetime_map_(orig.datetime_map_),
+    series_name_(orig.series_name_) {
 }
 
 Series::~Series() {
@@ -25,6 +27,14 @@ vector<string> split(const string &s, char delim) {
         elems.push_back(item);
     }
     return elems;
+}
+
+std::string Series::GetName() const {
+    return this->series_name_;
+}
+
+void Series::SetName(const std::string& series_name) {
+    this->series_name_ = series_name;
 }
 
 /**
@@ -116,7 +126,7 @@ double Series::GetValue(const long datetime) const {
     DayOfTheYear day_of_year(gmtime(&datetime));
     map<DayOfTheYear, SeriesInterval>::const_iterator findIterator = datetime_map_.find(day_of_year);
     if (findIterator == datetime_map_.end()) {
-        throw new out_of_range("Value request time is out of range for current series");
+        throw std::out_of_range("Value request time is out of range for current series");
     }
     SeriesInterval series_interval = findIterator->second;
 
@@ -127,7 +137,7 @@ double Series::GetValue(const long datetime) const {
     } else if (findIterator != datetime_map_.begin()) {
         return this->series_.at((--findIterator)->second.end_interval - 1).value;
     } else {
-        throw new out_of_range("Value request time is out of range for current series");
+        throw std::out_of_range("Value request time is out of range for current series");
     }
 }
 
@@ -135,7 +145,7 @@ void Series::SetValue(const long datetime, const double& value) {
     DayOfTheYear day_of_year(gmtime(&datetime));
     map<DayOfTheYear, SeriesInterval>::const_iterator findIterator = datetime_map_.find(day_of_year);
     if (findIterator == datetime_map_.end()) {
-        throw new out_of_range("Value request time is out of range for current series");
+        throw std::out_of_range("Value request time is out of range for current series");
     }
     SeriesInterval series_interval = findIterator->second;
 
@@ -144,7 +154,7 @@ void Series::SetValue(const long datetime, const double& value) {
         this->series_.at(series_interval.begin_interval +
                 datetime - this->series_.at(series_interval.begin_interval).datetime).value = value;
     } else {
-        throw new out_of_range("Value request time is out of range for current series");
+        throw std::out_of_range("Value request time is out of range for current series");
     }
 }
 
@@ -152,6 +162,7 @@ Series& Series::operator=(const Series& series) {
     if (this != &series) {
         this->series_ = series.series_;
         this->datetime_map_ = series.datetime_map_;
+        this->series_name_ = series.series_name_;
     }
     return *this;
 }
@@ -160,6 +171,7 @@ Series& Series::operator+=(const Series& series) {
     for (auto& sample : this->series_) {
         sample.value += series.GetValue(sample.datetime);
     }
+    this->series_name_ = "(" + this->series_name_+ " + " + series.GetName() + ")";
     return *this;
 }
 
@@ -171,6 +183,7 @@ Series& Series::operator-=(const Series& series) {
     for (auto& sample : this->series_) {
         sample.value -= series.GetValue(sample.datetime);
     }
+    this->series_name_ = "(" + this->series_name_+ " - " + series.GetName() + ")";
     return *this;
 }
 
@@ -182,6 +195,7 @@ Series& Series::operator*=(const double& multiplier) {
     for (auto& sample : this->series_) {
         sample.value *= multiplier;
     }
+    this->series_name_ = "(" + this->series_name_+ " * " + std::to_string(multiplier) + ")";
     return *this;
 }
 
@@ -209,6 +223,7 @@ Series& Series::operator*=(const Series& series) {
     for (auto& sample : this->series_) {
         sample.value *= series.GetValue(sample.datetime);
     }
+    this->series_name_ = "(" + this->series_name_+ " * " + series.GetName() + ")";
     return *this;
 }
 
@@ -229,7 +244,7 @@ const Series operator/(const double& dividend, const Series& series){
     for (auto& sample : returnSeries.series_) {
         sample.value = dividend / sample.value;
     }
-    
+    returnSeries.SetName("(" + std::to_string(dividend) + " / " + series.GetName() + ")");
     return returnSeries;
 }
 
@@ -245,6 +260,7 @@ Series& Series::operator+=(const double& level) {
     for (auto& sample : this->series_) {
         sample.value += level;
     }
+    this->series_name_ = "(" + this->series_name_+ " + " + std::to_string(level) + ")";
     return *this;
 }
 
@@ -256,6 +272,7 @@ Series& Series::operator-=(const double& level) {
     for (auto& sample : this->series_) {
         sample.value -= level;
     }
+    this->series_name_ = "(" + this->series_name_+ " - " + std::to_string(level) + ")";
     return *this;
 }
 
@@ -298,6 +315,9 @@ const Series Series::EmaIndicator(long delta) const {
         
         lastIntervalValueOld = lastIntervalValueCurrent;
     }
+
+    copy.SetName("EMA(" + copy.GetName() + ", " + std::to_string(delta) + ")");
+
     return copy;
 }
 
@@ -330,7 +350,8 @@ const Series Series::SmaIndicator(long delta) const {
     }
     
     copyResult /= (double)delta;
-    
+    copy.SetName("SMA(" + copy.GetName() + ", " + std::to_string(delta) + ")");
+
     return copyResult;
 }
 
@@ -364,6 +385,10 @@ const Series Series::GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tr
     }
     
     return allowSeries;
+}
+
+const Series Series::GenerateZeroBaseSeries() const {
+    return *this * 0.0;
 }
 
 void Series::PlotGnu(long step, vector<Series> plotSerieses) {

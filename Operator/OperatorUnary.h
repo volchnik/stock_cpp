@@ -16,6 +16,7 @@ public:
     virtual ~OperatorUnary();
     
     virtual std::shared_ptr<Operator> perform() = 0;
+    virtual std::string ToString() = 0;
 protected:
     std::shared_ptr<Operator> operator_ptr_;
     double coef_;

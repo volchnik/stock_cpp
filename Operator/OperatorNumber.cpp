@@ -24,3 +24,7 @@ OperatorNumber::~OperatorNumber() {
 double OperatorNumber::getNumber() {
     return this->number_;
 }
+
+std::string OperatorNumber::ToString() {
+    return std::string(std::to_string(number_));
+}

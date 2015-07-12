@@ -43,3 +43,7 @@ std::shared_ptr<Operator> OperatorAdd::perform() {
         dynamic_cast<OperatorNumber*>(second_ptr.get())->getNumber());
     }    
 }
+
+std::string OperatorAdd::ToString() {
+    return std::string("(" + operatorPair_.first->ToString() + " + " + operatorPair_.second->ToString() + ")");
+}

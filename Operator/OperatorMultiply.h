@@ -16,6 +16,7 @@ public:
     virtual ~OperatorMultiply();
     
     std::shared_ptr<Operator> perform();
+    std::string ToString();
 private:
 
 };

@@ -122,7 +122,7 @@ std::shared_ptr<Operator> Generation::GenerateFiniteRandom() {
     switch (operator_variant) {
         case 0: // operator_finite_series_distribution_
         {
-            std::uniform_int_distribution<int> distribution_series(0, series_collection_.size());
+            std::uniform_int_distribution<int> distribution_series(0, series_collection_.size() - 1);
             OperatorSeries series_generated(series_collection_.at(distribution_series(gen)));
             return std::make_shared<OperatorSeries>(series_generated);
         }

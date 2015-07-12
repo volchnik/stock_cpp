@@ -22,20 +22,38 @@ int main(int argc, char** argv) {
 
     srand(time(NULL));
     
-    Series seriesRI;    
+    Series seriesRI("RI");
     seriesRI.LoadFromFinamTickFile("../data/SPFB.RTS-9.14_140814_140814.txt");
     seriesRI.LoadFromFinamTickFile("../data/SPFB.RTS-9.14_140815_140815.txt");
     seriesRI.Normalize();
     
-    Series seriesDJI;    
+    Series seriesDJI("DJI");
     seriesDJI.LoadFromFinamTickFile("../data/D&J-IND_140814_140814.txt");
     seriesDJI.LoadFromFinamTickFile("../data/D&J-IND_140815_140815.txt");
     seriesDJI.Normalize();
+    seriesDJI = seriesRI.GenerateZeroBaseSeries() + seriesDJI;
+    seriesDJI.SetName("DJI");
     
     vector<std::shared_ptr<Series>> generation_series;
-    generation_series.push_back(std::make_shared<Series>(seriesRI));
-    generation_series.push_back(std::make_shared<Series>(seriesDJI));
+    generation_series.push_back(std::make_shared<Series>(seriesRI/seriesRI.SmaIndicator(100.0)));
+    generation_series.push_back(std::make_shared<Series>(seriesDJI/seriesDJI.SmaIndicator(100.0)));
+    
+    TimeOfDay beginTod = {10, 0, 1};
+    TimeOfDay endTod = {17, 0, 0};
+    Series allowSeries = seriesRI.GenerateTradeAllowSingal(beginTod, endTod, 3600);
+    
+    double scaleCoef = 1.0;
+    
     Generation generation_test(10, generation_series);
+    
+    while(1) {
+    std::shared_ptr<Operator> strategy = generation_test.GenerateRandom(10);
+    string res = strategy->ToString();
+    //cout << res << endl;
+    OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(seriesRI.GenerateZeroBaseSeries())), 
+            strategy);
+    std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
+    
 
     //Series seriesDJIEma100 = (seriesDJI/seriesDJI.SmaIndicator(100)).EmaIndicator(100);
     //Series seriesDJIEma1000 = (seriesDJI/seriesDJI.SmaIndicator(100)).EmaIndicator(1000);
@@ -50,20 +68,22 @@ int main(int argc, char** argv) {
 //    OperatorEma seriesEma(std::make_shared<OperatorAdd>(seriesAdd), 1000);
 //    std::shared_ptr<Operator> resultOperator = seriesEma.perform();
     
-    /*TimeOfDay beginTod = {10, 0, 1};
-    TimeOfDay endTod = {17, 0, 0};
-    Series allowSeries = seriesRI.GenerateTradeAllowSingal(beginTod, endTod, 3600);
 
-    Trader trader(seriesRI, seriesDiff, allowSeries, 10, 10, 2, 0.002);
+    Series signal_series = *dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries() * scaleCoef;
+
+    Trader trader(seriesRI, signal_series, allowSeries, 10, 10, 2, 0.001);
     
     trader.Trade();
     
-    vector<Series> plotSeries = {trader.GetTradeLimitBuy(), trader.GetTradeLimitSell(), seriesRI, 
-        allowSeries * 1000.0 + 120000.0, seriesDiff * 1000 + 120000.0, 
-        trader.GetTradePosition() * 1000 + 120000.0, trader.GetTradeAccount() + 120000.0};*/
+    cout << trader.GetTradeAccount().GetValue(Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 17, 0, 0, Helpers::Timezone::msk)) << endl;
+    }
+    
+//    vector<Series> plotSeries = {trader.GetTradeLimitBuy(), trader.GetTradeLimitSell(), seriesRI, 
+//        allowSeries * 1000.0 + 120000.0, signal_series * 1000 + 120000.0, 
+//        trader.GetTradePosition() * 1000 + 120000.0, trader.GetTradeAccount() + 120000.0};
     
     //vector<Series> plotSeries = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
-    //Series::PlotGnu(1, plotSeries);
+//    Series::PlotGnu(1, plotSeries);
 
     return 0;
 }

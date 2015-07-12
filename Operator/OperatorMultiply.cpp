@@ -42,3 +42,7 @@ std::shared_ptr<Operator> OperatorMultiply::perform() {
         dynamic_cast<OperatorNumber*>(second_ptr.get())->getNumber());
     }    
 }
+
+std::string OperatorMultiply::ToString() {
+    return std::string("(" + operatorPair_.first->ToString() + " * " + operatorPair_.second->ToString() + ")");
+}

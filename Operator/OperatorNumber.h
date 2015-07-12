@@ -18,6 +18,7 @@ public:
     
     std::shared_ptr<Operator> perform() { return std::make_shared<OperatorNumber>(*this); };
     double getNumber();
+    std::string ToString();
 private:
     double number_;
 };

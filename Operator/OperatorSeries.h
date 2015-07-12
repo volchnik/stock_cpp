@@ -18,6 +18,7 @@ public:
     
     std::shared_ptr<Operator> perform() { return make_shared<OperatorSeries>(*this); };
     std::shared_ptr<Series> getSeries();
+    std::string ToString();
 private:
     std::shared_ptr<Series> series_ptr_;
 };
