@@ -5,22 +5,19 @@
  * Created on February 23, 2015, 11:56 AM
  */
 #include "Series.h"
+#include "Operator/Operator.h"
 
 #ifndef TRADER_H
 #define	TRADER_H
 
 class Trader {
 public:
-    Trader(const Series& stock, const Series& signal, const Series& allow, 
-        long timeoutAfterDeal, long updateLevelInterval, long maxPosition, double diffOffsetPersent);
+    Trader(const Series& stock, const Series& allow,
+        long timeoutAfterDeal, long update_level_interval, long maxPosition, double diffOffsetPersent);
     virtual ~Trader();
     
-    double Trade();
-    
-    Series GetTradePosition() { return tradePosition_; }
-    Series GetTradeAccount() { return tradeAccount_; }
-    Series GetTradeLimitBuy() { return tradeLimitBuy_; }
-    Series GetTradeLimitSell() { return tradeLimitSell_; }
+    std::tuple<double, Series, Series, Series, Series> Trade(const Series& trade_signal);
+    std::tuple<double, Series, Series, Series, Series> Trade(std::shared_ptr<Operator> signal_strategy);
     
     enum operationType {STAY, BUY, SELL};
 private:
@@ -29,29 +26,15 @@ private:
     long maxPosition_;
 
     Series tradeStock_;
-    Series tradeSignal_;
     Series tradeAllowSignal_;
     // Величина спреда для совершения сделок по сигналу в процентах от базового актива
     double diffOffsetPersent_;
     
-    // Лимитные заявки
-    double limitBuyLevel_;
-    double limitSellLevel_;
-    long updateLevelCooldownSeconds_;
-    long updateLevelInterval_;
+    long update_level_interval_;
     
-    // Текущее состояние торговли
-    int currenPosition_;
-    double currentAccount_;
-    double currentProfit_;
-    
-    Series tradePosition_;
-    Series tradeAccount_;
-    Series tradeLimitBuy_;
-    Series tradeLimitSell_;
-    
-    operationType GetCurrentSignal(long datetime);
-    void makeDeal(operationType Signal, long datetime);
+    operationType GetCurrentSignal(long datetime, double value, int current_position, Series& trade_limit_buy, Series& trade_limi_sell,
+                                   double& limit_buy_level, double& limit_sell_level, long& update_level_cooldown_seconds);
+    void makeDeal(operationType signal, long datetime, double& current_account, int& current_position, double& current_profit);
 };
 
 #endif	/* TRADER_H */

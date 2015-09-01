@@ -15,6 +15,8 @@ public:
     OperatorSubtract(const OperatorSubtract& orig);
     virtual ~OperatorSubtract();
     
+    OperatorSubtract* Clone();
+    
     std::shared_ptr<Operator> perform();
     std::string ToString();
 private:

@@ -5,6 +5,7 @@
  * Created on April 5, 2015, 9:23 PM
  */
 
+#include "../root.h"
 #include <memory>
 
 #ifndef OPERATOR_H
@@ -15,6 +16,8 @@ public:
     Operator();
     Operator(const Operator& orig);
     virtual ~Operator();
+    
+    virtual Operator* Clone() = 0;
     
     virtual std::shared_ptr<Operator> perform() = 0;
     

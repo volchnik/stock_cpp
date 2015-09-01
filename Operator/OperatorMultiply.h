@@ -15,6 +15,8 @@ public:
     OperatorMultiply(const OperatorMultiply& orig);
     virtual ~OperatorMultiply();
     
+    OperatorMultiply* Clone();
+    
     std::shared_ptr<Operator> perform();
     std::string ToString();
 private:

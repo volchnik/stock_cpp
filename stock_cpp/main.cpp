@@ -8,10 +8,10 @@
 #include <cstdlib>
 #include "Series.h"
 #include "Trader.h"
-#include "Operator/OperatorAdd.h"
-#include "Operator/OperatorEma.h"
-#include "Operator/OperatorSeries.h"
-#include "Genetics/Generation.h"
+#include "OperatorAdd.h"
+#include "OperatorEma.h"
+#include "OperatorSeries.h"
+#include "Generation.h"
 
 using namespace std;
 
@@ -44,15 +44,20 @@ int main(int argc, char** argv) {
     
     double scaleCoef = 1.0;
     
-    Generation generation_test(10, generation_series);
+    Trader trader(seriesRI, allowSeries, 10, 10, 2, 0.001);
+    
+    Generation generation_test(32, generation_series, trader);
+    
+    generation_test.GenerateRandomSeed();
     
     while(1) {
-    std::shared_ptr<Operator> strategy = generation_test.GenerateRandom(10);
+        generation_test.IterateGeneration();
+    }
+    
+    while(0) {
+    std::shared_ptr<Operator> strategy = generation_test.GenerateRandom(5);
     string res = strategy->ToString();
-    //cout << res << endl;
-    OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(seriesRI.GenerateZeroBaseSeries())), 
-            strategy);
-    std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
+    cout << res << endl << endl << endl;
     
 
     //Series seriesDJIEma100 = (seriesDJI/seriesDJI.SmaIndicator(100)).EmaIndicator(100);
@@ -67,15 +72,16 @@ int main(int argc, char** argv) {
 //    OperatorAdd seriesAdd(std::make_shared<OperatorSeries>(seriesRIEma100), std::make_shared<OperatorSeries>(seriesDJIEma100));
 //    OperatorEma seriesEma(std::make_shared<OperatorAdd>(seriesAdd), 1000);
 //    std::shared_ptr<Operator> resultOperator = seriesEma.perform();
-    
 
-    Series signal_series = *dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries() * scaleCoef;
-
-    Trader trader(seriesRI, signal_series, allowSeries, 10, 10, 2, 0.001);
     
-    trader.Trade();
     
-    cout << trader.GetTradeAccount().GetValue(Helpers::GetTimeUtcFromTimezone(2014, 8, 15, 17, 0, 0, Helpers::Timezone::msk)) << endl;
+        double trade_result = 0.0;
+        std::tuple<double, Series, Series, Series, Series> result = trader.Trade(strategy);
+        trade_result = std::get<0>(result);
+        Series trade_series = std::get<2>(result);
+    
+        cout << trade_result << endl;
+        cout << trade_series.CalculateBoundStatistic() << endl;
     }
     
 //    vector<Series> plotSeries = {trader.GetTradeLimitBuy(), trader.GetTradeLimitSell(), seriesRI, 

@@ -13,9 +13,26 @@ OperatorBinary::OperatorBinary(std::shared_ptr<Operator> first, std::shared_ptr<
 }
 
 OperatorBinary::OperatorBinary(const OperatorBinary& orig) {
-    this->operatorPair_ = orig.operatorPair_;
+    this->operatorPair_.first = std::shared_ptr<Operator>(orig.operatorPair_.first->Clone());
+    this->operatorPair_.second = std::shared_ptr<Operator>(orig.operatorPair_.second->Clone());
 }
 
 OperatorBinary::~OperatorBinary() {
+}
+
+std::shared_ptr<Operator>& OperatorBinary::GetOperatorLeft() {
+    return this->operatorPair_.first;
+}
+
+std::shared_ptr<Operator>& OperatorBinary::GetOperatorRight() {
+    return this->operatorPair_.second;
+}
+
+void OperatorBinary::SetOperatorLeft(const std::shared_ptr<Operator>& operator_param) {
+    this->operatorPair_.first = operator_param;
+}
+
+void OperatorBinary::SetOperatorRight(const std::shared_ptr<Operator>& operator_param) {
+    this->operatorPair_.second = operator_param;
 }
 

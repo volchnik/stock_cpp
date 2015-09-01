@@ -19,6 +19,11 @@ OperatorSma::OperatorSma(const OperatorSma& orig) : OperatorUnary(orig) {
 OperatorSma::~OperatorSma() {
 }
 
+OperatorSma* OperatorSma::Clone()
+{
+    return new OperatorSma(*this);
+}
+
 std::shared_ptr<Operator> OperatorSma::perform() {
     std::shared_ptr<Operator> operator_ptr = this->operator_ptr_->perform();
     if (dynamic_cast<OperatorSeries*> (operator_ptr.get()) != NULL) {

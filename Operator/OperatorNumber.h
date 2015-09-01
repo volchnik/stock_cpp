@@ -16,6 +16,8 @@ public:
     OperatorNumber(const OperatorNumber& orig);
     virtual ~OperatorNumber();
     
+    OperatorNumber* Clone();
+    
     std::shared_ptr<Operator> perform() { return std::make_shared<OperatorNumber>(*this); };
     double getNumber();
     std::string ToString();

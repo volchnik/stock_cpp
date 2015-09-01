@@ -16,6 +16,8 @@ public:
     OperatorAdd(const OperatorAdd& orig);
     virtual ~OperatorAdd();
     
+    OperatorAdd* Clone();
+    
     std::shared_ptr<Operator> perform();
     std::string ToString();
 private:

@@ -6,87 +6,108 @@
  */
 
 #include "Trader.h"
+#include "Operator/OperatorAdd.h"
+#include "Operator/OperatorSeries.h"
 
-Trader::Trader(const Series& stock, const Series& signal, const Series& allow, 
-        long timeoutAfterDeal, long updateLevelInterval, long maxPosition, double diffOffsetPersent) :
-    tradeStock_(stock), tradeSignal_(signal), tradeAllowSignal_(allow), 
-    timeoutAfterDeal_(timeoutAfterDeal), currenPosition_(0), currentAccount_(0.0),
-    updateLevelCooldownSeconds_(0), updateLevelInterval_(updateLevelInterval),
-    maxPosition_(maxPosition), timeoutAfterDealCooldown_(0), diffOffsetPersent_(diffOffsetPersent),
-    tradeLimitBuy_(stock), tradeLimitSell_(stock), tradePosition_("TradePosition"), tradeAccount_("TradeAccount") {
-
-    this->tradePosition_ = signal * 0.0;
-    this->tradeAccount_ = signal * 0.0;
+Trader::Trader(const Series& stock, const Series& allow,
+        long timeoutAfterDeal, long update_level_interval, long maxPosition, double diffOffsetPersent) :
+    tradeStock_(stock), tradeAllowSignal_(allow),
+    timeoutAfterDeal_(timeoutAfterDeal), update_level_interval_(update_level_interval),
+    maxPosition_(maxPosition), timeoutAfterDealCooldown_(0), diffOffsetPersent_(diffOffsetPersent) {
 }
 
 Trader::~Trader() {
 }
 
-double Trader::Trade() {
-    operationType signal;
-
-    for (auto& sample : this->tradeStock_.series_) {
-        if ((signal = GetCurrentSignal(sample.datetime)) != operationType::STAY) {
-            makeDeal(signal, sample.datetime);
-        }
-        this->tradePosition_.SetValue(sample.datetime, this->currenPosition_);
-        this->tradeAccount_.SetValue(sample.datetime, this->currentProfit_);
-    }
-    return this->currentAccount_;
+std::tuple<double, Series, Series, Series, Series> Trader::Trade(std::shared_ptr<Operator> signal_strategy) {
+    OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(tradeStock_.GenerateZeroBaseSeries())),
+                                  signal_strategy);
+    std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
+    return this->Trade(*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries());
 }
 
-Trader::operationType Trader::GetCurrentSignal(long datetime) {
+std::tuple<double, Series, Series, Series, Series> Trader::Trade(const Series& trade_signal) {
+    operationType signal;
     
-    if (this->updateLevelCooldownSeconds_ == 0) {
-        this->updateLevelCooldownSeconds_ = this->updateLevelInterval_;
+    Series trade_position = trade_signal * 0.0;
+    Series trade_account = trade_signal * 0.0;
+    
+    Series trade_limit_buy(trade_signal);
+    Series trade_limit_sell(trade_signal);
+    
+    int curren_position = 0;
+    double current_account = 0.0;
+    double current_profit = 0.0;
+    
+    double limit_buy_level = 0.0;
+    double limit_sell_level = 0.0;
+    long update_level_cooldown_seconds = 0;
+
+    for (auto& sample : trade_signal.series_) {
+        if ((signal = GetCurrentSignal(sample.datetime, sample.value, curren_position, trade_limit_buy, trade_limit_sell,
+                                       limit_buy_level, limit_sell_level, update_level_cooldown_seconds))
+            != operationType::STAY) {
+            makeDeal(signal, sample.datetime, current_account, curren_position, current_profit);
+        }
+        trade_position.SetValue(sample.datetime, curren_position);
+        trade_account.SetValue(sample.datetime, current_profit);
+    }
+    return std::make_tuple(current_account, trade_position, trade_account, trade_limit_buy, trade_limit_sell);
+}
+
+Trader::operationType Trader::GetCurrentSignal(long datetime, double value, int current_position,
+                                               Series& trade_limit_buy, Series& trade_limi_sell,
+                                               double& limit_buy_level, double& limit_sell_level, long& update_level_cooldown_seconds) {
+    if (update_level_cooldown_seconds == 0) {
+        update_level_cooldown_seconds = this->update_level_interval_;
         // Обновляем лимитные уровни
-        double currenPositionBuy = currenPosition_ + ((currenPosition_ >= 0) ?
+        double currenPositionBuy = current_position + ((current_position >= 0) ?
             (1.0 / this->tradeAllowSignal_.GetValue(datetime)) :
             (2.0 - 1.0 / this->tradeAllowSignal_.GetValue(datetime)));
-        if (this->tradeSignal_.GetValue(datetime) >= (currenPositionBuy - 1.0)) {
-            this->limitBuyLevel_ = this->tradeStock_.GetValue(datetime) -
+        if (value >= (currenPositionBuy - 1.0)) {
+            limit_buy_level = this->tradeStock_.GetValue(datetime) -
                     this->diffOffsetPersent_ * this->tradeStock_.GetValue(datetime) *
-                    max(currenPositionBuy - this->tradeSignal_.GetValue(datetime), 0.0);
-            this->tradeLimitBuy_.SetValue(datetime, this->limitBuyLevel_);
+                    max(currenPositionBuy - value, 0.0);
+            trade_limit_buy.SetValue(datetime, limit_buy_level);
         } else {
-            this->limitBuyLevel_ = -numeric_limits<double>::max();
+            limit_buy_level = -numeric_limits<double>::max();
         }
         
-        double currenPositionSell = currenPosition_ - ((currenPosition_ <= 0) ?
+        double currenPositionSell = current_position - ((current_position <= 0) ?
             (1.0 / this->tradeAllowSignal_.GetValue(datetime)) :
             (2.0 - 1.0 / this->tradeAllowSignal_.GetValue(datetime)));
-        if (this->tradeSignal_.GetValue(datetime) <= (currenPositionSell + 1.0)) {
-            this->limitSellLevel_ = this->tradeStock_.GetValue(datetime) +
+        if (value <= (currenPositionSell + 1.0)) {
+            limit_sell_level = this->tradeStock_.GetValue(datetime) +
                     this->diffOffsetPersent_ * this->tradeStock_.GetValue(datetime) *
-                    max(this->tradeSignal_.GetValue(datetime) - currenPositionSell, 0.0);
-            this->tradeLimitSell_.SetValue(datetime, this->limitSellLevel_);
+                    max(value - currenPositionSell, 0.0);
+            trade_limi_sell.SetValue(datetime, limit_sell_level);
         } else {
-            this->limitSellLevel_ = numeric_limits<double>::max();
+            limit_sell_level = numeric_limits<double>::max();
         }
     } else {
-        if (this->limitBuyLevel_ > -numeric_limits<double>::max()) {
-            this->tradeLimitBuy_.SetValue(datetime, this->limitBuyLevel_);
+        if (limit_buy_level > -numeric_limits<double>::max()) {
+            trade_limit_buy.SetValue(datetime, limit_buy_level);
         }
-        if (this->limitSellLevel_ < numeric_limits<double>::max()) {
-            this->tradeLimitSell_.SetValue(datetime, this->limitSellLevel_);
+        if (limit_sell_level < numeric_limits<double>::max()) {
+            trade_limi_sell.SetValue(datetime, limit_sell_level);
         }
-        this->updateLevelCooldownSeconds_--;
+        update_level_cooldown_seconds--;
     }
     
     if (this->timeoutAfterDealCooldown_) {
         this->timeoutAfterDealCooldown_--;
     }
     
-    if ((this->currenPosition_ < 0 || maxPosition_ > labs(this->currenPosition_)) &&
+    if ((current_position < 0 || maxPosition_ > labs(current_position)) &&
             this->timeoutAfterDealCooldown_ == 0 &&
-            this->tradeStock_.GetValue(datetime) <= this->limitBuyLevel_) {
-        this->updateLevelCooldownSeconds_ = 0;
+            this->tradeStock_.GetValue(datetime) <= limit_buy_level) {
+        update_level_cooldown_seconds = 0;
         this->timeoutAfterDealCooldown_ = this->timeoutAfterDeal_;
         return operationType::BUY;
-    } else if ((this->currenPosition_ > 0 ||maxPosition_ > labs(this->currenPosition_)) &&
+    } else if ((current_position > 0 ||maxPosition_ > labs(current_position)) &&
             this->timeoutAfterDealCooldown_ == 0 &&
-            this->tradeStock_.GetValue(datetime) >= this->limitSellLevel_) {
-        this->updateLevelCooldownSeconds_ = 0;
+            this->tradeStock_.GetValue(datetime) >= limit_sell_level) {
+        update_level_cooldown_seconds = 0;
         this->timeoutAfterDealCooldown_ = this->timeoutAfterDeal_;
         return operationType::SELL;
     }
@@ -94,12 +115,12 @@ Trader::operationType Trader::GetCurrentSignal(long datetime) {
     return operationType::STAY;
 }
 
-void Trader::makeDeal(operationType Signal, long datetime){
-    if (Signal != operationType::STAY) {
-        this->currentAccount_ += ((Signal == operationType::BUY) ? -1 : 1) * this->tradeStock_.GetValue(datetime);
-        this->currenPosition_ += ((Signal == operationType::BUY) ? 1 : -1);
-        if (this->currenPosition_ == 0) {
-            this->currentProfit_ = this->currentAccount_;
+void Trader::makeDeal(operationType signal, long datetime, double& current_account, int& current_position, double& current_profit){
+    if (signal != operationType::STAY) {
+        current_account += ((signal == operationType::BUY) ? -1 : 1) * this->tradeStock_.GetValue(datetime);
+        current_position += ((signal == operationType::BUY) ? 1 : -1);
+        if (current_position == 0) {
+            current_profit = current_account;
         }
     }
 }

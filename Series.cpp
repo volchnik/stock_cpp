@@ -134,6 +134,8 @@ double Series::GetValue(const long datetime) const {
             && datetime <= this->series_.at(series_interval.end_interval - 1).datetime) {
         return this->series_.at(series_interval.begin_interval +
                 datetime - this->series_.at(series_interval.begin_interval).datetime).value;
+    } else if (datetime > this->series_.at(series_interval.end_interval - 1).datetime) {
+        return this->series_.at(series_interval.end_interval - 1).value;
     } else if (findIterator != datetime_map_.begin()) {
         return this->series_.at((--findIterator)->second.end_interval - 1).value;
     } else {
@@ -413,4 +415,26 @@ void Series::PlotGnu(long step, vector<Series> plotSerieses) {
         printf("\ne\n");
     }
     
+}
+
+double Series::CalculateBoundStatisticFixedInterval(long interval) {
+    double score = 0.0;
+    unsigned long current_time = this->series_.begin()->datetime;
+    double value_previous, value_actual = this->GetValue(current_time);
+    while (true) {
+        try {
+            value_actual = this->GetValue(current_time);
+            score += (value_actual - value_previous) > 0.0 ? pow(abs(value_actual - value_previous), 1.0) :
+            -pow(abs(value_actual - value_previous), 1.1);
+            value_previous = value_actual;
+            current_time += interval;
+        } catch (const std::out_of_range& e) {
+            break;
+        }
+    }
+    return score;
+}
+
+double Series::CalculateBoundStatistic() {
+    return CalculateBoundStatisticFixedInterval(60) + CalculateBoundStatisticFixedInterval(3600);
 }

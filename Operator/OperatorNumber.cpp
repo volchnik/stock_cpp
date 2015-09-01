@@ -21,6 +21,11 @@ OperatorNumber::OperatorNumber(const OperatorNumber& orig) {
 OperatorNumber::~OperatorNumber() {
 }
 
+OperatorNumber* OperatorNumber::Clone()
+{
+    return new OperatorNumber(*this);
+}
+
 double OperatorNumber::getNumber() {
     return this->number_;
 }

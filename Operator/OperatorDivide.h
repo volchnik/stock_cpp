@@ -16,6 +16,8 @@ public:
     OperatorDivide(const OperatorDivide& orig);
     virtual ~OperatorDivide();
     
+    OperatorDivide* Clone();
+    
     std::shared_ptr<Operator> perform();
     std::string ToString();
 private:

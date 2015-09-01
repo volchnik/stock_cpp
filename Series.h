@@ -57,7 +57,10 @@ public:
     const Series GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds = 1800) const;
     const Series GenerateZeroBaseSeries() const;
     
+    double CalculateBoundStatistic();
     static void PlotGnu(long step, vector<Series> plotSerieses);
+protected:
+    double CalculateBoundStatisticFixedInterval(long interval);
 private:
     // Наименование серии
     std::string series_name_;

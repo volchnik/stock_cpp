@@ -15,6 +15,8 @@ public:
     OperatorEma(const OperatorEma& orig);
     virtual ~OperatorEma();
     
+    OperatorEma* Clone();
+    
     std::shared_ptr<Operator> perform();
     std::string ToString();
 private:

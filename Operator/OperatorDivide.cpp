@@ -19,6 +19,11 @@ OperatorDivide::OperatorDivide(const OperatorDivide& orig) : OperatorBinary(orig
 OperatorDivide::~OperatorDivide() {
 }
 
+OperatorDivide* OperatorDivide::Clone()
+{
+    return new OperatorDivide(*this);
+}
+
 std::shared_ptr<Operator> OperatorDivide::perform() {
     
     std::shared_ptr<Operator> first_ptr = this->operatorPair_.first->perform();
