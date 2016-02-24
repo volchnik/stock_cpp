@@ -16,11 +16,11 @@ public:
     OperatorSeries(const OperatorSeries& orig);
     virtual ~OperatorSeries();
     
-    OperatorSeries* Clone();
+    OperatorSeries* Clone() const;
     
-    std::shared_ptr<Operator> perform() { return make_shared<OperatorSeries>(*this); };
+    std::shared_ptr<Operator> perform() const { return make_shared<OperatorSeries>(*this); };
     std::shared_ptr<Series> getSeries();
-    std::string ToString();
+    std::string ToString() const;
 private:
     std::shared_ptr<Series> series_ptr_;
 };

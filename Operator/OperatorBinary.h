@@ -15,15 +15,17 @@ public:
     OperatorBinary(const OperatorBinary& orig);
     virtual ~OperatorBinary();
     
-    virtual OperatorBinary* Clone() = 0;
+    virtual OperatorBinary* Clone() const = 0;
     
-    virtual std::shared_ptr<Operator> perform() = 0;
-    virtual std::string ToString() = 0;
+    virtual std::shared_ptr<Operator> perform() const = 0;
+    virtual std::string ToString() const = 0;
     
     std::shared_ptr<Operator>& GetOperatorLeft();
     std::shared_ptr<Operator>& GetOperatorRight();
     void SetOperatorLeft(const std::shared_ptr<Operator>& operator_param);
     void SetOperatorRight(const std::shared_ptr<Operator>& operator_param);
+    
+    enum operator_type {ADD, SUBTRACT, MULITPLAY, DIVIDE};
 protected:
     std::pair<std::shared_ptr<Operator>, std::shared_ptr<Operator>> operatorPair_;
 };

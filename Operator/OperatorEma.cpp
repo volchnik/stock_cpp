@@ -10,7 +10,7 @@
 #include "OperatorNumber.h"
 
 OperatorEma::OperatorEma(std::shared_ptr<Operator> operator_ptr, double coef) :
-    OperatorUnary(operator_ptr, coef) {
+    OperatorUnary(operator_ptr, make_shared<OperatorNumber>(coef)) {
 }
 
 OperatorEma::OperatorEma(const OperatorEma& orig) : OperatorUnary(orig) {
@@ -19,16 +19,16 @@ OperatorEma::OperatorEma(const OperatorEma& orig) : OperatorUnary(orig) {
 OperatorEma::~OperatorEma() {
 }
 
-OperatorEma* OperatorEma::Clone()
+OperatorEma* OperatorEma::Clone() const
 {
     return new OperatorEma(*this);
 }
 
-std::shared_ptr<Operator> OperatorEma::perform() {
+std::shared_ptr<Operator> OperatorEma::perform() const {
     std::shared_ptr<Operator> operator_ptr = this->operator_ptr_->perform();
     if (dynamic_cast<OperatorSeries*> (operator_ptr.get()) != NULL) {
         return std::make_shared<OperatorSeries>(std::make_shared<Series>(
-                dynamic_cast<OperatorSeries*> (operator_ptr.get())->getSeries()->EmaIndicator(coef_)));
+                dynamic_cast<OperatorSeries*> (operator_ptr.get())->getSeries()->EmaIndicator(coef_->getNumber())));
     } else if (dynamic_cast<OperatorNumber*> (operator_ptr.get()) != NULL) {
         return std::make_shared<OperatorNumber>(dynamic_cast<OperatorNumber*> (operator_ptr.get())->getNumber());
     } else {
@@ -36,7 +36,7 @@ std::shared_ptr<Operator> OperatorEma::perform() {
     }
 }
 
-std::string OperatorEma::ToString() {
-    return std::string("EMA(" + operator_ptr_->ToString() + ", " + std::to_string(coef_) + ")");
+std::string OperatorEma::ToString() const {
+    return std::string("EMA(" + operator_ptr_->ToString() + ", " + std::to_string(coef_->getNumber()) + ")");
 }
 

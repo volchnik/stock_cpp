@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Generation::MakeCross(std::__1::shared_ptr&lt;Operator&gt;, std::__1::shared_ptr&lt;Operator&gt;, unsigned long):Generation.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Series::SetValue(long, double const&amp;):Series.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "datetime - series_interval.begin_interval">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DayOfTheYear::DayOfTheYear(tm*):DayOfTheYear.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "datetime-&gt;tm_year">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Generation::MakeCross(std::__1::shared_ptr&lt;Operator&gt;&amp;, std::__1::shared_ptr&lt;Operator&gt;&amp;, unsigned long):Generation.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Generation::IterateGeneration():Generation.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(1.0 - 1.0/(1.0 + fabs(this-&gt;strategy_.at(i).second - this-&gt;strategy_.at(keySelected).second)))">
+            </PersistentString>
+            <PersistentString
+               value = "childOperator1-&gt;ToString();">
+            </PersistentString>
+            <PersistentString
+               value = "childOperator1-&gt;toString();">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main::$_1::operator()(SimpleWeb::ServerBase&lt;boost::asio::basic_stream_socket&lt;boost::asio::ip::tcp, boost::asio::stream_socket_service&lt;boost::asio::ip::tcp&gt; &gt; &gt;::Response&amp;, std::__1::shared_ptr&lt;SimpleWeb::ServerBase&lt;boost::asio::basic_stream_socket&lt;boost::asio::ip::tcp, boost::asio::stream_socket_service&lt;boost::asio::ip::tcp&gt; &gt; &gt;::Request&gt;) const:main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "ptrader">
+            </PersistentString>
+            <PersistentString
+               value = "generation_series">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Series::GetValue(long, std::__1::shared_ptr&lt;DayOfTheYear&gt;) const:Series.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "datetime">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Series::GetValue(long) const:Series.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;series_.at(series_interval.begin_interval).datetime">
+            </PersistentString>
+            <PersistentString
+               value = "this-&gt;series_.at(series_interval.begin_interval +&#10;                datetime - this-&gt;series_.at(series_interval.begin_interval).datetime).value">
+            </PersistentString>
+            <PersistentString
+               value = "this-&gt;series_.at(31493)">
+            </PersistentString>
+            <PersistentString
+               value = "this-&gt;series_.at(31491)">
+            </PersistentString>
+            <PersistentString
+               value = "this-&gt;series_.at(31492)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Generation::OperatorFromString(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):Generation.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "operator_string">
+            </PersistentString>
+            <PersistentString
+               value = "operands_stack">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,29 +1,23 @@
-/* 
- * File:   SeriesSample.h
- * Author: volchnik
- *
- * Created on August 3, 2014, 10:49 PM
- */
+//
+//  SeriesSample.h
+//  stock_cpp
+//
+//  Created by NIKITA VOLCHEGORSKIY on 09/01/16.
+//  Copyright © 2016 NIKITA VOLCHEGORSKIY. All rights reserved.
+//
 
-#ifndef SERIESSAMPLE_H
-#define	SERIESSAMPLE_H
+#ifndef SeriesSample_h
+#define SeriesSample_h
 
 class SeriesSample {
 public:
-    SeriesSample();
-    virtual ~SeriesSample();
-    
-    long datetime;
-    double value;
-    double volume;
-    
-    bool operator < (const SeriesSample& sample) const
-    {
-        return (this->datetime < sample.datetime);
-    }
-private:
+    SeriesSample() {}
+    virtual ~SeriesSample() {}
 
+    float value;
+
+private:
+    
 };
 
-#endif	/* SERIESSAMPLE_H */
-
+#endif /* SeriesSample_h */

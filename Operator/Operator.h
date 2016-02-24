@@ -17,11 +17,11 @@ public:
     Operator(const Operator& orig);
     virtual ~Operator();
     
-    virtual Operator* Clone() = 0;
+    virtual Operator* Clone() const = 0;
     
-    virtual std::shared_ptr<Operator> perform() = 0;
+    virtual std::shared_ptr<Operator> perform() const = 0;
     
-    virtual std::string ToString() = 0;
+    virtual std::string ToString() const = 0;
 private:
 
 };

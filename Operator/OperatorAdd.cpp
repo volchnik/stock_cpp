@@ -19,12 +19,12 @@ OperatorAdd::OperatorAdd(const OperatorAdd& orig) : OperatorBinary(orig) {
 OperatorAdd::~OperatorAdd() {
 }
 
-OperatorAdd* OperatorAdd::Clone()
+OperatorAdd* OperatorAdd::Clone() const
 {
     return new OperatorAdd(*this);
 }
 
-std::shared_ptr<Operator> OperatorAdd::perform() {
+std::shared_ptr<Operator> OperatorAdd::perform() const {
     
     std::shared_ptr<Operator> first_ptr = this->operatorPair_.first->perform();
     std::shared_ptr<Operator> second_ptr = this->operatorPair_.second->perform();
@@ -49,6 +49,6 @@ std::shared_ptr<Operator> OperatorAdd::perform() {
     }    
 }
 
-std::string OperatorAdd::ToString() {
+std::string OperatorAdd::ToString() const {
     return std::string("(" + operatorPair_.first->ToString() + " + " + operatorPair_.second->ToString() + ")");
 }

@@ -21,7 +21,7 @@ OperatorNumber::OperatorNumber(const OperatorNumber& orig) {
 OperatorNumber::~OperatorNumber() {
 }
 
-OperatorNumber* OperatorNumber::Clone()
+OperatorNumber* OperatorNumber::Clone() const
 {
     return new OperatorNumber(*this);
 }
@@ -30,6 +30,6 @@ double OperatorNumber::getNumber() {
     return this->number_;
 }
 
-std::string OperatorNumber::ToString() {
+std::string OperatorNumber::ToString() const {
     return std::string(std::to_string(number_));
 }

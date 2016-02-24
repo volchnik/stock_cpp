@@ -15,10 +15,10 @@ public:
     OperatorMultiply(const OperatorMultiply& orig);
     virtual ~OperatorMultiply();
     
-    OperatorMultiply* Clone();
+    OperatorMultiply* Clone() const;
     
-    std::shared_ptr<Operator> perform();
-    std::string ToString();
+    std::shared_ptr<Operator> perform() const;
+    std::string ToString() const;
 private:
 
 };

@@ -17,7 +17,11 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <list>
 #include <map>
+#include <set>
+#include <stack>
+#include <regex>
 #include <algorithm>
 #include <sstream>
 
@@ -29,6 +33,12 @@
 #include <iterator>
 
 #include <tuple>
+
+#include <boost/range/iterator_range.hpp>
+#include <boost/range/adaptors.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/range/adaptor/reversed.hpp>
 
 using namespace std;
 

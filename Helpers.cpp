@@ -95,3 +95,45 @@ void Helpers::GetDayMonthfromDayOfTheYear(int yearCorrected, int dayOfTheYear, T
     day = time_structure.tm_mday;
 }
 
+tm * Helpers::gmtime(register const time_t *timer, struct tm *timep)
+{
+    time_t time = *timer;
+    register unsigned long dayclock, dayno;
+    int year = EPOCH_YR;
+    
+    dayclock = (unsigned long)time % SECS_DAY;
+    dayno = (unsigned long)time / SECS_DAY;
+    
+    timep->tm_sec = dayclock % 60;
+    timep->tm_min = (dayclock % 3600) / 60;
+    timep->tm_hour = dayclock / 3600;
+    timep->tm_wday = (dayno + 4) % 7;       /* day 0 was a thursday */
+    while (dayno >= YEARSIZE(year)) {
+        dayno -= YEARSIZE(year);
+        year++;
+    }
+    timep->tm_year = year - YEAR0;
+    timep->tm_yday = dayno;
+    timep->tm_mon = 0;
+    while (dayno >= _ytab[LEAPYEAR(year)][timep->tm_mon]) {
+        dayno -= _ytab[LEAPYEAR(year)][timep->tm_mon];
+        timep->tm_mon++;
+    }
+    timep->tm_mday = dayno + 1;
+    timep->tm_isdst = 0;
+    
+    return timep;
+}
+
+string Helpers::exec_bash(const string& cmd) {
+    std::shared_ptr<FILE> pipe(popen(cmd.c_str(), "r"), pclose);
+    if (!pipe) return "ERROR";
+    char buffer[128];
+    std::string result = "";
+    while (!feof(pipe.get())) {
+        if (fgets(buffer, 128, pipe.get()) != NULL)
+            result += buffer;
+    }
+    return result;
+}
+

@@ -13,7 +13,10 @@ struct SeriesInterval
     long begin_interval;
     long end_interval;
     
-    SeriesInterval(long begin_interval, long end_interval) : begin_interval(begin_interval), end_interval(end_interval) {
+    // Данные датасерии
+    vector<SeriesSample> series_;
+    
+    SeriesInterval(const vector<SeriesSample>& series, long begin_interval, long end_interval) : series_(series), begin_interval(begin_interval), end_interval(end_interval) {
     }
 };
 

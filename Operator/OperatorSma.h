@@ -15,10 +15,10 @@ public:
     OperatorSma(const OperatorSma& orig);
     virtual ~OperatorSma();
     
-    OperatorSma* Clone();
+    OperatorSma* Clone() const;
     
-    std::shared_ptr<Operator> perform();
-    std::string ToString();
+    std::shared_ptr<Operator> perform() const;
+    std::string ToString() const;
 private:
 
 };

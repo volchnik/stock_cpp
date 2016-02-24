@@ -19,12 +19,12 @@ OperatorSubtract::OperatorSubtract(const OperatorSubtract& orig) : OperatorBinar
 OperatorSubtract::~OperatorSubtract() {
 }
 
-OperatorSubtract* OperatorSubtract::Clone()
+OperatorSubtract* OperatorSubtract::Clone() const
 {
     return new OperatorSubtract(*this);
 }
 
-std::shared_ptr<Operator> OperatorSubtract::perform() {
+std::shared_ptr<Operator> OperatorSubtract::perform() const {
     
     std::shared_ptr<Operator> first_ptr = this->operatorPair_.first->perform();
     std::shared_ptr<Operator> second_ptr = this->operatorPair_.second->perform();
@@ -49,7 +49,7 @@ std::shared_ptr<Operator> OperatorSubtract::perform() {
     }    
 }
 
-std::string OperatorSubtract::ToString() {
+std::string OperatorSubtract::ToString() const {
     return std::string("(" + operatorPair_.first->ToString() + " - " + operatorPair_.second->ToString() + ")");
 }
 

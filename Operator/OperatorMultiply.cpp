@@ -18,12 +18,12 @@ OperatorMultiply::OperatorMultiply(const OperatorMultiply& orig) : OperatorBinar
 OperatorMultiply::~OperatorMultiply() {
 }
 
-OperatorMultiply* OperatorMultiply::Clone()
+OperatorMultiply* OperatorMultiply::Clone() const
 {
     return new OperatorMultiply(*this);
 }
 
-std::shared_ptr<Operator> OperatorMultiply::perform() {
+std::shared_ptr<Operator> OperatorMultiply::perform() const {
     
     std::shared_ptr<Operator> first_ptr = this->operatorPair_.first->perform();
     std::shared_ptr<Operator> second_ptr = this->operatorPair_.second->perform();
@@ -48,6 +48,6 @@ std::shared_ptr<Operator> OperatorMultiply::perform() {
     }    
 }
 
-std::string OperatorMultiply::ToString() {
+std::string OperatorMultiply::ToString() const {
     return std::string("(" + operatorPair_.first->ToString() + " * " + operatorPair_.second->ToString() + ")");
 }

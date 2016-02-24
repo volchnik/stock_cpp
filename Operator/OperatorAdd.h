@@ -16,10 +16,10 @@ public:
     OperatorAdd(const OperatorAdd& orig);
     virtual ~OperatorAdd();
     
-    OperatorAdd* Clone();
+    OperatorAdd* Clone() const;
     
-    std::shared_ptr<Operator> perform();
-    std::string ToString();
+    std::shared_ptr<Operator> perform() const;
+    std::string ToString() const;
 private:
 
 };

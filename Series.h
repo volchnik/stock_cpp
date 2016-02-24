@@ -5,6 +5,7 @@
  * Created on August 3, 2014, 10:47 PM
  */
 #include "root.h"
+#include "SeriesSampleExtended.h"
 #include "SeriesSample.h"
 #include "DayOfTheYear.h"
 #include "Series/TimeOfDay.h"
@@ -21,13 +22,13 @@ public:
     Series(const Series& orig);
     virtual ~Series();
     
-    void LoadFromFinamTickFile(const char* fileName);
-    void Normalize();
+    static void LoadFromFinamTickFile(vector<SeriesSampleExtended>& series, const string& fileName);
+    void Normalize(const vector<SeriesSampleExtended>& series);
     
     std::string GetName() const;
     void SetName(const std::string& series_name);
-    double GetValue(const long datetime) const;
-    void SetValue(const long datetime, const double& value);
+    float GetValue(const long datetime, std::shared_ptr<DayOfTheYear> pday_of_the_year = nullptr) const;
+    void SetValue(const long datetime, const float& value, std::shared_ptr<DayOfTheYear> pday_of_the_year = nullptr);
     
     Series& operator=(const Series& series);
     Series& operator+=(const Series& series);
@@ -57,15 +58,11 @@ public:
     const Series GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds = 1800) const;
     const Series GenerateZeroBaseSeries() const;
     
-    double CalculateBoundStatistic();
-    static void PlotGnu(long step, vector<Series> plotSerieses);
+    static void PlotGnu(const char* file_name, long step, vector<Series> plotSerieses);
 protected:
-    double CalculateBoundStatisticFixedInterval(long interval);
 private:
     // Наименование серии
     std::string series_name_;
-    // Данные датасерии
-    vector<SeriesSample> series_;
     // Справочник отступов индексов времени внутри дней
     map<DayOfTheYear, SeriesInterval> datetime_map_;
 };

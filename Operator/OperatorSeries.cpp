@@ -18,7 +18,7 @@ OperatorSeries::OperatorSeries(const OperatorSeries& orig) {
 OperatorSeries::~OperatorSeries() {
 }
 
-OperatorSeries* OperatorSeries::Clone()
+OperatorSeries* OperatorSeries::Clone() const
 {
     return new OperatorSeries(*this);
 }
@@ -27,6 +27,6 @@ std::shared_ptr<Series> OperatorSeries::getSeries() {
     return this->series_ptr_;
 }
 
-std::string OperatorSeries::ToString() {
+std::string OperatorSeries::ToString() const {
     return std::string(series_ptr_->GetName());
 }

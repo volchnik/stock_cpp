@@ -16,10 +16,10 @@ public:
     OperatorDivide(const OperatorDivide& orig);
     virtual ~OperatorDivide();
     
-    OperatorDivide* Clone();
+    OperatorDivide* Clone() const;
     
-    std::shared_ptr<Operator> perform();
-    std::string ToString();
+    std::shared_ptr<Operator> perform() const;
+    std::string ToString() const;
 private:
 
 };

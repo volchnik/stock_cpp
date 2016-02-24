@@ -16,11 +16,14 @@ public:
     OperatorNumber(const OperatorNumber& orig);
     virtual ~OperatorNumber();
     
-    OperatorNumber* Clone();
+    OperatorNumber* Clone() const;
     
-    std::shared_ptr<Operator> perform() { return std::make_shared<OperatorNumber>(*this); };
+    std::shared_ptr<Operator> perform() const { return std::make_shared<OperatorNumber>(*this); };
     double getNumber();
-    std::string ToString();
+    void setNumber(double number) {
+        this->number_ = number;
+    }
+    std::string ToString() const;
 private:
     double number_;
 };
