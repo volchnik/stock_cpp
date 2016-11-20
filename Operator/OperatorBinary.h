@@ -26,6 +26,8 @@ public:
     void SetOperatorRight(const std::shared_ptr<Operator>& operator_param);
     
     enum operator_type {ADD, SUBTRACT, MULITPLAY, DIVIDE};
+
+    void RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection);
 protected:
     std::pair<std::shared_ptr<Operator>, std::shared_ptr<Operator>> operatorPair_;
 };

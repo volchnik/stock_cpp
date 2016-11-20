@@ -24,7 +24,9 @@ public:
     std::shared_ptr<Operator>& GetOperator();
     std::shared_ptr<OperatorNumber>& GetCoef();
     
-    enum operator_type {SMA, EMA};
+    enum operator_type {SMA, EMA, ATAN};
+
+    void RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection);
 protected:
     std::shared_ptr<Operator> operator_ptr_;
     std::shared_ptr<OperatorNumber> coef_;

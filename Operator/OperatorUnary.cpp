@@ -26,3 +26,7 @@ std::shared_ptr<Operator>& OperatorUnary::GetOperator() {
 std::shared_ptr<OperatorNumber>& OperatorUnary::GetCoef() {
     return this->coef_;
 }
+
+void OperatorUnary::RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection) {
+    operator_ptr_->RefreshSerieses(collection);
+}

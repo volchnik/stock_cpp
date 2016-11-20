@@ -24,6 +24,8 @@ public:
         this->number_ = number;
     }
     std::string ToString() const;
+
+    void RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection) {}
 private:
     double number_;
 };

@@ -42,5 +42,7 @@
 
 using namespace std;
 
+typedef unsigned long ulong;
+
 #endif	/* ROOT_H */
 

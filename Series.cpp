@@ -92,8 +92,6 @@ void Series::Normalize(const vector<SeriesSampleExtended>& series) {
         if (Helpers::gmtime(&sample.datetime, &time_struct_1)->tm_yday != Helpers::gmtime(&datetime_sample, &time_struct_2)->tm_yday) {
             normalized_series.push_back(sample_insert);
             InsertIntoDateTimeMap(&datetime_map_, datetime_sample, normalized_series, series_time_start, series_time_start + normalized_series.size() - 1);
-            sample_insert.value = sample.value;
-            normalized_series.push_back(sample_insert);
             series_time_start = sample.datetime;
         } else {
             for (long time_delta = 0; time_delta < sample.datetime - datetime_sample; time_delta++) {
@@ -105,7 +103,10 @@ void Series::Normalize(const vector<SeriesSampleExtended>& series) {
         sample_insert.value = sample.value;
     }
     
-    InsertIntoDateTimeMap(&datetime_map_, datetime_sample, normalized_series, series_time_start, series_time_start + normalized_series.size() - 1);
+    if (series.size()) {
+        normalized_series.push_back(sample_insert);
+        InsertIntoDateTimeMap(&datetime_map_, datetime_sample, normalized_series, series_time_start, series_time_start + normalized_series.size() - 1);
+    }
 }
 
 float Series::GetValue(const long datetime, std::shared_ptr<DayOfTheYear> pday_of_the_year) const {
@@ -130,7 +131,9 @@ float Series::GetValue(const long datetime, std::shared_ptr<DayOfTheYear> pday_o
             }
         }
         if (findIterator == datetime_map_.end()) {
-            throw std::out_of_range("Value request time is out of range for current series");
+            //cout << "after " << this->GetName() << " " << datetime << " " << pday_of_the_year.get()->day_of_year << endl;
+            //throw std::out_of_range("Value request time is out of range for current series");
+            return 0;
         }
     }
 
@@ -143,7 +146,9 @@ float Series::GetValue(const long datetime, std::shared_ptr<DayOfTheYear> pday_o
         findIterator--;
         return (findIterator)->second.series_.at((findIterator)->second.series_.size() - 1).value;
     } else {
-        throw std::out_of_range("Value request time is out of range for current series");
+        //cout << "before " << this->GetName() << " " << datetime << " " << pday_of_the_year.get()->day_of_year << endl;
+        //throw std::out_of_range("Value request time is out of range for current series");
+        return 0;
     }
 }
 
@@ -158,14 +163,16 @@ void Series::SetValue(const long datetime, const float& value, std::shared_ptr<D
     
     map<DayOfTheYear, SeriesInterval>::iterator findIterator = datetime_map_.find(*pday_of_year_local);
     if (findIterator == datetime_map_.end()) {
-        throw std::out_of_range("Value request time is out of range for current series");
+        //throw std::out_of_range("Value request time is out of range for current series");
+        return;
     }
 
     if (datetime >= findIterator->second.begin_interval
             && datetime <= findIterator->second.end_interval) {
         findIterator->second.series_.at(datetime - findIterator->second.begin_interval).value = value;
     } else {
-        throw std::out_of_range("Value request time is out of range for current series");
+        //throw std::out_of_range("Value request time is out of range for current series");
+        return;
     }
 }
 
@@ -344,9 +351,8 @@ const Series Series::EmaIndicator(long delta) const {
     
     bool first_pass = true;
     long prev_datetime_end = 0;
+    SeriesSample prev_sample;
     for (auto& datetime_series : copy.datetime_map_) {
-        SeriesSample prev_sample;
-        SeriesSample prev_sample_preserve;
 
         if (!first_pass) {
             double tempValue = prev_sample.value;
@@ -358,9 +364,8 @@ const Series Series::EmaIndicator(long delta) const {
             prev_sample = *datetime_series.second.series_.begin();
         }
         for (auto& sample : datetime_series.second.series_) {
-            prev_sample_preserve = sample;
             sample.value = (prev_sample.value * (delta - 1) + sample.value * 2) / (double)(delta + 1);
-            prev_sample = prev_sample_preserve;
+            prev_sample = sample;
         }
         if (datetime_series.second.series_.size() > 0) {
             first_pass = false;
@@ -370,6 +375,30 @@ const Series Series::EmaIndicator(long delta) const {
 
     copy.SetName("EMA(" + copy.GetName() + ", " + std::to_string(delta) + ")");
 
+    return copy;
+}
+
+const Series Series::AtanIndicator() const {
+    Series copy(*this);
+    
+    for (auto& datetime_series : copy.datetime_map_) {
+        for (auto& sample : datetime_series.second.series_) {
+            sample.value = atan(sample.value) / M_PI_2;
+        }
+    }
+    
+    return copy;
+}
+
+const Series Series::LogIndicator() const {
+    Series copy(*this);
+    
+    for (auto& datetime_series : copy.datetime_map_) {
+        for (auto& sample : datetime_series.second.series_) {
+            sample.value = log(sample.value + 1.0);
+        }
+    }
+    
     return copy;
 }
 
@@ -388,11 +417,9 @@ const Series Series::SmaIndicator(long delta) const {
         std::shared_ptr<DayOfTheYear> pday_of_year_local =
             std::make_shared<DayOfTheYear>(DayOfTheYear(Helpers::gmtime(&datetime_series.second.begin_interval, &time_struct)));
         for (auto& sample : datetime_series.second.series_) {
-            if (datetime_series.second.begin_interval + offset - series_start_time < delta) {
-                sample.value *= delta;
-            } else if (offset < delta) {
+            if (offset == 0) {
                 for (long ind_delta = 1; ind_delta < delta; ind_delta++) {
-                    sample.value += this->GetValue(datetime_series.second.begin_interval + offset - ind_delta);
+                    sample.value += this->GetValue(datetime_series.second.begin_interval - ind_delta);
                 }
             } else {
                 sample.value = prev_sample.value + (sample.value - this->GetValue(datetime_series.second.begin_interval + offset - delta, pday_of_year_local));
@@ -431,10 +458,8 @@ const Series Series::GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tr
         for (long index = date.second.begin_interval; index < date.second.end_interval; index++) {
             if (index >= beginAllowInterval && index < endAllowInterval - cooldownSeconds) {
                 allowSeries.SetValue(index, 1.0, pday_of_year_local);
-            } else if (index < endAllowInterval) {
+            } else if (index >= beginAllowInterval && index < endAllowInterval) {
                 allowSeries.SetValue(index, (endAllowInterval - index) / (double)cooldownSeconds, pday_of_year_local);
-            } else {
-                allowSeries.SetValue(index, 0.0, pday_of_year_local);
             }
         }
     }
@@ -446,38 +471,147 @@ const Series Series::GenerateZeroBaseSeries() const {
     return *this * 0.0;
 }
 
-void Series::PlotGnu(const char* file_name, long step, vector<Series> plotSerieses) {
+void Series::GenerateCharts(string file_name, ChartsFormat format, long step, vector<Series> plotSerieses, string plot_filename, ulong day_offset) {
     if (plotSerieses.empty()) {
         return;
     }
     
     ofstream plot_stream(file_name);
-    plot_stream << "set term png size 1024,1024; set output \"plot.png\";plot";
-    
-    int index = 1;
-    for (auto& series : plotSerieses) {
-        plot_stream << "'-' using 1:2 with lines,";
+    switch(format) {
+        case ChartsFormat::gnuplot: {
+            plot_stream << "set term png size 5000,2000; set output \"" << plot_filename << ".png\";plot";
+            
+            for (auto& series : plotSerieses) {
+                plot_stream << "'-' using 1:2 with lines,";
+            }
+            plot_stream << "\n";
+        }
+        break;
+        case ChartsFormat::google: {
+            plot_stream << "date,value" << "\n";
+        }
+        break;
     }
-    
-    plot_stream << "\n";
 
     for (auto& series : plotSerieses) {
 
+        if (format == ChartsFormat::gnuplot) {
+            //plot_stream << "\"" << series.GetName() << "\"\n";
+        }
+        ulong day_count = 0;
         for (auto& datetime_series : series.datetime_map_) {
+            if (day_count++ < day_offset) {
+                continue;
+            }
             long begin_time = datetime_series.second.begin_interval;
             for (auto sample = datetime_series.second.series_.begin();
                  sample < datetime_series.second.series_.end();
                  sample += min(step, datetime_series.second.series_.end() - sample)) {
                 char str[128];
-                sprintf(str, "%ld \t %.8f \n", begin_time, sample->value);
+                switch(format) {
+                    case ChartsFormat::gnuplot: {
+                        sprintf(str, "%ld \t %.8f \n", begin_time, sample->value);
+                    }
+                    break;
+                    case ChartsFormat::google: {
+                        sprintf(str, "%ld,%.8f\n", begin_time, sample->value);
+                    }
+                    break;
+                }
                 plot_stream << str;
                 begin_time += step;
             }
         }
-        plot_stream << "\ne\n";
+        if (format == ChartsFormat::gnuplot) {
+            plot_stream << "\n\n";
+        }
     }
     
     plot_stream.close();
     
+    if (format == ChartsFormat::gnuplot) {
+        Helpers::exec_bash("/usr/local/bin/gnuplot " + std::string(file_name));
+    }
+}
+
+void Series::GenerateGroupedCharts(string file_name, ChartsFormat format, long step, vector<vector<Series>> plotGroupSerieses, string plot_filename, ulong day_offset) {
+    
+    if (plotGroupSerieses.empty()) {
+        return;
+    }
+    
+    ofstream plot_stream(file_name);
+    switch(format) {
+        case ChartsFormat::gnuplot: {
+            if (plotGroupSerieses.size() > 1) {
+                plot_stream << "set multiplot\n";
+            }
+
+            for (auto& seriesGroup : plotGroupSerieses) {
+                plot_stream << "plot";
+                for (auto& series : seriesGroup) {
+                    plot_stream << "'-' using 1:2 with lines,";
+                }
+            }
+            
+            if (plotGroupSerieses.size() > 1) {
+                plot_stream << "\nunset multiplot";
+            }
+            plot_stream << "\n";
+        }
+        break;
+    }
+    
+    for (auto& seriesGroup : plotGroupSerieses) {
+        for (auto& series : seriesGroup) {
+
+            ulong day_count = 0;
+            for (auto& datetime_series : series.datetime_map_) {
+                if (day_count++ < day_offset) {
+                    continue;
+                }
+                long begin_time = datetime_series.second.begin_interval;
+                for (auto sample = datetime_series.second.series_.begin();
+                     sample < datetime_series.second.series_.end();
+                     sample += min(step, datetime_series.second.series_.end() - sample)) {
+                    char str[128];
+                    switch(format) {
+                        case ChartsFormat::gnuplot: {
+                            sprintf(str, "%ld \t %.8f \n", begin_time, sample->value);
+                        }
+                            break;
+                    }
+                    plot_stream << str;
+                    begin_time += step;
+                }
+            }
+            if (format == ChartsFormat::gnuplot) {
+                plot_stream << "\n\n";
+            }
+        }
+    }
+    
+    plot_stream.close();
+}
+
+void Series::SetDateTimeMap(map<DayOfTheYear, SeriesInterval> datetime_map) {
+    this->datetime_map_ = datetime_map;
+}
+
+shared_ptr<Series> Series::getSubSeries(ulong offset, ulong interval) {
+    auto return_series_ptr = make_shared<Series>(*(new Series(this->GetName())));
+    map<DayOfTheYear, SeriesInterval> series_map;
+
+    map<DayOfTheYear, SeriesInterval>::iterator seriesMapBeginIterator = this->datetime_map_.begin();
+    advance(seriesMapBeginIterator, offset);
+    map<DayOfTheYear, SeriesInterval>::iterator seriesMapEndIterator = this->datetime_map_.begin();
+    advance(seriesMapEndIterator, offset + interval);
+
+    std::copy(seriesMapBeginIterator, seriesMapEndIterator,
+              std::inserter(series_map, series_map.begin()));
+
+    return_series_ptr->SetDateTimeMap(series_map);
+
+    return return_series_ptr;
 }
 

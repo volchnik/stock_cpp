@@ -29,6 +29,8 @@ public:
     void SetName(const std::string& series_name);
     float GetValue(const long datetime, std::shared_ptr<DayOfTheYear> pday_of_the_year = nullptr) const;
     void SetValue(const long datetime, const float& value, std::shared_ptr<DayOfTheYear> pday_of_the_year = nullptr);
+
+    void SetDateTimeMap(map<DayOfTheYear, SeriesInterval> datetime_map);
     
     Series& operator=(const Series& series);
     Series& operator+=(const Series& series);
@@ -55,10 +57,18 @@ public:
     const Series EmaIndicator(long delta) const;
     const Series SmaIndicator(long delta) const;
     
+    const Series AtanIndicator() const;
+    const Series LogIndicator() const;
+    
     const Series GenerateTradeAllowSingal(TimeOfDay tradeBegin, TimeOfDay tradeEnd, int cooldownSeconds = 1800) const;
     const Series GenerateZeroBaseSeries() const;
     
-    static void PlotGnu(const char* file_name, long step, vector<Series> plotSerieses);
+    enum ChartsFormat {gnuplot, google};
+    
+    static void GenerateCharts(string file_name, ChartsFormat format, long step, vector<Series> plotSerieses, string plot_filename = "", ulong day_offset = 0);
+    static void GenerateGroupedCharts(string file_name, ChartsFormat format, long step, vector<vector<Series>> plotGroupSerieses, string plot_filename = "", ulong day_offset = 0);
+
+    shared_ptr<Series> getSubSeries(ulong offset, ulong interval);
 protected:
 private:
     // Наименование серии
@@ -66,6 +76,9 @@ private:
     // Справочник отступов индексов времени внутри дней
     map<DayOfTheYear, SeriesInterval> datetime_map_;
 };
+
+typedef map<string, Series> series_map_type;
+typedef map<string, shared_ptr<Series>> series_ptr_map_type;
 
 #endif	/* SERIES_H */
 

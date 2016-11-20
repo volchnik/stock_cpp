@@ -36,3 +36,8 @@ void OperatorBinary::SetOperatorRight(const std::shared_ptr<Operator>& operator_
     this->operatorPair_.second = operator_param;
 }
 
+void OperatorBinary::RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection) {
+    operatorPair_.first->RefreshSerieses(collection);
+    operatorPair_.second->RefreshSerieses(collection);
+}
+

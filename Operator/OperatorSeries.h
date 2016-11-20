@@ -21,6 +21,8 @@ public:
     std::shared_ptr<Operator> perform() const { return make_shared<OperatorSeries>(*this); };
     std::shared_ptr<Series> getSeries();
     std::string ToString() const;
+
+    void RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection);
 private:
     std::shared_ptr<Series> series_ptr_;
 };

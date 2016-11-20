@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C129362E1DDCF855000A7917 /* OperatorLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C129362D1DDCF855000A7917 /* OperatorLog.cpp */; settings = {ASSET_TAGS = (); }; };
+		C129362F1DDCF855000A7917 /* OperatorLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C129362D1DDCF855000A7917 /* OperatorLog.cpp */; settings = {ASSET_TAGS = (); }; };
 		C166BC401C6D08C2007FDE2A /* FactorGeneration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C166BC3F1C6D08C2007FDE2A /* FactorGeneration.cpp */; settings = {ASSET_TAGS = (); }; };
 		C199046E1B83CB3B009B9595 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C199046D1B83CB3B009B9595 /* main.cpp */; };
 		C19904741B83CC9D009B9595 /* DayOfTheYear.h in Sources */ = {isa = PBXBuildFile; fileRef = C1EA20151B6BE7D400100CA3 /* DayOfTheYear.h */; };
@@ -50,6 +52,8 @@
 		C199049A1B83CC9D009B9595 /* TraderOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1EA20401B6BE7D400100CA3 /* TraderOperation.cpp */; };
 		C199049B1B83CC9D009B9595 /* TraderOperation.h in Sources */ = {isa = PBXBuildFile; fileRef = C1EA20411B6BE7D400100CA3 /* TraderOperation.h */; };
 		C199049D1B83CD1B009B9595 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C199049C1B83CD1B009B9595 /* gtest.framework */; };
+		C1A76D7B1D22E1680009FF3D /* OperatorAtan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A76D7A1D22E1680009FF3D /* OperatorAtan.cpp */; settings = {ASSET_TAGS = (); }; };
+		C1A76D7C1D22E1680009FF3D /* OperatorAtan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A76D7A1D22E1680009FF3D /* OperatorAtan.cpp */; settings = {ASSET_TAGS = (); }; };
 		C1EA200F1B6BE6BC00100CA3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1EA200E1B6BE6BC00100CA3 /* main.cpp */; };
 		C1EA20421B6BE7D400100CA3 /* Generation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1EA20171B6BE7D400100CA3 /* Generation.cpp */; };
 		C1EA20431B6BE7D400100CA3 /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1EA20191B6BE7D400100CA3 /* Helpers.cpp */; };
@@ -93,6 +97,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C129362C1DDCF802000A7917 /* OperatorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperatorLog.h; sourceTree = "<group>"; };
+		C129362D1DDCF855000A7917 /* OperatorLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OperatorLog.cpp; sourceTree = "<group>"; };
 		C144B9BE1C6791DD00B87CB5 /* ThreadPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadPool.h; sourceTree = "<group>"; };
 		C166BC3E1C6D08A1007FDE2A /* FactorGeneration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FactorGeneration.h; sourceTree = "<group>"; };
 		C166BC3F1C6D08C2007FDE2A /* FactorGeneration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FactorGeneration.cpp; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 		C199046B1B83CB3B009B9595 /* tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		C199046D1B83CB3B009B9595 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C199049C1B83CD1B009B9595 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../../Desktop/gtest.framework; sourceTree = "<group>"; };
+		C1A76D791D22E13D0009FF3D /* OperatorAtan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperatorAtan.h; sourceTree = "<group>"; };
+		C1A76D7A1D22E1680009FF3D /* OperatorAtan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OperatorAtan.cpp; sourceTree = "<group>"; };
 		C1EA200B1B6BE6BB00100CA3 /* stock_cpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stock_cpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1EA200E1B6BE6BC00100CA3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = stock_cpp/main.cpp; sourceTree = "<group>"; };
 		C1EA20151B6BE7D400100CA3 /* DayOfTheYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayOfTheYear.h; sourceTree = "<group>"; };
@@ -258,6 +266,10 @@
 				C1EA20301B6BE7D400100CA3 /* OperatorSubtract.h */,
 				C1EA20311B6BE7D400100CA3 /* OperatorUnary.cpp */,
 				C1EA20321B6BE7D400100CA3 /* OperatorUnary.h */,
+				C1A76D791D22E13D0009FF3D /* OperatorAtan.h */,
+				C1A76D7A1D22E1680009FF3D /* OperatorAtan.cpp */,
+				C129362C1DDCF802000A7917 /* OperatorLog.h */,
+				C129362D1DDCF855000A7917 /* OperatorLog.cpp */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -351,6 +363,7 @@
 				C19904751B83CC9D009B9595 /* Generation.cpp in Sources */,
 				C19904761B83CC9D009B9595 /* Generation.h in Sources */,
 				C19904771B83CC9D009B9595 /* Helpers.cpp in Sources */,
+				C129362F1DDCF855000A7917 /* OperatorLog.cpp in Sources */,
 				C19904781B83CC9D009B9595 /* Helpers.h in Sources */,
 				C19904791B83CC9D009B9595 /* Operator.cpp in Sources */,
 				C199047A1B83CC9D009B9595 /* Operator.h in Sources */,
@@ -366,6 +379,7 @@
 				C19904841B83CC9D009B9595 /* OperatorMultiply.h in Sources */,
 				C19904851B83CC9D009B9595 /* OperatorNumber.cpp in Sources */,
 				C19904861B83CC9D009B9595 /* OperatorNumber.h in Sources */,
+				C1A76D7C1D22E1680009FF3D /* OperatorAtan.cpp in Sources */,
 				C19904871B83CC9D009B9595 /* OperatorSeries.cpp in Sources */,
 				C19904881B83CC9D009B9595 /* OperatorSeries.h in Sources */,
 				C19904891B83CC9D009B9595 /* OperatorSma.cpp in Sources */,
@@ -413,7 +427,9 @@
 				C1EA204C1B6BE7D400100CA3 /* OperatorSeries.cpp in Sources */,
 				C1EA20531B6BE7D400100CA3 /* Strategy.cpp in Sources */,
 				C1EA204B1B6BE7D400100CA3 /* OperatorNumber.cpp in Sources */,
+				C129362E1DDCF855000A7917 /* OperatorLog.cpp in Sources */,
 				C1EA204D1B6BE7D400100CA3 /* OperatorSma.cpp in Sources */,
+				C1A76D7B1D22E1680009FF3D /* OperatorAtan.cpp in Sources */,
 				C1EA20511B6BE7D400100CA3 /* SeriesSampleExtended.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

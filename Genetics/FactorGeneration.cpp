@@ -57,7 +57,8 @@ void FactorGeneration::GenerateRandomSeed() {
     for (unsigned long i = 1; i < generation_capacity_; i++) {
         vector<double> factors;
         for (unsigned long j = 0; j < initial_factors.size(); j++) {
-            double coef = initial_factors.at(j) + seed_range_ * (((double)rand() / RAND_MAX) - 0.5) * (1.0 / (1.0 + pow(generation_count_, 1.5)));
+            double coef = initial_factors.at(j) + 1.0 * (initial_factors.at(j) != 0 ? initial_factors.at(j) : 1.0) *
+                (((double)rand() / (double)RAND_MAX) - 0.5);
             factors.push_back(coef);
             operator_factors_.at(j)->setNumber(coef);
         }
@@ -79,8 +80,7 @@ double FactorGeneration::IterateGeneration() {
         return initial_score_;
     }
 
-    while (factor_generation_.size() > generation_capacity_ / 2.0 ||
-           (factor_generation_.size()  % 2 != 0)) {
+    while (factor_generation_.size() > generation_capacity_ / 2.0) {
         factor_generation_.pop_back();
     }
     
@@ -90,21 +90,22 @@ double FactorGeneration::IterateGeneration() {
     
     for (unsigned long ii = 0; ii < initialSize; ii++) {
         vector<double> childOperator1 = factor_generation_.at(ii).first;
-        vector<double> childOperator2 = factor_generation_.at((long)(floor(ii + ((double)rand() / RAND_MAX) * initialSize)) % initialSize).first;
+        vector<double> childOperator2 = factor_generation_.at((long)(floor(ii + ((double)rand() / (double)RAND_MAX) * initialSize)) % initialSize).first;
         
-        unsigned long crossingover_offset = floor(((double)rand() / RAND_MAX) * childOperator1.size());
+        unsigned long crossingover_offset = round(((double)rand() / (double)RAND_MAX) * childOperator1.size());
         vector<double> childOperator3;
         
         for (unsigned long j = 0; j < childOperator1.size(); j++) {
             double coef = 0.0;
-            if (j <= crossingover_offset) {
+            if (j < crossingover_offset) {
                 coef = childOperator1.at(j);
             } else {
                 coef = childOperator2.at(j);
             }
             
-            if (((double)rand() / RAND_MAX) < 0.25) {
-                coef += + seed_range_ * (((double)rand() / RAND_MAX) - 0.5) * (1.0 / (1.0 + pow(generation_count_, 1.5)));
+            if (((double)rand() / RAND_MAX) < 0.2) {
+                coef += 1.0 * (coef != 0 ? coef : 1.0) *
+                    (((double)rand() / RAND_MAX) - 0.5) * (1.0 / (1.0 + pow(2.0, generation_count_)));
             }
             childOperator3.push_back(coef);
             operator_factors_.at(j)->setNumber(coef);

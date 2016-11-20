@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.3)
 project(stock_cpp)
 
+set(CMAKE_BUILD_TYPE Release)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
@@ -34,6 +36,10 @@ set(SOURCE_FILES
     Operator/OperatorSubtract.h
     Operator/OperatorUnary.cpp
     Operator/OperatorUnary.h
+    Operator/OperatorAtan.cpp
+    Operator/OperatorAtan.h
+    Operator/OperatorLog.cpp
+    Operator/OperatorLog.h
     Series/TimeOfDay.h
     stock_cpp/main.cpp
     DayOfTheYear.h

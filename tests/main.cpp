@@ -3,6 +3,8 @@
 #include "Helpers.h"
 #include "Trader.h"
 #include "Generation.h"
+#include "../Operator/Operator.h"
+#include "../Operator/OperatorBinary.h"
 
 TEST(SeriesTest, TimeHelpers) {
     tm time_structure;
@@ -83,8 +85,8 @@ TEST(SeriesTest, SeriesOperations) {
 
     Series series("RtsTest");
     vector<SeriesSampleExtended> series_from_files;
-    series.LoadFromFinamTickFile(series_from_files, "../data/finam_import/stock_quotes/data_seconds_decompressed/RI/RIU4_140814_140814.txt");
-    series.LoadFromFinamTickFile(series_from_files, "../data/finam_import/stock_quotes/data_seconds_decompressed/RI/RIU4_140815_140815.txt");
+    series.LoadFromFinamTickFile(series_from_files, "../data/tests/RI/RIU4_140814_140814.txt");
+    series.LoadFromFinamTickFile(series_from_files, "../data/tests/RI/RIU4_140815_140815.txt");
     series.Normalize(series_from_files);
     EXPECT_EQ(121950, series.GetValue(
                                       Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 11, 10, 30, Helpers::Timezone::msk)));
@@ -224,16 +226,87 @@ TEST(SeriesTest, OperatorEncodeDecode) {
     generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_ri.GetName(), std::make_shared<Series>(series_ri)));
     generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_dji.GetName(), std::make_shared<Series>(series_dji)));
     
-    Trader trader(make_shared<Series>(series_ri), make_shared<Series>(series_ri), 10, 10, 2, 0.001);
-    Generation generation(150, generation_series, trader, true);
-    
     std::string operator_test_string_1("((SMA((-40.328799 + RI), 23.277791) / (-6.124357 / RI)) / (DJI - RI))");
-    std::shared_ptr<Operator> operator_result_1 = generation.OperatorFromString(operator_test_string_1);
+    std::shared_ptr<Operator> operator_result_1 = Operator::OperatorFromString(generation_series, operator_test_string_1);
     EXPECT_EQ(operator_test_string_1, operator_result_1->ToString());
     
     std::string operator_test_string_2("((EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (-6.124357 / RI)) - (DJI + 3.000000))");
-    std::shared_ptr<Operator> operator_result_2 = generation.OperatorFromString(operator_test_string_2);
+    std::shared_ptr<Operator> operator_result_2 = Operator::OperatorFromString(generation_series, operator_test_string_2);
     EXPECT_EQ(operator_test_string_2, operator_result_2->ToString());
+}
+
+TEST(SeriesTest, OperatorSimplify) {
+    Series series_ri("RI");
+    Series series_dji("DJI");
+    
+    map<std::string, std::shared_ptr<Series>> generation_series;
+    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_ri.GetName(), std::make_shared<Series>(series_ri)));
+    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_dji.GetName(), std::make_shared<Series>(series_dji)));
+    
+    std::string operator_test_string_1("EMA(10.0, 20.0)");
+    std::shared_ptr<Operator> operator_result_1 = Operator::OperatorFromString(generation_series, operator_test_string_1);
+    Operator::SimplifyOperator(operator_result_1);
+    EXPECT_EQ("10.000000", operator_result_1->ToString());
+    
+    std::string operator_test_string_2("RI - RI");
+    std::shared_ptr<Operator> operator_result_2 = Operator::OperatorFromString(generation_series, operator_test_string_2);
+    Operator::SimplifyOperator(operator_result_2);
+    EXPECT_EQ("0.000000", operator_result_2->ToString());
+    
+    std::string operator_test_string_3("DJI - (SMA((RI - RI), 1.0))");
+    std::shared_ptr<Operator> operator_result_3 = Operator::OperatorFromString(generation_series, operator_test_string_3);
+    Operator::SimplifyOperator(operator_result_3);
+    EXPECT_EQ("DJI", operator_result_3->ToString());
+    
+    std::string operator_test_string_4("DJI - (0.0 * (SMA((DJI - RI), 1.0)))");
+    std::shared_ptr<Operator> operator_result_4 = Operator::OperatorFromString(generation_series, operator_test_string_4);
+    Operator::SimplifyOperator(operator_result_4);
+    EXPECT_EQ("DJI", operator_result_4->ToString());
+    
+    std::string operator_test_string_5("EMA(RI, 20.5)");
+    std::shared_ptr<Operator> operator_result_5 = Operator::OperatorFromString(generation_series, operator_test_string_5);
+    Operator::SimplifyOperator(operator_result_5);
+    EXPECT_EQ("EMA(RI, 21.000000)", operator_result_5->ToString());
+    
+    std::string operator_test_string_6("EMA(RI, 22.3)");
+    std::shared_ptr<Operator> operator_result_6 = Operator::OperatorFromString(generation_series, operator_test_string_6);
+    Operator::SimplifyOperator(operator_result_6);
+    EXPECT_EQ("EMA(RI, 22.000000)", operator_result_6->ToString());
+    
+    std::string operator_test_string_7("EMA(RI, 0.3)");
+    std::shared_ptr<Operator> operator_result_7 = Operator::OperatorFromString(generation_series, operator_test_string_7);
+    Operator::SimplifyOperator(operator_result_7);
+    EXPECT_EQ("RI", operator_result_7->ToString());
+    
+    std::string operator_test_string_8("EMA(RI, -10.3)");
+    std::shared_ptr<Operator> operator_result_8 = Operator::OperatorFromString(generation_series, operator_test_string_8);
+    Operator::SimplifyOperator(operator_result_8);
+    EXPECT_EQ("RI", operator_result_8->ToString());
+    
+    std::string operator_test_string_9("SMA((6.517391 * (-2.302582 * RI)), 52.011556)");
+    std::shared_ptr<Operator> operator_result_9 = Operator::OperatorFromString(generation_series, operator_test_string_9);
+    Operator::SimplifyOperator(operator_result_9);
+    EXPECT_EQ("SMA((6.517391 * (-2.302582 * RI)), 52.000000)", operator_result_9->ToString());
+}
+
+TEST(SeriesTest, OperatorCrossingover) {
+    Series series_ri("RI");
+    Series series_dji("DJI");
+    
+    map<std::string, std::shared_ptr<Series>> generation_series;
+    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_ri.GetName(), std::make_shared<Series>(series_ri)));
+    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_dji.GetName(), std::make_shared<Series>(series_dji)));
+    
+    std::string operator_test_string_1("((SMA((-40.328799 + RI), 23.277791) / (-6.124357 / RI)) / (DJI - RI))");
+    std::shared_ptr<Operator> operator_result_1 = Operator::OperatorFromString(generation_series, operator_test_string_1);
+    
+    std::string operator_test_string_2("((EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (-6.124357 / RI)) - (DJI + 3.000000))");
+    std::shared_ptr<Operator> operator_result_2 = Operator::OperatorFromString(generation_series, operator_test_string_2);
+    
+    std::shared_ptr<Operator>& operator_cross_1 = (dynamic_cast<OperatorBinary*>(operator_result_1.get()))->GetOperatorRight();
+    std::shared_ptr<Operator>& operator_cross_2 = (dynamic_cast<OperatorBinary*>(operator_result_2.get()))->GetOperatorLeft();
+    operator_cross_1.swap(operator_cross_2);
+    EXPECT_EQ("((SMA((-40.328799 + RI), 23.277791) / (-6.124357 / RI)) / (EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (-6.124357 / RI)))", operator_result_1->ToString());
 }
 
 int main(int argc, char * argv[])

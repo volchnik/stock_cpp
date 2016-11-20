@@ -12,6 +12,7 @@
 #include "../Operator/OperatorAdd.h"
 #include "../Operator/OperatorEma.h"
 #include "../Operator/OperatorSeries.h"
+#include "../Operator/OperatorLog.h"
 #include "../Genetics/Generation.h"
 #include "../Genetics/FactorGeneration.h"
 
@@ -40,14 +41,13 @@ static bool is_valid_dir(boost::filesystem::directory_entry const& entry) {
 
 const static string kQuoteRepoPath = "../data/finam_import/stock_quotes";
 const static string kQuotePath = "../data/finam_import/stock_quotes/data_seconds_decompressed";
-typedef map<string, Series> series_map_type;
-typedef map<string, shared_ptr<Series>> series_ptr_map_type;
 
 /*
  *
  */
-bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& generation_series, Trader*& ptrader, string quote_hash = "") {
-    if (quote_hash != "") {
+bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& generation_series, Trader*& ptrader,
+                           std::shared_ptr<Series>& allowSeries, string quote_hash = "") {
+    /*if (quote_hash != "") {
         Helpers::exec_bash("(cd " + kQuoteRepoPath + ")");
         string quote_hash_local = Helpers::exec_bash("git rev-parse HEAD");
         if (quote_hash != quote_hash_local) {
@@ -55,7 +55,7 @@ bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& gen
         } else {
             return true;
         }
-    }
+    }*/
     Helpers::exec_bash("rm -rf ../data/finam_import/stock_quotes/data_seconds_decompressed/");
     Helpers::exec_bash("(cd ../data/finam_import/stock_quotes/data_seconds && find . -type d -exec mkdir -p ../data_seconds_decompressed/{} \\;)");
     Helpers::exec_bash("(cd ../data/finam_import/stock_quotes/data_seconds && find . -name \"*.txt\" -exec bash -c 'zcat < ${1} > \"../data_seconds_decompressed\"${1:1}' param {} \\;)");
@@ -86,19 +86,44 @@ bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& gen
         cout << "Error occured during quotes initialiaztion: " << e.what();
         return false;
     }
-
-    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_map.find("RI")->second.GetName(),
-                                                                             std::make_shared<Series>(series_map.find("RI")->second/series_map.find("RI")->second.SmaIndicator(100.0))));
-    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_map.find("YM")->second.GetName(),
-                                                                             std::make_shared<Series>(series_map.find("YM")->second/series_map.find("YM")->second.SmaIndicator(100.0))));
-    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_map.find("SPFB.Si")->second.GetName(),
-                                                                             std::make_shared<Series>(series_map.find("SPFB.Si")->second/series_map.find("SPFB.Si")->second.SmaIndicator(100.0))));
-    TimeOfDay beginTod = {10, 0, 1};
-    TimeOfDay endTod = {17, 0, 0};
-    std::shared_ptr<Series> allowSeries = make_shared<Series>(series_map.find("RI")->second.GenerateTradeAllowSingal(beginTod, endTod, 3600));
     
-    ptrader = new Trader(make_shared<Series>(series_map.find("RI")->second), allowSeries, 10, 10, 2, 0.001, 0.05);
+    for (auto& series : series_map) {
+        if (series.second.GetName().find('_') == string::npos && series.second.GetName().compare("RTSI") != 0) {
+            Series series_local = 100*((series.second - series.second.SmaIndicator(100)) / series.second.SmaIndicator(100)).LogIndicator();
+            series_local.SetName(series.second.GetName());
+            generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series.second.GetName(),
+                                                                                     std::make_shared<Series>(series_local)));
+        }
+    }
+    
+//    Series series_local = 1.0 - (0.0005*((series_map.find("RI")->second - series_map.find("RTSI")->second * 100.0).EmaIndicator(3600) -
+  //      (series_map.find("RI")->second - series_map.find("RTSI")->second * 100.0).EmaIndicator(6*86000)).EmaIndicator(24*3600)).AtanIndicator();
+    Series series_local = series_map.find("RI")->second / series_map.find("RI")->second;
+    series_local.SetName("FA");
+//    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_local.GetName(),
+//                                                                             std::make_shared<Series>(series_local)));
+
+    TimeOfDay beginTod = {11, 0, 1};
+    TimeOfDay endTod = {17, 0, 0};
+    allowSeries = make_shared<Series>(series_map.find("RI")->second.GenerateTradeAllowSingal(beginTod, endTod, 3600));
+    
+    ptrader = new Trader(make_shared<Series>(series_map.find("RI")->second),
+                         make_shared<Series>(series_map.find("RI_MIN")->second),
+                         make_shared<Series>(series_map.find("RI_MAX")->second),
+                         make_shared<Series>(series_map.find("Si")->second),
+                         make_shared<Series>(series_local),
+                         allowSeries, 5, 10, 1, 200, 0.95, 86400);
     return true;
+}
+series_ptr_map_type getSubSeriesMap(const series_ptr_map_type& series_map, ulong offset, ulong interval) {
+
+    series_ptr_map_type return_map;
+    
+    for (auto& series : series_map) {
+        return_map.insert(pair<string, shared_ptr<Series>>(series.first, series.second->getSubSeries(offset, interval)));
+    }
+    
+    return return_map;
 }
 
 /*
@@ -111,7 +136,10 @@ int main(int argc, char** argv) {
     series_map_type series_map;
     Trader* ptrader = nullptr;
     series_ptr_map_type generation_series;
-    initialize_quote_data(series_map, generation_series, ptrader);
+
+    std::shared_ptr<Series> allowSeries;
+
+    initialize_quote_data(series_map, generation_series, ptrader, allowSeries);
 
     vector<std::shared_ptr<Series>> generation_series1;
     
@@ -130,19 +158,40 @@ int main(int argc, char** argv) {
         //find length of content_stream (length received using content_stream.tellp())
         content_stream.seekp(0, ios::end);
         
-        if (request->header.find("quote_hash") != request->header.end()) {
-            //initialize_quote_data(series_map, generation_series, ptrader, request->header.find("quote_hash")->second);
+        if (request->header.find("quote_hash") != request->header.end() && request->header.find("strategy_string") != request->header.end()) {
             
-            map<string, Series> series_map;
+            Generation generation(100, generation_series, *ptrader, true);
             
-            Generation generation(150, generation_series, *ptrader, true);
-            
-            std::shared_ptr<Operator> operatorTest = generation.OperatorFromString("(SMA((RI - YM), 2.277791) / (EMA((RI - SPFB.Si), 100)) + (SPFB.Si - YM) - (EMA((SPFB.Si - YM), 50)))");
+            std::shared_ptr<Operator> operatorTest = Operator::OperatorFromString(generation_series, request->header.find("strategy_string")->second);
             //std::shared_ptr<Operator> operatorTest = generation.OperatorFromString("(RI - YM)");
             std::ostringstream strs;
-            strs << generation.GetStrategyFitness(operatorTest, *ptrader);
+            
+            std::tuple<double, Series, Series, Series, Series, Series, Series> result = ptrader->Trade(operatorTest);
+            
+            strs << std::get<0>(result);
             std::string sOutput = strs.str();
             
+            OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), operatorTest);
+            std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
+            
+            /*const double stock_offset = 154000.0;
+            vector<Series> plotSeriesExtend = {std::get<1>(result), std::get<2>(result)*0.01, 0.01 * (series_map.find("RI")->second - stock_offset), 0.01 * (std::get<3>(result) - stock_offset), 0.01 * (std::get<4>(result) - stock_offset), 0.01 * (std::get<6>(result) - stock_offset)};
+            Series::GenerateCharts("plot_extend", Series::ChartsFormat::gnuplot, 1, plotSeriesExtend, "plot_extend", 1);*/
+            
+            vector<Series> plotSeriesExtend2 = {*(generation_series.find("FA")->second)};
+            Series::GenerateCharts("plot_extend2", Series::ChartsFormat::gnuplot, 1, plotSeriesExtend2, "plot_extend2", 1);
+            
+            vector<Series> plotSeries = {std::get<2>(result)};
+            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot", 1);
+            
+            //Series::GenerateCharts("plot_google", Series::ChartsFormat::google, 1, plotSeries, "", 1);
+            
+            /*vector<Series> plot_series_result = {*(generation_series.find("RI")->second), *(generation_series.find("YM")->second), *(generation_series.find("SPFB.Si")->second)};
+            Series::GenerateCharts("plot_series", Series::ChartsFormat::gnuplot, 1, plot_series_result, "plot_series", 1);
+            
+            vector<Series> plot_ri_result = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
+            Series::GenerateCharts("plot_strategy", Series::ChartsFormat::gnuplot, 1, plot_ri_result, "plot_strategy", 1);*/
+
             response <<  "HTTP/1.1 200 OK\r\nContent-Length: " << sOutput.length() << "\r\n\r\n" << sOutput;
         } else {
             response <<  "HTTP/1.1 400 Bad Request\r\n";
@@ -150,94 +199,94 @@ int main(int argc, char** argv) {
         }
     };
     
-    /*thread server_thread([&server](){
+    thread server_thread([&server](){
         server.start();
     });
-    
-    while (true) {
-        sleep(1);
-    }
 
-    return 0;*/
+    /*while (true) {
+        sleep(1);
+    }*/
+
+   // return 0;
+
+    //series_ptr_map_type current_series = generation_series;
+    ulong day_offset = 3;
+    cout << "Gen: " << day_offset << endl;
     
-  /*  TimeOfDay beginTod = {10, 0, 1};
-    TimeOfDay endTod = {17, 0, 0};
-    Series allowSeries = series_map.find("RI")->second.GenerateTradeAllowSingal(beginTod, endTod, 3600);
+    //series_ptr_map_type current_series = generation_series;
+    //ptrader->SetStock(current_series.find("RI")->second);
     
-    double scaleCoef = 1.0;
+    series_ptr_map_type current_series = getSubSeriesMap(generation_series, day_offset, 6/*78*/);
+    ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, 6),
+                      series_map.find("RI_MIN")->second.getSubSeries(day_offset, 6),
+                      series_map.find("RI_MAX")->second.getSubSeries(day_offset, 6),
+                      series_map.find("Si")->second.getSubSeries(day_offset, 6));
     
-    Trader trader(series_map.find("RI")->second, allowSeries, 10, 10, 2, 0.001);
-    */
-    Generation generation_test(40, generation_series, *ptrader, true);
-    
-    /*std::shared_ptr<Operator> operatorTest = generation_test.OperatorFromString("(SMA((RI - RI), 10) - (EMA(42.240984, 65.346053) + (SPFB.Si + SPFB.Si)))");
-    std::ostringstream strs;
-    double res = generation_test.GetStrategyFitness(operatorTest);
-    cout << res << endl;
-    
-    std::shared_ptr<Operator> operatorTest1 = generation_test.OperatorFromString("(0.0 - (EMA(42.240984, 65.346053) + (SPFB.Si + SPFB.Si)))");
-    std::ostringstream strs1;
-    double res1 = generation_test.GetStrategyFitness(operatorTest1);
-    cout << res1 << endl;*/
-    
+    //ptrader->SetAllowSeries(allowSeries->getSubSeries(day_offset, 3));
+
+    Generation generation_test(30, current_series, *ptrader, true);
     
     generation_test.GenerateRandomSeed();
     
     int generation_counter = 0;
+    bool recalc_generation = false;
     
     while(++generation_counter) {
-        generation_test.IterateGeneration();
+        cout << "Iteration: " << generation_counter << endl;
+        generation_test.IterateGeneration(recalc_generation);
+        recalc_generation = false;
         
-        if(generation_counter % 10 == 0) {
-            for (unsigned long index = 0; index < generation_test.GetGenerationCount(); index+=((double)rand() / RAND_MAX * generation_test.GetGenerationCount() / 4.0)) {
-                FactorGeneration factor_generation(generation_test.GetStrategy(index).first, generation_test.GetStrategy(index).second, 4, *ptrader);
+        if(generation_counter % 25 == 0) {
+            for (unsigned long index = 0; index < floor((double)generation_test.GetGenerationCount() / 2.0); index+=60) {
+                FactorGeneration factor_generation(generation_test.GetStrategy(index).first, generation_test.GetStrategy(index).second, 24, *ptrader);
                 
                 factor_generation.GenerateRandomSeed();
-                for (int fi = 0; fi < 6; fi ++) {
-                    generation_test.UpdateStrategy(index, pair<shared_ptr<Operator>, double>(generation_test.GetLeaderStrategy().first, factor_generation.IterateGeneration()));
+                for (int fi = 0; fi < 16; fi ++) {
+                    generation_test.UpdateStrategy(index, pair<shared_ptr<Operator>, double>(generation_test.GetStrategy(index).first, factor_generation.IterateGeneration()));
                 }
+                
+                std::shared_ptr<Operator> operator_optimized = generation_test.GetStrategy(index).first;
+                Operator::SimplifyOperator(operator_optimized);
+        
+                cout << "Optimization result: " << generation_test.GetStrategy(index).first->ToString() << " " << generation_test.GetStrategy(index).second << std::endl;
             }
+            
+            generation_test.SortStrategy();
         }
         
-        std::tuple<double, Series, Series, Series, Series, Series> result = ptrader->Trade(generation_test.GetLeaderStrategy().first);
-        //Series trade_series = std::get<2>(result);
+        std::tuple<double, Series, Series, Series, Series, Series, Series> result = ptrader->Trade(generation_test.GetLeaderStrategy().first);
         
-        //std::shared_ptr<Operator> resultOperator = generation_test.GetLeaderStrategy().first->perform();
+        OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), generation_test.GetLeaderStrategy().first);
+        std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
         
-        vector<Series> plotSeries = {std::get<2>(result)};
-        char fname[128];
-        sprintf(fname, "plot_%d", generation_counter);
-        Series::PlotGnu(fname, 1, plotSeries);
-    }
-    
-   /* while(0) {
-    std::shared_ptr<Operator> strategy = generation_test.GenerateRandom(5);
-    string res = strategy->ToString();
-    cout << res << endl << endl << endl;
-    
+        vector<Series> plotSeries = {/*std::get<1>(result),*/ std::get<2>(result)/*, *dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};//std::get<3>(result), std::get<4>(result)*/};
 
-    //Series seriesDJIEma100 = (seriesDJI/seriesDJI.SmaIndicator(100)).EmaIndicator(100);
-    //Series seriesDJIEma1000 = (seriesDJI/seriesDJI.SmaIndicator(100)).EmaIndicator(1000);
-    //Series seriesRIEma100 = (seriesRI/seriesRI.SmaIndicator(100)).EmaIndicator(100);
-    //Series seriesRIEma1000 = (seriesRI/seriesRI.SmaIndicator(100)).EmaIndicator(1000);
-    //Series seriesDiff = 2000.0 * (seriesRIEma100 - seriesRIEma1000 + seriesDJIEma100 - seriesDJIEma1000);
+        string fname("plot_");
+        fname += to_string(generation_counter);
+        Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_result");
+        
+        //vector<Series> plot_series_result = {*(generation_series.find("RI")->second), *(generation_series.find("YM")->second), *(generation_series.find("SPFB.Si")->second)};
+        vector<Series> plot_series_result = {*(ptrader->GetTradeMultiplier())};
+        Series::GenerateCharts("plot_multiplier", Series::ChartsFormat::gnuplot, 1, plot_series_result, "plot_multiplier", 1);
+        
+        /*vector<Series> plot_ri_result = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
+        Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plot_ri_result, "plot_strategy", 1);*/
 
+        if (generation_counter % 20015 == 0) {
+            day_offset++;
+            cout << "Change gen: " << day_offset << endl;
+            current_series = getSubSeriesMap(generation_series, day_offset, 20);
+            cout << "Setting stock" << endl;
+            ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, 20),
+                              series_map.find("RI_MIN")->second.getSubSeries(day_offset, 20),
+                              series_map.find("RI_MAX")->second.getSubSeries(day_offset, 20),
+                              series_map.find("Si")->second.getSubSeries(day_offset, 20));
+            //ptrader->SetAllowSeries(allowSeries->getSubSeries(day_offset, 3));
+            cout << "Setting collection" << endl;
+            generation_test.SetSeriesCollection(current_series);
+            recalc_generation = true;
 
-//    OperatorSeries seriesDJIEma100(std::make_shared<Series>((seriesDJI / seriesDJI.SmaIndicator(100))));
-//    OperatorSeries seriesRIEma100(std::make_shared<Series>((seriesRI / seriesRI.SmaIndicator(100))));
-//    OperatorAdd seriesAdd(std::make_shared<OperatorSeries>(seriesRIEma100), std::make_shared<OperatorSeries>(seriesDJIEma100));
-//    OperatorEma seriesEma(std::make_shared<OperatorAdd>(seriesAdd), 1000);
-//    std::shared_ptr<Operator> resultOperator = seriesEma.perform();
-
-    
-    
-        double trade_result = 0.0;
-        std::tuple<double, Series, Series, Series, Series> result = trader.Trade(strategy);
-        trade_result = std::get<0>(result);
-        Series trade_series = std::get<2>(result);
-    
-        cout << trade_result << endl;
-        cout << trade_series.CalculateBoundStatistic() << endl;
+        }
     }
     
 //    vector<Series> plotSeries = {trader.GetTradeLimitBuy(), trader.GetTradeLimitSell(), seriesRI, 
@@ -246,7 +295,7 @@ int main(int argc, char** argv) {
     
     //vector<Series> plotSeries = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
 //    Series::PlotGnu(1, plotSeries);
-*/
+    
     return 0;
 }
 

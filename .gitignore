@@ -1,3 +1,4 @@
 /Build/
 stock_cpp_bin
 .DS_Store
+.idea/*

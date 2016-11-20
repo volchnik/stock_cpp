@@ -30,3 +30,13 @@ std::shared_ptr<Series> OperatorSeries::getSeries() {
 std::string OperatorSeries::ToString() const {
     return std::string(series_ptr_->GetName());
 }
+
+void OperatorSeries::RefreshSerieses(map<std::string, std::shared_ptr<Series>> collection) {
+    try {
+        //cout << this->series_ptr_->GetName() << endl;
+        this->series_ptr_ = collection.find(this->series_ptr_->GetName())->second;
+    } catch(...) {
+        cout << "Dint found series: " << this->series_ptr_->GetName() << endl;
+        throw std::runtime_error("Dint found series");
+    }
+}

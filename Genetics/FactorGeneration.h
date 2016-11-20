@@ -23,8 +23,6 @@ public:
     
     void GenerateRandomSeed();
     double IterateGeneration();
-    
-    static constexpr double seed_range_ = 10.0;
 protected:
     double SortGeneration();
 private:
