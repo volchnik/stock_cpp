@@ -40,7 +40,7 @@ std::shared_ptr<Operator> Operator::OperatorFromString(map<std::string, std::sha
         {"/", OperatorBinary::operator_type::DIVIDE}
     };
     
-    std::regex regex_pattern("([a-zA-Z\\.]+)|([+-]?\\d+\\.?\\d*|\\d*\\.\\d+)|((\\()|(\\)))|((\\+)|(\\*)|(\\/)|(-))");
+    std::regex regex_pattern("([a-zA-Z\\.]+)|(\\d+\\.?\\d*|\\d*\\.\\d+)|((\\()|(\\)))|((\\+)|(\\*)|(\\/)|(-))");
     
     std::vector<std::pair<chunk_type, std::string>> source_sequence;
     

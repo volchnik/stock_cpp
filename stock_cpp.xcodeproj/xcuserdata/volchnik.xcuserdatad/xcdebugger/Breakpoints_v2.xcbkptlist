@@ -170,27 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "main(int argc, char** argv)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -602,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "initialize_quote_data(series_map_type&amp; series_map, series_ptr_map_type&amp; generation_series, Trader*&amp; ptrader, std::shared_ptr&lt;Series&gt;&amp; allowSeries, string quote_hash = &quot;&quot;)"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -634,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -906,11 +890,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -922,11 +906,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -938,11 +922,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1082,11 +1066,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1368,11 +1352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1384,11 +1368,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1400,11 +1384,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1576,11 +1560,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1700,11 +1684,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1780,11 +1764,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1844,23 +1828,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "main(int argc, char** argv)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
@@ -1876,11 +1844,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "main(int argc, char** argv)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stock_cpp/main.cpp"
+            timestampString = "501373357.884088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1892,7 +1876,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "main(int argc, char** argv)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stock_cpp/main.cpp"
+            timestampString = "501373357.884088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "main(int argc, char** argv)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stock_cpp/main.cpp"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
@@ -1908,11 +1924,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1924,43 +1940,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "main(int argc, char** argv)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "main(int argc, char** argv)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
             <Locations>
@@ -2020,11 +2004,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2036,11 +2020,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2052,11 +2036,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2068,11 +2052,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2100,11 +2084,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2132,11 +2116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2178,11 +2162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2514,11 +2498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trader.cpp"
-            timestampString = "487510163.052854"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "Trader::CalculateTradeFitness(const Series&amp; trade_position, const Series&amp; trade_account, const Series&amp; trade_account_moment, const Series&amp; trade_signal, const std::shared_ptr&lt;Operator&gt;&amp; strategy)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2592,11 +2576,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "initialize_quote_data(series_map_type&amp; series_map, series_ptr_map_type&amp; generation_series, Trader*&amp; ptrader, std::shared_ptr&lt;Series&gt;&amp; allowSeries, string quote_hash = &quot;&quot;)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2608,11 +2592,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2752,11 +2736,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2768,11 +2752,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trader.cpp"
-            timestampString = "487536611.397844"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306">
+            startingLineNumber = "303"
+            endingLineNumber = "303">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2878,11 +2862,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2894,11 +2878,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635140.068243"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2910,13 +2894,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stock_cpp/main.cpp"
-            timestampString = "488635127.125317"
+            timestampString = "501373357.884088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "main(int argc, char** argv)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operator/Operator.cpp"
+            timestampString = "501373505.368906"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "Operator::OperatorFromString(map&lt;std::string, std::shared_ptr&lt;Series&gt;&gt;&amp; series_collection, std::string operator_string)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Operator/Operator.cpp"
+            timestampString = "501373860.02196"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "Operator::OperatorFromString(map&lt;std::string, std::shared_ptr&lt;Series&gt;&gt;&amp; series_collection, std::string operator_string)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

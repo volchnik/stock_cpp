@@ -143,11 +143,20 @@ int main(int argc, char** argv) {
 
     vector<std::shared_ptr<Series>> generation_series1;
     
+    int day_offset = 3;
+    int day_len = 6;
+    series_ptr_map_type current_series = getSubSeriesMap(generation_series, day_offset, day_len);
+    
+    ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, day_len),
+                      series_map.find("RI_MIN")->second.getSubSeries(day_offset, day_len),
+                      series_map.find("RI_MAX")->second.getSubSeries(day_offset, day_len),
+                      series_map.find("Si")->second.getSubSeries(day_offset, day_len));
+    
     HttpServer server(8080, 4);
     
     //GET-example for the path /info
     //Responds with request-information
-    server.resource["^/info$"]["GET"]=[&series_map, &generation_series, &ptrader](HttpServer::Response& response, shared_ptr<HttpServer::Request> request) {
+    server.resource["^/info$"]["GET"]=[&series_map, &generation_series, &ptrader, &current_series](HttpServer::Response& response, shared_ptr<HttpServer::Request> request) {
         stringstream content_stream;
         content_stream << "<h1>Request from " << request->remote_endpoint_address << " (" << request->remote_endpoint_port << ")</h1>";
         content_stream << request->method << " " << request->path << " HTTP/" << request->http_version << "<br>";
@@ -159,30 +168,35 @@ int main(int argc, char** argv) {
         content_stream.seekp(0, ios::end);
         
         if (request->header.find("quote_hash") != request->header.end() && request->header.find("strategy_string") != request->header.end()) {
+
+            Generation generation(1, current_series, *ptrader, true);
             
-            Generation generation(100, generation_series, *ptrader, true);
-            
-            std::shared_ptr<Operator> operatorTest = Operator::OperatorFromString(generation_series, request->header.find("strategy_string")->second);
+            std::shared_ptr<Operator> operatorStrategy = Operator::OperatorFromString(generation_series, request->header.find("strategy_string")->second);
             //std::shared_ptr<Operator> operatorTest = generation.OperatorFromString("(RI - YM)");
             std::ostringstream strs;
             
-            std::tuple<double, Series, Series, Series, Series, Series, Series> result = ptrader->Trade(operatorTest);
+
             
-            strs << std::get<0>(result);
+            std::tuple<double, Series, Series, Series, Series, Series, Series> result = ptrader->Trade(operatorStrategy);
+            
+            strs << Generation::GetStrategyFitness(operatorStrategy, *ptrader);;
             std::string sOutput = strs.str();
             
-            OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), operatorTest);
-            std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
+            //vector<Series> plotSeries = {std::get<2>(result)};
+            //Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_account", 1);
+            
+//            OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), operatorTest);
+//            std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
             
             /*const double stock_offset = 154000.0;
             vector<Series> plotSeriesExtend = {std::get<1>(result), std::get<2>(result)*0.01, 0.01 * (series_map.find("RI")->second - stock_offset), 0.01 * (std::get<3>(result) - stock_offset), 0.01 * (std::get<4>(result) - stock_offset), 0.01 * (std::get<6>(result) - stock_offset)};
             Series::GenerateCharts("plot_extend", Series::ChartsFormat::gnuplot, 1, plotSeriesExtend, "plot_extend", 1);*/
             
-            vector<Series> plotSeriesExtend2 = {*(generation_series.find("FA")->second)};
-            Series::GenerateCharts("plot_extend2", Series::ChartsFormat::gnuplot, 1, plotSeriesExtend2, "plot_extend2", 1);
+            //vector<Series> plotSeriesExtend2 = {*(generation_series.find("FA")->second)};
+            //Series::GenerateCharts("plot_extend2", Series::ChartsFormat::gnuplot, 1, plotSeriesExtend2, "plot_extend2", 1);
             
-            vector<Series> plotSeries = {std::get<2>(result)};
-            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot", 1);
+            //vector<Series> plotSeries = {std::get<2>(result)};
+            //Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot", 1);
             
             //Series::GenerateCharts("plot_google", Series::ChartsFormat::google, 1, plotSeries, "", 1);
             
@@ -203,20 +217,20 @@ int main(int argc, char** argv) {
         server.start();
     });
 
-    /*while (true) {
+    while (true) {
         sleep(1);
-    }*/
+    }
 
    // return 0;
 
     //series_ptr_map_type current_series = generation_series;
-    ulong day_offset = 3;
+    day_offset = 3;
     cout << "Gen: " << day_offset << endl;
     
     //series_ptr_map_type current_series = generation_series;
     //ptrader->SetStock(current_series.find("RI")->second);
     
-    series_ptr_map_type current_series = getSubSeriesMap(generation_series, day_offset, 6/*78*/);
+    current_series = getSubSeriesMap(generation_series, day_offset, 6/*78*/);
     ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, 6),
                       series_map.find("RI_MIN")->second.getSubSeries(day_offset, 6),
                       series_map.find("RI_MAX")->second.getSubSeries(day_offset, 6),
