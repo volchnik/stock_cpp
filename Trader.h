@@ -14,7 +14,7 @@
 class Trader {
 public:
     Trader(std::shared_ptr<Series> stock, std::shared_ptr<Series> stock_min,
-           std::shared_ptr<Series> stock_max, std::shared_ptr<Series> stock_si, std::shared_ptr<Series> trade_multiplier,
+           std::shared_ptr<Series> stock_max, std::shared_ptr<Series> stock_si,
            std::shared_ptr<Series> allow,
            long timeoutAfterDeal, long update_level_interval, long maxPosition,
            double diffOffset, double stop_loss_percent,
@@ -32,7 +32,6 @@ public:
     void SetStock(std::shared_ptr<Series> stock, std::shared_ptr<Series> stock_min, std::shared_ptr<Series> stock_max,
                   std::shared_ptr<Series> stock_si);
     void SetAllowSeries(std::shared_ptr<Series> allow_series);
-    std::shared_ptr<Series> GetTradeMultiplier() { return this->trade_multiplier_; }
     
     static double GetMinimalQuoteStep(std::shared_ptr<DayOfTheYear> pday_of_year);
 
@@ -48,7 +47,6 @@ private:
     std::shared_ptr<Series> tradeStockMax_ = nullptr;
     std::shared_ptr<Series> tradeAllowSignal_ = nullptr;
     std::shared_ptr<Series> trade_si_ = nullptr;
-    std::shared_ptr<Series> trade_multiplier_ = nullptr;
     // Величина спреда для совершения сделок по сигналу (абсолютный дифференс)
     double diffOffset_;
     

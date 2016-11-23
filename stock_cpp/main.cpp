@@ -98,8 +98,6 @@ bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& gen
     
 //    Series series_local = 1.0 - (0.0005*((series_map.find("RI")->second - series_map.find("RTSI")->second * 100.0).EmaIndicator(3600) -
   //      (series_map.find("RI")->second - series_map.find("RTSI")->second * 100.0).EmaIndicator(6*86000)).EmaIndicator(24*3600)).AtanIndicator();
-    Series series_local = series_map.find("RI")->second / series_map.find("RI")->second;
-    series_local.SetName("FA");
 //    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_local.GetName(),
 //                                                                             std::make_shared<Series>(series_local)));
 
@@ -111,7 +109,6 @@ bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& gen
                          make_shared<Series>(series_map.find("RI_MIN")->second),
                          make_shared<Series>(series_map.find("RI_MAX")->second),
                          make_shared<Series>(series_map.find("Si")->second),
-                         make_shared<Series>(series_local),
                          allowSeries, 5, 10, 1, 200, 0.95, 86400);
     return true;
 }
@@ -143,8 +140,8 @@ int main(int argc, char** argv) {
 
     vector<std::shared_ptr<Series>> generation_series1;
     
-    int day_offset = 3;
-    int day_len = 6;
+    int day_offset = 5;
+    int day_len = 70;
     series_ptr_map_type current_series = getSubSeriesMap(generation_series, day_offset, day_len);
     
     ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, day_len),
@@ -175,15 +172,16 @@ int main(int argc, char** argv) {
             //std::shared_ptr<Operator> operatorTest = generation.OperatorFromString("(RI - YM)");
             std::ostringstream strs;
             
-
-            
             std::tuple<double, Series, Series, Series, Series, Series, Series> result = ptrader->Trade(operatorStrategy);
             
-            strs << Generation::GetStrategyFitness(operatorStrategy, *ptrader);;
+            strs << Generation::GetStrategyFitness(operatorStrategy, *ptrader);
             std::string sOutput = strs.str();
             
-            //vector<Series> plotSeries = {std::get<2>(result)};
-            //Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_account", 1);
+//            vector<Series> plotSeries = {std::get<2>(result)};
+//            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_account", 1);
+//            
+//            plotSeries = {std::get<6>(result)};
+//            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_signal", 1);
             
 //            OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), operatorTest);
 //            std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
@@ -280,8 +278,6 @@ int main(int argc, char** argv) {
         Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_result");
         
         //vector<Series> plot_series_result = {*(generation_series.find("RI")->second), *(generation_series.find("YM")->second), *(generation_series.find("SPFB.Si")->second)};
-        vector<Series> plot_series_result = {*(ptrader->GetTradeMultiplier())};
-        Series::GenerateCharts("plot_multiplier", Series::ChartsFormat::gnuplot, 1, plot_series_result, "plot_multiplier", 1);
         
         /*vector<Series> plot_ri_result = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
         Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plot_ri_result, "plot_strategy", 1);*/

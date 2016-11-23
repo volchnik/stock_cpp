@@ -11,12 +11,12 @@
 #include "Operator/OperatorSeries.h"
 
 Trader::Trader(std::shared_ptr<Series> stock, std::shared_ptr<Series> stock_min,
-               std::shared_ptr<Series> stock_max, std::shared_ptr<Series> stock_si, std::shared_ptr<Series> trade_multiplier,
+               std::shared_ptr<Series> stock_max, std::shared_ptr<Series> stock_si,
                std::shared_ptr<Series> allow,
                long timeoutAfterDeal, long update_level_interval, long maxPosition,
                double diffOffset, double stop_loss_percent, unsigned long start_trade_offset) :
     tradeStock_(stock), tradeStockMin_(stock_min), tradeStockMax_(stock_max),
-    trade_si_(stock_si), trade_multiplier_(trade_multiplier),
+    trade_si_(stock_si),
     tradeAllowSignal_(allow),
     timeoutAfterDeal_(timeoutAfterDeal),
     update_level_interval_(update_level_interval),
@@ -33,11 +33,7 @@ Trader::~Trader() {
 std::tuple<double, Series, Series, Series, Series, Series, Series> Trader::Trade(std::shared_ptr<Operator> signal_strategy) const {
     OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(tradeStock_->GenerateZeroBaseSeries())),
                                   signal_strategy);
-    
-    OperatorMultiply resultOperatorMultiply(std::make_shared<OperatorSeries>(this->trade_multiplier_),
-                                  std::make_shared<OperatorAdd>(resultOperatorAdd));
-    std::shared_ptr<Operator> resultOperator = resultOperatorMultiply.perform();
-    //trade_multiplier_
+    std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
     return this->Trade(*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries());
 }
 
