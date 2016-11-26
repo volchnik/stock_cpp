@@ -101,12 +101,21 @@ std::tuple<double, Series, Series, Series, Series, Series, Series> Trader::Trade
     return std::make_tuple(current_account, trade_position, trade_account, trade_limit_buy, trade_limit_sell, trade_account_moment, trade_signal);
 }
 
-Trader::operationType Trader::GetCurrentSignal(long datetime, std::shared_ptr<DayOfTheYear> pday_of_year, float value,
-                                               float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value,
-                                               int current_position, Series& trade_limit_buy,
-                                               Series& trade_limit_sell, double& limit_buy_level, double& limit_sell_level,
-                                               double& limit_buy_level_fix_deal, double& limit_sell_level_fix_deal,
-                                               long& update_level_cooldown_seconds, long& timeout_after_deal_seconds) const {
+Trader::operationType Trader::GetCurrentSignal(long datetime,
+                                               std::shared_ptr<DayOfTheYear> pday_of_year,
+                                               float value,
+                                               float trade_stock_value,
+                                               float trade_stock_min_value,
+                                               float trade_stock_max_value,
+                                               int current_position,
+                                               Series& trade_limit_buy,
+                                               Series& trade_limit_sell,
+                                               double& limit_buy_level,
+                                               double& limit_sell_level,
+                                               double& limit_buy_level_fix_deal,
+                                               double& limit_sell_level_fix_deal,
+                                               long& update_level_cooldown_seconds,
+                                               long& timeout_after_deal_seconds) const {
     
     Trader::operationType return_operation = operationType::STAY;
 

@@ -177,11 +177,11 @@ int main(int argc, char** argv) {
             strs << Generation::GetStrategyFitness(operatorStrategy, *ptrader);
             std::string sOutput = strs.str();
             
-//            vector<Series> plotSeries = {std::get<2>(result)};
-//            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_account", 1);
-//            
-//            plotSeries = {std::get<6>(result)};
-//            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_signal", 1);
+            vector<Series> plotSeries = {std::get<2>(result)};
+            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_account", 1);
+            
+            plotSeries = {std::get<6>(result)};
+            Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_signal", 1);
             
 //            OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), operatorTest);
 //            std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();

@@ -226,11 +226,11 @@ TEST(SeriesTest, OperatorEncodeDecode) {
     generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_ri.GetName(), std::make_shared<Series>(series_ri)));
     generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_dji.GetName(), std::make_shared<Series>(series_dji)));
     
-    std::string operator_test_string_1("((SMA((-40.328799 + RI), 23.277791) / (-6.124357 / RI)) / (DJI - RI))");
+    std::string operator_test_string_1("((SMA((40.328799 + RI), 23.277791) / (6.124357 / RI)) / (DJI - RI))");
     std::shared_ptr<Operator> operator_result_1 = Operator::OperatorFromString(generation_series, operator_test_string_1);
     EXPECT_EQ(operator_test_string_1, operator_result_1->ToString());
     
-    std::string operator_test_string_2("((EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (-6.124357 / RI)) - (DJI + 3.000000))");
+    std::string operator_test_string_2("((EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (6.124357 / RI)) - (DJI + 3.000000))");
     std::shared_ptr<Operator> operator_result_2 = Operator::OperatorFromString(generation_series, operator_test_string_2);
     EXPECT_EQ(operator_test_string_2, operator_result_2->ToString());
 }
@@ -278,15 +278,15 @@ TEST(SeriesTest, OperatorSimplify) {
     Operator::SimplifyOperator(operator_result_7);
     EXPECT_EQ("RI", operator_result_7->ToString());
     
-    std::string operator_test_string_8("EMA(RI, -10.3)");
+    std::string operator_test_string_8("EMA(RI, 0.3)");
     std::shared_ptr<Operator> operator_result_8 = Operator::OperatorFromString(generation_series, operator_test_string_8);
     Operator::SimplifyOperator(operator_result_8);
     EXPECT_EQ("RI", operator_result_8->ToString());
     
-    std::string operator_test_string_9("SMA((6.517391 * (-2.302582 * RI)), 52.011556)");
+    std::string operator_test_string_9("SMA((6.517391 * (2.302582 * RI)), 52.011556)");
     std::shared_ptr<Operator> operator_result_9 = Operator::OperatorFromString(generation_series, operator_test_string_9);
     Operator::SimplifyOperator(operator_result_9);
-    EXPECT_EQ("SMA((6.517391 * (-2.302582 * RI)), 52.000000)", operator_result_9->ToString());
+    EXPECT_EQ("SMA((6.517391 * (2.302582 * RI)), 52.000000)", operator_result_9->ToString());
 }
 
 TEST(SeriesTest, OperatorCrossingover) {
@@ -297,16 +297,20 @@ TEST(SeriesTest, OperatorCrossingover) {
     generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_ri.GetName(), std::make_shared<Series>(series_ri)));
     generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_dji.GetName(), std::make_shared<Series>(series_dji)));
     
-    std::string operator_test_string_1("((SMA((-40.328799 + RI), 23.277791) / (-6.124357 / RI)) / (DJI - RI))");
+    std::string operator_test_string_1("((SMA((40.328799 + RI), 23.277791) / (6.124357 / RI)) / (DJI - RI))");
     std::shared_ptr<Operator> operator_result_1 = Operator::OperatorFromString(generation_series, operator_test_string_1);
     
-    std::string operator_test_string_2("((EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (-6.124357 / RI)) - (DJI + 3.000000))");
+    std::string operator_test_string_2("((EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (6.124357 / RI)) - (DJI + 3.000000))");
     std::shared_ptr<Operator> operator_result_2 = Operator::OperatorFromString(generation_series, operator_test_string_2);
     
     std::shared_ptr<Operator>& operator_cross_1 = (dynamic_cast<OperatorBinary*>(operator_result_1.get()))->GetOperatorRight();
     std::shared_ptr<Operator>& operator_cross_2 = (dynamic_cast<OperatorBinary*>(operator_result_2.get()))->GetOperatorLeft();
     operator_cross_1.swap(operator_cross_2);
-    EXPECT_EQ("((SMA((-40.328799 + RI), 23.277791) / (-6.124357 / RI)) / (EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (-6.124357 / RI)))", operator_result_1->ToString());
+    EXPECT_EQ("((SMA((40.328799 + RI), 23.277791) / (6.124357 / RI)) / (EMA((SMA(40.328799, 2.000000) + RI), 23.277791) * (6.124357 / RI)))", operator_result_1->ToString());
+}
+
+TEST(TraderTest, GetCurrentSignal) {
+    
 }
 
 int main(int argc, char * argv[])

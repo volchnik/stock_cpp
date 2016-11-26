@@ -13,11 +13,16 @@
 
 class Trader {
 public:
-    Trader(std::shared_ptr<Series> stock, std::shared_ptr<Series> stock_min,
-           std::shared_ptr<Series> stock_max, std::shared_ptr<Series> stock_si,
+    Trader(std::shared_ptr<Series> stock,
+           std::shared_ptr<Series> stock_min,
+           std::shared_ptr<Series> stock_max,
+           std::shared_ptr<Series> stock_si,
            std::shared_ptr<Series> allow,
-           long timeoutAfterDeal, long update_level_interval, long maxPosition,
-           double diffOffset, double stop_loss_percent,
+           long timeoutAfterDeal,
+           long update_level_interval,
+           long maxPosition,
+           double diffOffset,
+           double stop_loss_percent,
            unsigned long start_trade_offset);
     virtual ~Trader();
     
@@ -27,9 +32,14 @@ public:
     enum operationType {STAY, BUY, SELL};
 
     
-    static double CalculateTradeFitness(const Series& trade_position, const Series& trade_account, const Series& trade_account_moment, const Series& trade_signal, const std::shared_ptr<Operator>& strategy);
-
-    void SetStock(std::shared_ptr<Series> stock, std::shared_ptr<Series> stock_min, std::shared_ptr<Series> stock_max,
+    static double CalculateTradeFitness(const Series& trade_position,
+                                        const Series& trade_account,
+                                        const Series& trade_account_moment,
+                                        const Series& trade_signal,
+                                        const std::shared_ptr<Operator>& strategy);
+    void SetStock(std::shared_ptr<Series> stock,
+                  std::shared_ptr<Series> stock_min,
+                  std::shared_ptr<Series> stock_max,
                   std::shared_ptr<Series> stock_si);
     void SetAllowSeries(std::shared_ptr<Series> allow_series);
     
@@ -52,15 +62,29 @@ private:
     
     long update_level_interval_;
     
-    operationType GetCurrentSignal(long datetime, std::shared_ptr<DayOfTheYear> pday_of_year,
-                                   float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value,
+    operationType GetCurrentSignal(long datetime,
+                                   std::shared_ptr<DayOfTheYear> pday_of_year,
+                                   float value, float trade_stock_value,
+                                   float trade_stock_min_value,
+                                   float trade_stock_max_value,
                                    int current_position,
-                                   Series& trade_limit_buy, Series& trade_limit_sell, double& limit_buy_level,
-                                   double& limit_sell_level, double& limit_buy_level_fix_deal, double& limit_sell_level_fix_deal,
-                                   long& update_level_cooldown_seconds, long& timeout_after_deal_seconds) const;
-    void makeDeal(operationType signal, double& current_account,
-                  int& current_position, double& current_profit,
-                  double limit_buy_level, double limit_sell_level, double si, std::shared_ptr<DayOfTheYear> pday_of_year) const;
+                                   Series& trade_limit_buy,
+                                   Series& trade_limit_sell,
+                                   double& limit_buy_level,
+                                   double& limit_sell_level,
+                                   double& limit_buy_level_fix_deal,
+                                   double& limit_sell_level_fix_deal,
+                                   long& update_level_cooldown_seconds,
+                                   long& timeout_after_deal_seconds) const;
+    
+    void makeDeal(operationType signal,
+                  double& current_account,
+                  int& current_position,
+                  double& current_profit,
+                  double limit_buy_level,
+                  double limit_sell_level,
+                  double si,
+                  std::shared_ptr<DayOfTheYear> pday_of_year) const;
 };
 
 #endif	/* TRADER_H */

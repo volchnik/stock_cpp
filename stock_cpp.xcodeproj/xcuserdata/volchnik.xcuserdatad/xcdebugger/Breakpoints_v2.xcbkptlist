@@ -1151,7 +1151,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "Trader::Trade(std::shared_ptr&lt;Operator&gt; signal_strategy)"
+            landmarkName = "Trader::Trade(const Series&amp; trade_signal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2503,7 +2503,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
             endingLineNumber = "124"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2551,7 +2551,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
             endingLineNumber = "123"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2615,7 +2615,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2631,7 +2631,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
             endingLineNumber = "196"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::makeDeal(operationType signal, double&amp; current_account, int&amp; current_position, double&amp; current_profit, double limit_buy_level, double limit_sell_level, double si, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2663,7 +2663,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2679,7 +2679,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2695,7 +2695,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
             endingLineNumber = "138"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2711,7 +2711,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
             endingLineNumber = "159"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2757,7 +2757,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
             endingLineNumber = "145"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2773,7 +2773,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
             endingLineNumber = "166"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2805,7 +2805,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
             endingLineNumber = "133"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2821,7 +2821,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds)"
+            landmarkName = "Trader::GetCurrentSignal(long datetime, std::shared_ptr&lt;DayOfTheYear&gt; pday_of_year, float value, float trade_stock_value, float trade_stock_min_value, float trade_stock_max_value, int current_position, Series&amp; trade_limit_buy, Series&amp; trade_limit_sell, double&amp; limit_buy_level, double&amp; limit_sell_level, double&amp; limit_buy_level_fix_deal, double&amp; limit_sell_level_fix_deal, long&amp; update_level_cooldown_seconds, long&amp; timeout_after_deal_seconds, long timeoutAfterDeal, shared_ptr&lt;Series&gt; tradeAllowSignal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2908,7 +2908,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Operator/Operator.cpp"
@@ -2919,6 +2919,54 @@
             endingLineNumber = "61"
             landmarkName = "Operator::OperatorFromString(map&lt;std::string, std::shared_ptr&lt;Series&gt;&gt;&amp; series_collection, std::string operator_string)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tests/main.cpp"
+            timestampString = "501840667.282878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "TEST(SeriesTest, OperatorSimplify)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tests/main.cpp"
+            timestampString = "501841800.103963"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "TEST(SeriesTest, OperatorEncodeDecode)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tests/main.cpp"
+            timestampString = "501842062.266568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "TEST(SeriesTest, OperatorEncodeDecode)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

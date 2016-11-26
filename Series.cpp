@@ -410,7 +410,6 @@ const Series Series::SmaIndicator(long delta) const {
     Series copy(*this);
     struct tm time_struct;
     
-    long series_start_time = copy.datetime_map_.begin()->second.begin_interval;
     SeriesSample prev_sample = *copy.datetime_map_.begin()->second.series_.begin();
     for (auto& datetime_series : copy.datetime_map_) {
         unsigned long offset = 0;
