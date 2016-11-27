@@ -81,6 +81,10 @@ Call Stack (most recent call first):
 -- Boost_INCLUDE_DIRS: /usr/local/include
 -- Boost_LIBRARIES: /usr/local/lib/libboost_regex-mt.dylib;/usr/local/lib/libboost_coroutine-mt.dylib;/usr/local/lib/libboost_system-mt.dylib;/usr/local/lib/libboost_filesystem-mt.dylib
 -- Boost_VERSION: 106200
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/volchnik/projects/stock_cpp/cmake-build-debug
+CMake Error at CMakeLists.txt:72 (target_link_libraries):
+  Cannot specify link libraries for target "stock_cpp" which is not built by
+  this project.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/volchnik/projects/stock_cpp/cmake-build-debug/CMakeFiles/CMakeOutput.log".

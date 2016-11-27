@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(tests)
 
-find_package(Boost 1.58.0 COMPONENTS regex coroutine system filesystem REQUIRED)
+find_package(Boost 1.62.0 COMPONENTS regex coroutine system filesystem REQUIRED)
 if(Boost_FOUND)
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
     message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
@@ -66,7 +66,7 @@ set(SOURCE_FILES
     TraderOperation.cpp
     TraderOperation.h)
 
-add_executable(stock_cpp ${SOURCE_FILES})
+add_executable(stock ${SOURCE_FILES})
 
 add_library(stock_cpp_lib STATIC ${SOURCE_FILES})
 target_link_libraries(stock_cpp stock_cpp_lib)
