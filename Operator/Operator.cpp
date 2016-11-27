@@ -142,9 +142,9 @@ std::shared_ptr<Operator> Operator::OperatorFromString(map<std::string, std::sha
                     if (operands_stack.size() < 2) {
                         throw std::invalid_argument("Invalib operands stack count");
                     }
-                    std::shared_ptr<Operator> operator_second = operands_stack.top();
+                    std::shared_ptr<Operator> operator_second = (shared_ptr<Operator> &&) operands_stack.top();
                     operands_stack.pop();
-                    std::shared_ptr<Operator> operator_first = operands_stack.top();
+                    std::shared_ptr<Operator> operator_first = (shared_ptr<Operator> &&) operands_stack.top();
                     operands_stack.pop();
                     
                     switch (operators_unary.find(chunk.second)->second) {
@@ -173,9 +173,9 @@ std::shared_ptr<Operator> Operator::OperatorFromString(map<std::string, std::sha
                 if (operands_stack.size() < 2) {
                     throw std::invalid_argument("Invalib operands stack count");
                 }
-                std::shared_ptr<Operator> operator_second = operands_stack.top();
+                std::shared_ptr<Operator> operator_second = (shared_ptr<Operator> &&) operands_stack.top();
                 operands_stack.pop();
-                std::shared_ptr<Operator> operator_first = operands_stack.top();
+                std::shared_ptr<Operator> operator_first = (shared_ptr<Operator> &&) operands_stack.top();
                 operands_stack.pop();
                 
                 if (operators_bynary.find(chunk.second) != operators_bynary.end()) {

@@ -1,11 +1,17 @@
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 3.6)
 project(stock_cpp)
 
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+add_subdirectory(tests)
 
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall")
+find_package(Boost 1.62.0 COMPONENTS regex coroutine system filesystem REQUIRED)
+if(Boost_FOUND)
+    message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
+    message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
+    message(STATUS "Boost_VERSION: ${Boost_VERSION}")
+    include_directories(${Boost_INCLUDE_DIRS})
+endif()
 
 set(SOURCE_FILES
     Genetics/FactorGeneration.cpp
@@ -18,12 +24,16 @@ set(SOURCE_FILES
     Operator/Operator.h
     Operator/OperatorAdd.cpp
     Operator/OperatorAdd.h
+    Operator/OperatorAtan.cpp
+    Operator/OperatorAtan.h
     Operator/OperatorBinary.cpp
     Operator/OperatorBinary.h
     Operator/OperatorDivide.cpp
     Operator/OperatorDivide.h
     Operator/OperatorEma.cpp
     Operator/OperatorEma.h
+    Operator/OperatorLog.cpp
+    Operator/OperatorLog.h
     Operator/OperatorMultiply.cpp
     Operator/OperatorMultiply.h
     Operator/OperatorNumber.cpp
@@ -36,10 +46,6 @@ set(SOURCE_FILES
     Operator/OperatorSubtract.h
     Operator/OperatorUnary.cpp
     Operator/OperatorUnary.h
-    Operator/OperatorAtan.cpp
-    Operator/OperatorAtan.h
-    Operator/OperatorLog.cpp
-    Operator/OperatorLog.h
     Series/TimeOfDay.h
     stock_cpp/main.cpp
     DayOfTheYear.h
@@ -60,23 +66,12 @@ set(SOURCE_FILES
     TraderOperation.cpp
     TraderOperation.h)
 
-add_definitions(-DBOOST_RANGE_ENABLE_CONCEPT_ASSERT=0)
-
-find_package(Boost COMPONENTS system filesystem regex coroutine context thread REQUIRED)
-
-if(Boost_FOUND)
-
-    message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
-    message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
-    message(STATUS "Boost_VERSION: ${Boost_VERSION}")
-
-    include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
 add_executable(stock_cpp ${SOURCE_FILES})
 
+add_library(stock_cpp_lib STATIC ${SOURCE_FILES})
+target_link_libraries(stock_cpp stock_cpp_lib)
 if(Boost_FOUND)
-
     target_link_libraries(stock_cpp ${Boost_LIBRARIES})
-
 endif()
+
+

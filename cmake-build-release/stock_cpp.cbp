@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="stock_cpp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\tests\;CMake Files\tests\lib\;CMake Files\tests\lib\googletest\;CMake Files\tests\lib\googletest\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stock_cpp">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/stock_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 stock_cpp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="stock_cpp/fast">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/stock_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 stock_cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_stock_cpp">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/test_stock_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include/gtest"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 test_stock_cpp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_stock_cpp/fast">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/test_stock_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include/gtest"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 test_stock_cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/include"/>
+					<Add directory="/Users/volchnik/projects/stock_cpp/tests/lib/googletest"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/volchnik/projects/stock_cpp/cmake-build-release/tests/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/DayOfTheYear.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Genetics/FactorGeneration.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Genetics/FactorGeneration.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Genetics/Generation.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Genetics/Generation.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Helpers.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Helpers.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/Operator.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/Operator.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorAdd.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorAdd.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorAtan.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorAtan.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorBinary.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorBinary.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorDivide.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorDivide.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorEma.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorEma.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorLog.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorLog.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorMultiply.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorMultiply.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorNumber.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorNumber.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorSeries.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorSeries.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorSma.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorSma.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorSubtract.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorSubtract.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorUnary.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Operator/OperatorUnary.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Series.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Series.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Series/TimeOfDay.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/SeriesInterval.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/SeriesSample.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/SeriesSampleExtended.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/SeriesSampleExtended.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Strategy.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Strategy.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/ThreadPool.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Trader.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/Trader.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/TraderOperation.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/TraderOperation.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/http/client_http.hpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/http/server_http.hpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/root.h">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/stock_cpp/main.cpp">
+			<Option target="stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/main.cpp">
+			<Option target="test_stock_cpp"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/volchnik/projects/stock_cpp/tests/lib/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
