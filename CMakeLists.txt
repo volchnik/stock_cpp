@@ -69,9 +69,9 @@ set(SOURCE_FILES
 add_executable(stock ${SOURCE_FILES})
 
 add_library(stock_cpp_lib STATIC ${SOURCE_FILES})
-target_link_libraries(stock_cpp stock_cpp_lib)
+target_link_libraries(stock stock_cpp_lib)
 if(Boost_FOUND)
-    target_link_libraries(stock_cpp ${Boost_LIBRARIES})
+    target_link_libraries(stock ${Boost_LIBRARIES})
 endif()
 
 
