@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_subdirectory(lib/googletest)
 
-find_package(Boost 1.62.0 COMPONENTS regex coroutine system filesystem REQUIRED)
+find_package(Boost 1.58.0 COMPONENTS regex coroutine system filesystem REQUIRED)
 if(Boost_FOUND)
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
     message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
