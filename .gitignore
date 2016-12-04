@@ -3,3 +3,4 @@ stock_cpp_bin
 .DS_Store
 .idea/*
 cmake-build-debug/*
+plot*
