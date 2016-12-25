@@ -2,13 +2,13 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="stock_cpp" targetName="gtest" />
       <config projectName="stock_cpp" targetName="stock_cpp" />
+      <config projectName="stock_cpp" targetName="stock_cpp_lib" />
       <config projectName="stock_cpp" targetName="BoostTest" />
+      <config projectName="stock_cpp" targetName="gtest" />
+      <config projectName="stock_cpp" targetName="stock" />
       <config projectName="stock_cpp" targetName="test_stock_cpp" />
       <config projectName="stock_cpp" targetName="gtest_main" />
-      <config projectName="stock_cpp" targetName="stock_cpp_lib" />
-      <config projectName="stock_cpp" targetName="stock" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true" ADDITIONAL_BUILD_OPTIONS="-j 4">
@@ -18,11 +18,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24a03f1e-079d-4323-b210-142edceaa2e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plot" afterPath="$PROJECT_DIR$/plot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plot_account.png" afterPath="$PROJECT_DIR$/plot_account.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plot_signal.png" afterPath="$PROJECT_DIR$/plot_signal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trader.cpp" afterPath="$PROJECT_DIR$/Trader.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trader.h" afterPath="$PROJECT_DIR$/Trader.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock_cpp/main.cpp" afterPath="$PROJECT_DIR$/stock_cpp/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/main.cpp" afterPath="$PROJECT_DIR$/tests/main.cpp" />
     </list>
     <ignored path="stock_cpp.iws" />
@@ -43,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Trader.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Trader.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="115" column="83" lean-forward="true" selection-start-line="115" selection-start-column="83" selection-end-line="115" selection-end-column="83" />
+            <state relative-caret-position="470">
+              <caret line="303" column="21" lean-forward="false" selection-start-line="303" selection-start-column="21" selection-end-line="303" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -56,18 +55,18 @@
       <file leaf-file-name="Trader.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="85" column="68" lean-forward="false" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
+            <state relative-caret-position="545">
+              <caret line="69" column="75" lean-forward="false" selection-start-line="69" selection-start-column="75" selection-end-line="69" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+            <state relative-caret-position="117">
+              <caret line="443" column="2" lean-forward="false" selection-start-line="443" selection-start-column="2" selection-end-line="443" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -76,8 +75,18 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="33" selection-end-line="203" selection-end-column="33" />
+            <state relative-caret-position="150">
+              <caret line="94" column="101" lean-forward="false" selection-start-line="94" selection-start-column="90" selection-end-line="94" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gtest.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="1420" column="0" lean-forward="false" selection-start-line="1420" selection-start-column="0" selection-end-line="1420" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,6 +104,10 @@
       <find>InitGoogleTest</find>
       <find>this-&gt;</find>
       <find>pair</find>
+      <find>GetCurrentSignal</find>
+      <find>operationType</find>
+      <find>trader</find>
+      <find>make_shared</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,13 +134,13 @@
         <option value="$PROJECT_DIR$/Genetics/Generation.cpp" />
         <option value="/usr/include/gtest.h" />
         <option value="$PROJECT_DIR$/tests/TEST.h" />
-        <option value="$PROJECT_DIR$/stock_cpp/main.cpp" />
         <option value="$PROJECT_DIR$/Operator/Operator.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Trader.h" />
-        <option value="$PROJECT_DIR$/Trader.cpp" />
+        <option value="$PROJECT_DIR$/stock_cpp/main.cpp" />
         <option value="$PROJECT_DIR$/tests/main.cpp" />
+        <option value="$PROJECT_DIR$/Trader.cpp" />
       </list>
     </option>
   </component>
@@ -224,12 +237,24 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-package" value="/usr/local/lib/node_modules/jscs" />
+    <property name="FullScreen" value="true" />
   </component>
-  <component name="RunManager" selected="Application.stock">
+  <component name="RunManager" selected="Google Test.All in main.cpp">
+    <configuration default="false" name="TraderTest.GetCurrentSignal" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_CLASS="TraderTest" TEST_METHOD="GetCurrentSignal" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TraderTest.GetLimitDealLevels" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_CLASS="TraderTest" TEST_METHOD="GetLimitDealLevels" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="All in main.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_PATTERN="SeriesTest.*:SeriesTest/*.*:*/SeriesTest.*/*:*/SeriesTest/*.*:TraderTest.*:TraderTest/*.*:*/TraderTest.*/*:*/TraderTest/*.*" TEST_MODE="PATTERN">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="stock_cpp" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -286,7 +311,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -417,13 +442,23 @@
       <envs />
       <method />
     </configuration>
-    <list size="5">
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Application.stock_cpp" />
       <item index="1" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="2" class="java.lang.String" itemvalue="Application.stock_cpp_lib" />
       <item index="3" class="java.lang.String" itemvalue="Application.stock" />
       <item index="4" class="java.lang.String" itemvalue="Google Test.test_stock_cpp" />
+      <item index="5" class="java.lang.String" itemvalue="Google Test.TraderTest.GetCurrentSignal" />
+      <item index="6" class="java.lang.String" itemvalue="Google Test.TraderTest.GetLimitDealLevels" />
+      <item index="7" class="java.lang.String" itemvalue="Google Test.All in main.cpp" />
     </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Google Test.All in main.cpp" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.TraderTest.GetLimitDealLevels" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.TraderTest.GetCurrentSignal" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -440,46 +475,60 @@
       <updated>1453739925913</updated>
       <workItem from="1480153328858" duration="15546000" />
       <workItem from="1480241004352" duration="3083000" />
-      <workItem from="1480757870102" duration="13048000" />
+      <workItem from="1480757870102" duration="13141000" />
+      <workItem from="1481313357296" duration="2700000" />
+      <workItem from="1481397987129" duration="25000" />
+      <workItem from="1481740701453" duration="63000" />
+      <workItem from="1481740824563" duration="80000" />
+      <workItem from="1482058444974" duration="6000" />
+      <workItem from="1482655813853" duration="15784000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_stock_cpp - 2016.11.27 at 13h 12m 41s.xml">
-      <configuration name="test_stock_cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_main_cpp - 2016.12.25 at 23h 27m 49s.xml">
+      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="test_stock_cpp - 2016.11.27 at 13h 13m 23s.xml">
-      <configuration name="test_stock_cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_main_cpp - 2016.12.25 at 23h 28m 40s.xml">
+      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="test_stock_cpp - 2016.11.27 at 13h 14m 44s.xml">
-      <configuration name="test_stock_cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="TraderTest_GetCurrentSignal - 2016.12.25 at 19h 27m 54s.xml">
+      <configuration name="TraderTest.GetCurrentSignal" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="test_stock_cpp - 2016.11.27 at 13h 16m 02s.xml">
-      <configuration name="test_stock_cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 11m 41s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="test_stock_cpp - 2016.11.27 at 13h 23m 59s.xml">
-      <configuration name="test_stock_cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 13m 57s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="test_stock_cpp - 2016.12.04 at 11h 56m 48s.xml">
-      <configuration name="test_stock_cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 15m 27s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="tests - 2016.11.26 at 22h 26m 43s.xml">
-      <configuration name="tests" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 17m 21s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 17m 40s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 31m 26s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="TraderTest_GetLimitDealLevels - 2016.12.25 at 19h 51m 06s.xml">
+      <configuration name="TraderTest.GetLimitDealLevels" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31677000" />
+    <option name="totallyTimeSpent" value="50428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2046875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -491,6 +540,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -571,8 +621,23 @@
           <line>172</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/main.cpp</url>
+          <line>414</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Trader.cpp</url>
+          <line>229</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/main.cpp</url>
+          <line>450</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="44" />
+      <option name="time" value="55" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -581,13 +646,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="1037" column="0" lean-forward="false" selection-start-line="1037" selection-start-column="0" selection-end-line="1037" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SeriesInterval.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -767,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Series.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="547" column="0" lean-forward="false" selection-start-line="547" selection-start-column="0" selection-end-line="547" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/gtest/gtest.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -785,7 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-540">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,7 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -865,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -873,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="46" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,38 +934,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
+    <entry file="file://$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="33" selection-end-line="203" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+        <state relative-caret-position="173">
+          <caret line="1420" column="0" lean-forward="false" selection-start-line="1420" selection-start-column="0" selection-end-line="1420" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="85" column="68" lean-forward="false" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
+        <state relative-caret-position="545">
+          <caret line="69" column="75" lean-forward="false" selection-start-line="69" selection-start-column="75" selection-end-line="69" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="94" column="101" lean-forward="false" selection-start-line="94" selection-start-column="90" selection-end-line="94" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Series.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="115" column="83" lean-forward="true" selection-start-line="115" selection-start-column="83" selection-end-line="115" selection-end-column="83" />
+        <state relative-caret-position="470">
+          <caret line="303" column="21" lean-forward="false" selection-start-line="303" selection-start-column="21" selection-end-line="303" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="443" column="2" lean-forward="false" selection-start-line="443" selection-start-column="2" selection-end-line="443" selection-end-column="2" />
           <folding />
         </state>
       </provider>

@@ -101,9 +101,9 @@ bool initialize_quote_data(series_map_type& series_map, series_ptr_map_type& gen
 //    generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series_local.GetName(),
 //                                                                             std::make_shared<Series>(series_local)));
 
-    TimeOfDay beginTod = {11, 0, 1};
-    TimeOfDay endTod = {17, 0, 0};
-    allowSeries = make_shared<Series>(series_map.find("RI")->second.GenerateTradeAllowSingal(beginTod, endTod, 3600));
+    TimeOfDay beginTod = {10, 10, 1};
+    TimeOfDay endTod = {17, 30, 0};
+    allowSeries = make_shared<Series>(series_map.find("RI")->second.GenerateTradeAllowSingal(beginTod, endTod, 1800));
     
     ptrader = new Trader(make_shared<Series>(series_map.find("RI")->second),
                          make_shared<Series>(series_map.find("RI_MIN")->second),

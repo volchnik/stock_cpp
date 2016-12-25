@@ -44,6 +44,31 @@ class Trader {
 
   static double GetMinimalQuoteStep(std::shared_ptr<DayOfTheYear> pday_of_year);
 
+  static operationType GetCurrentSignal(const float &trade_stock_min_value,
+                                        const float &trade_stock_max_value,
+                                        const int &current_position,
+                                        const double &limit_buy_level,
+                                        const double &limit_sell_level,
+                                        double &limit_buy_level_fix_deal,
+                                        double &limit_sell_level_fix_deal,
+                                        long &timeout_after_deal_seconds,
+                                        const long &timeoutAfterDeal,
+                                        long &update_level_cooldown_seconds,
+                                        const long& max_position);
+
+  static pair<double, double> GetLimitDealLevels(const std::shared_ptr<DayOfTheYear> &pday_of_year,
+                                                 const long &datetime,
+                                                 const int &current_position,
+                                                 const float &value,
+                                                 const float &trade_stock_value,
+                                                 const double &diffOffset,
+                                                 const long &update_level_interval,
+                                                 long &update_level_cooldown_seconds,
+                                                 const std::shared_ptr<Series> &tradeAllowSignal,
+                                                 Series &trade_limit_buy,
+                                                 Series &trade_limit_sell,
+                                                 const bool &is_limit_trade);
+
  private:
   long timeoutAfterDeal_;
   long timeoutAfterDealCooldown_;
@@ -61,29 +86,6 @@ class Trader {
   double diffOffset_;
 
   long update_level_interval_;
-
-  pair<double, double> GetLimitDealLevels(const std::shared_ptr<DayOfTheYear> &pday_of_year,
-                                                  const long &datetime,
-                                                  const int &current_position,
-                                                  const float &value,
-                                                  const float &trade_stock_value,
-                                                  const double &diffOffset,
-                                                  const long &update_level_interval,
-                                                  long &update_level_cooldown_seconds,
-                                                  const std::shared_ptr<Series> &tradeAllowSignal,
-                                                  Series &trade_limit_buy,
-                                                  Series &trade_limit_sell) const;
-
-  operationType GetCurrentSignal(const float &trade_stock_min_value,
-                                 const float &trade_stock_max_value,
-                                 const int &current_position,
-                                 const double &limit_buy_level,
-                                 const double &limit_sell_level,
-                                 double &limit_buy_level_fix_deal,
-                                 double &limit_sell_level_fix_deal,
-                                 long &timeout_after_deal_seconds,
-                                 const long &timeoutAfterDeal,
-                                 long &update_level_cooldown_seconds) const;
 
   void makeDeal(operationType signal,
                 double &current_account,

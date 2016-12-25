@@ -321,7 +321,189 @@ TEST(SeriesTest, OperatorCrossingover) {
 }
 
 TEST(TraderTest, GetCurrentSignal) {
+  double limit_buy_level_fix_deal = 0.0;
+  double limit_sell_level_fix_deal = 0.0;
+  long timeout_after_deal_seconds = 0;
+  long update_level_cooldown_seconds = 0;
 
+  Trader::operationType testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 89, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::STAY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 91, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 2, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  EXPECT_EQ(1, timeout_after_deal_seconds);
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 91, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::STAY, testOperationType);
+  EXPECT_EQ(0, timeout_after_deal_seconds);
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 91, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  EXPECT_EQ(9, timeout_after_deal_seconds);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 90, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 0, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  EXPECT_EQ(0, timeout_after_deal_seconds);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 1, 90, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::STAY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, -10, 90, 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 80, 111, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::STAY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 80, 109, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 2, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::SELL, testOperationType);
+  EXPECT_EQ(1, timeout_after_deal_seconds);
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 80, 110, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::STAY, testOperationType);
+  EXPECT_EQ(0, timeout_after_deal_seconds);
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 80, 110, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::SELL, testOperationType);
+  EXPECT_EQ(9, timeout_after_deal_seconds);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 80, 100, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 0, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::SELL, testOperationType);
+  EXPECT_EQ(0, timeout_after_deal_seconds);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, -1, 80, 100, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::STAY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 10, 80, 100, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::SELL, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 90, 110, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 100, 100, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 10, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, numeric_limits<double>::max(), 120, limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 2, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::BUY, testOperationType);
+  EXPECT_EQ(1, timeout_after_deal_seconds);
+  timeout_after_deal_seconds = 0;
+
+  testOperationType =
+      Trader::GetCurrentSignal(90, 110, 0, 80, -numeric_limits<double>::max(), limit_buy_level_fix_deal, limit_sell_level_fix_deal,
+                               timeout_after_deal_seconds, 2, update_level_cooldown_seconds, 1);
+  EXPECT_EQ(Trader::operationType::SELL, testOperationType);
+  EXPECT_EQ(1, timeout_after_deal_seconds);
+  timeout_after_deal_seconds = 0;
+}
+
+TEST(TraderTest, GetLimitDealLevels) {
+  long datetime = Helpers::GetTimeUtcFromTimezone(2014, 8, 14, 11, 10, 30, Helpers::Timezone::msk);
+  DayOfTheYear day_of_the_year(gmtime(&datetime));
+  std::shared_ptr<DayOfTheYear> day_of_the_year_ptr = std::make_shared<DayOfTheYear>(day_of_the_year);
+
+  Series series("RtsTest");
+  vector<SeriesSampleExtended> series_from_files;
+  series.LoadFromFinamTickFile(series_from_files, "../data/tests/RI/RIU4_140814_140814.txt");
+  series.Normalize(series_from_files);
+  TimeOfDay beginTod = {10, 10, 1};
+  TimeOfDay endTod = {17, 30, 0};
+  std::shared_ptr<Series> allowSeries = make_shared<Series>(series.GenerateTradeAllowSingal(beginTod, endTod, 1800));
+  Series trade_limit_buy(series);
+  Series trade_limit_sell(series);
+
+  long update_level_cooldown_seconds = 0;
+  pair<double, double> limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, 2.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.second);
+
+  update_level_cooldown_seconds = 0;
+  limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, 2000.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.second);
+
+  update_level_cooldown_seconds = 0;
+  limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, 1.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.second);
+
+  update_level_cooldown_seconds = 0;
+  limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, 0.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.second);
+
+  update_level_cooldown_seconds = 0;
+  limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, -1.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(numeric_limits<double>::max(), limits.second);
+
+  update_level_cooldown_seconds = 0;
+  limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, -2.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.second);
+
+  update_level_cooldown_seconds = 0;
+  limits =
+      Trader::GetLimitDealLevels(day_of_the_year_ptr, datetime, 0, -2000.0, 10000.0, 0, 10, update_level_cooldown_seconds,
+                                 allowSeries, trade_limit_buy, trade_limit_sell, false);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.first);
+  EXPECT_EQ(-numeric_limits<double>::max(), limits.second);
 }
 
 int main(int argc, char *argv[]) {
