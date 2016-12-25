@@ -236,7 +236,7 @@ Trader::operationType Trader::GetCurrentSignal(const float &trade_stock_min_valu
     update_level_cooldown_seconds = 0;
     timeout_after_deal_seconds = timeoutAfterDeal;
     return_operation = operationType::BUY;
-    limit_buy_level_fix_deal = limit_buy_level;
+    limit_buy_level_fix_deal = (trade_stock_max_value + trade_stock_min_value) / 2.0;
 
   } else if ((current_position > 0 || max_position > labs(current_position)) &&
       timeout_after_deal_seconds == 0 &&
@@ -245,7 +245,7 @@ Trader::operationType Trader::GetCurrentSignal(const float &trade_stock_min_valu
     update_level_cooldown_seconds = 0;
     timeout_after_deal_seconds = timeoutAfterDeal;
     return_operation = operationType::SELL;
-    limit_sell_level_fix_deal = limit_sell_level;
+    limit_sell_level_fix_deal = (trade_stock_max_value + trade_stock_min_value) / 2.0;
   }
 
   if (timeout_after_deal_seconds) {

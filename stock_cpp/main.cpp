@@ -140,14 +140,14 @@ int main(int argc, char** argv) {
 
     vector<std::shared_ptr<Series>> generation_series1;
     
-    int day_offset = 5;
-    int day_len = 70;
-    series_ptr_map_type current_series = getSubSeriesMap(generation_series, day_offset, day_len);
+    /*int day_offset = 1;
+    int day_len = 5;*/
+    series_ptr_map_type current_series(generation_series);//getSubSeriesMap(generation_series, day_offset, day_len);
     
-    ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, day_len),
+    /*ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, day_len),
                       series_map.find("RI_MIN")->second.getSubSeries(day_offset, day_len),
                       series_map.find("RI_MAX")->second.getSubSeries(day_offset, day_len),
-                      series_map.find("Si")->second.getSubSeries(day_offset, day_len));
+                      series_map.find("Si")->second.getSubSeries(day_offset, day_len));*/
     
     HttpServer server(8080, 4);
     
@@ -221,19 +221,19 @@ int main(int argc, char** argv) {
 
    // return 0;
 
-    //series_ptr_map_type current_series = generation_series;
+    /*//series_ptr_map_type current_series = generation_series;
     day_offset = 3;
     cout << "Gen: " << day_offset << endl;
     
     //series_ptr_map_type current_series = generation_series;
     //ptrader->SetStock(current_series.find("RI")->second);
     
-    current_series = getSubSeriesMap(generation_series, day_offset, 6/*78*/);
+    current_series = getSubSeriesMap(generation_series, day_offset, 6*//*78*//*);
     ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, 6),
                       series_map.find("RI_MIN")->second.getSubSeries(day_offset, 6),
                       series_map.find("RI_MAX")->second.getSubSeries(day_offset, 6),
                       series_map.find("Si")->second.getSubSeries(day_offset, 6));
-    
+
     //ptrader->SetAllowSeries(allowSeries->getSubSeries(day_offset, 3));
 
     Generation generation_test(30, current_series, *ptrader, true);
@@ -271,16 +271,16 @@ int main(int argc, char** argv) {
         OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), generation_test.GetLeaderStrategy().first);
         std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
         
-        vector<Series> plotSeries = {/*std::get<1>(result),*/ std::get<2>(result)/*, *dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};//std::get<3>(result), std::get<4>(result)*/};
+        vector<Series> plotSeries = {*//*std::get<1>(result),*//* std::get<2>(result)*//*, *dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};//std::get<3>(result), std::get<4>(result)*//*};
 
         string fname("plot_");
         fname += to_string(generation_counter);
         Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_result");
-        
+
         //vector<Series> plot_series_result = {*(generation_series.find("RI")->second), *(generation_series.find("YM")->second), *(generation_series.find("SPFB.Si")->second)};
-        
-        /*vector<Series> plot_ri_result = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
-        Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plot_ri_result, "plot_strategy", 1);*/
+
+        *//*vector<Series> plot_ri_result = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
+        Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plot_ri_result, "plot_strategy", 1);*//*
 
         if (generation_counter % 20015 == 0) {
             day_offset++;
@@ -306,6 +306,6 @@ int main(int argc, char** argv) {
     //vector<Series> plotSeries = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
 //    Series::PlotGnu(1, plotSeries);
     
-    return 0;
+    return 0;*/
 }
 
