@@ -2,23 +2,42 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="stock_cpp" targetName="stock_cpp" />
-      <config projectName="stock_cpp" targetName="stock_cpp_lib" />
-      <config projectName="stock_cpp" targetName="BoostTest" />
       <config projectName="stock_cpp" targetName="gtest" />
-      <config projectName="stock_cpp" targetName="stock" />
+      <config projectName="stock_cpp" targetName="stock_cpp" />
+      <config projectName="stock_cpp" targetName="BoostTest" />
       <config projectName="stock_cpp" targetName="test_stock_cpp" />
       <config projectName="stock_cpp" targetName="gtest_main" />
+      <config projectName="stock_cpp" targetName="stock_cpp_lib" />
+      <config projectName="stock_cpp" targetName="stock" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true" ADDITIONAL_BUILD_OPTIONS="-j 4">
     <configurations>
-      <configuration CONFIG_NAME="Debug" />
+      <configuration CONFIG_NAME="Release" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24a03f1e-079d-4323-b210-142edceaa2e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trader.cpp" afterPath="$PROJECT_DIR$/Trader.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeCache.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/TargetDirectories.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/clion-log.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/Makefile" afterPath="$PROJECT_DIR$/cmake-build-release/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/stock_cpp.cbp" afterPath="$PROJECT_DIR$/cmake-build-release/stock_cpp.cbp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/link.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-release/tests/CMakeFiles/test_stock_cpp.dir/progress.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest_main.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/CMakeFiles/gtest_main.dir/flags.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/gtest.cbp" afterPath="$PROJECT_DIR$/cmake-build-release/tests/lib/googletest/gtest.cbp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-release/tests/test_stock_cpp.cbp" afterPath="$PROJECT_DIR$/cmake-build-release/tests/test_stock_cpp.cbp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock_cpp/main.cpp" afterPath="$PROJECT_DIR$/stock_cpp/main.cpp" />
     </list>
     <ignored path="stock_cpp.iws" />
@@ -42,7 +61,7 @@
       <file leaf-file-name="Trader.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1838">
+            <state relative-caret-position="2535">
               <caret line="169" column="41" lean-forward="false" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
               <folding />
             </state>
@@ -52,7 +71,7 @@
       <file leaf-file-name="Trader.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
+            <state relative-caret-position="1035">
               <caret line="69" column="75" lean-forward="false" selection-start-line="69" selection-start-column="75" selection-end-line="69" selection-end-column="75" />
               <folding />
             </state>
@@ -62,8 +81,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="212" column="4" lean-forward="true" selection-start-line="212" selection-start-column="4" selection-end-line="212" selection-end-column="4" />
+            <state relative-caret-position="507">
+              <caret line="189" column="40" lean-forward="false" selection-start-line="189" selection-start-column="40" selection-end-line="189" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -72,7 +91,7 @@
       <file leaf-file-name="map" pinned="false" current-in-tab="false">
         <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="16335">
               <caret line="1089" column="0" lean-forward="false" selection-start-line="1089" selection-start-column="0" selection-end-line="1089" selection-end-column="0" />
               <folding />
             </state>
@@ -82,7 +101,7 @@
       <file leaf-file-name="server_http.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/http/server_http.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
+            <state relative-caret-position="4920">
               <caret line="328" column="0" lean-forward="false" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
               <folding />
             </state>
@@ -92,7 +111,7 @@
       <file leaf-file-name="throw_exception.hpp" pinned="false" current-in-tab="false">
         <entry file="file:///usr/local/include/boost/throw_exception.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
+            <state relative-caret-position="1020">
               <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
@@ -102,7 +121,7 @@
       <file leaf-file-name="Series.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Series.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="6975">
               <caret line="465" column="0" lean-forward="false" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
               <folding />
             </state>
@@ -112,7 +131,7 @@
       <file leaf-file-name="vector" pinned="false" current-in-tab="false">
         <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="14010">
               <caret line="934" column="0" lean-forward="false" selection-start-line="934" selection-start-column="0" selection-end-line="934" selection-end-column="0" />
               <folding />
             </state>
@@ -122,7 +141,7 @@
       <file leaf-file-name="gtest.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="21300">
               <caret line="1420" column="0" lean-forward="false" selection-start-line="1420" selection-start-column="0" selection-end-line="1420" selection-end-column="0" />
               <folding />
             </state>
@@ -471,7 +490,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="stock" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="stock" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="stock">
+    <configuration default="false" name="stock" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="stock" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="stock">
       <envs />
       <method />
     </configuration>
@@ -518,7 +537,8 @@
       <workItem from="1481740701453" duration="63000" />
       <workItem from="1481740824563" duration="80000" />
       <workItem from="1482058444974" duration="6000" />
-      <workItem from="1482655813853" duration="21273000" />
+      <workItem from="1482655813853" duration="21427000" />
+      <workItem from="1482786140984" duration="817000" />
     </task>
     <servers />
   </component>
@@ -555,7 +575,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55917000" />
+    <option name="totallyTimeSpent" value="56888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -932,7 +952,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="21300">
           <caret line="1420" column="0" lean-forward="false" selection-start-line="1420" selection-start-column="0" selection-end-line="1420" selection-end-column="0" />
           <folding />
         </state>
@@ -948,7 +968,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
+        <state relative-caret-position="1035">
           <caret line="69" column="75" lean-forward="false" selection-start-line="69" selection-start-column="75" selection-end-line="69" selection-end-column="75" />
           <folding />
         </state>
@@ -956,7 +976,7 @@
     </entry>
     <entry file="file:///usr/local/include/boost/throw_exception.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="1020">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
@@ -964,7 +984,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/http/server_http.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
+        <state relative-caret-position="4920">
           <caret line="328" column="0" lean-forward="false" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
           <folding />
         </state>
@@ -972,7 +992,7 @@
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="16335">
           <caret line="1089" column="0" lean-forward="false" selection-start-line="1089" selection-start-column="0" selection-end-line="1089" selection-end-column="0" />
           <folding />
         </state>
@@ -982,13 +1002,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="14010">
           <caret line="934" column="0" lean-forward="false" selection-start-line="934" selection-start-column="0" selection-end-line="934" selection-end-column="0" />
           <folding />
         </state>
@@ -996,7 +1015,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Series.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="6975">
           <caret line="465" column="0" lean-forward="false" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
           <folding />
         </state>
@@ -1004,7 +1023,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1838">
+        <state relative-caret-position="2535">
           <caret line="169" column="41" lean-forward="false" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
           <folding />
         </state>
@@ -1012,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="212" column="4" lean-forward="true" selection-start-line="212" selection-start-column="4" selection-end-line="212" selection-end-column="4" />
+        <state relative-caret-position="507">
+          <caret line="189" column="40" lean-forward="false" selection-start-line="189" selection-start-column="40" selection-end-line="189" selection-end-column="40" />
           <folding />
         </state>
       </provider>
