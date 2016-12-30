@@ -26,6 +26,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeFindBinUtils.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeFindCodeBlocks.cmake"
+  "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeFindDependencyMacro.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeGenericSystem.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeLanguageInformation.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/CMakeParseArguments.cmake"
@@ -104,9 +105,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/Platform/UnixPaths.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/share/cmake-3.6/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
-  "CMakeFiles/3.6.2/CMakeCCompiler.cmake"
-  "CMakeFiles/3.6.2/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.6.2/CMakeSystem.cmake"
+  "CMakeFiles/3.6.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.6.3/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.6.3/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
   "../tests/CMakeLists.txt"
@@ -122,11 +123,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.6.2/CMakeSystem.cmake"
-  "CMakeFiles/3.6.2/CMakeCCompiler.cmake"
-  "CMakeFiles/3.6.2/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.6.2/CMakeCCompiler.cmake"
-  "CMakeFiles/3.6.2/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.6.3/CMakeSystem.cmake"
+  "CMakeFiles/3.6.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.6.3/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.6.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.6.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tests/lib/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -134,7 +135,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/stock_cpp.dir/DependInfo.cmake"
+  "CMakeFiles/stock_cpp_lib.dir/DependInfo.cmake"
+  "CMakeFiles/stock.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_stock_cpp.dir/DependInfo.cmake"
   "tests/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "tests/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"

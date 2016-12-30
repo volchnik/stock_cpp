@@ -33,8 +33,6 @@ class Trader {
 
   static double CalculateTradeFitness(const Series &trade_position,
                                       const Series &trade_account,
-                                      const Series &trade_account_moment,
-                                      const Series &trade_signal,
                                       const std::shared_ptr<Operator> &strategy);
   void SetStock(std::shared_ptr<Series> stock,
                 std::shared_ptr<Series> stock_min,

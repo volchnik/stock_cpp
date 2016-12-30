@@ -316,8 +316,6 @@ double Generation::GetStrategyFitness(const std::shared_ptr<Operator> &strategy,
   std::tuple<double, Series, Series, Series, Series, Series, Series> result = trader.Trade(strategy);
   return trader.CalculateTradeFitness(std::get<1>(result),
                                       std::get<2>(result),
-                                      std::get<5>(result),
-                                      std::get<6>(result),
                                       strategy);
 }
 

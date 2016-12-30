@@ -88,6 +88,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -110,17 +121,6 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -155,17 +155,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named stock_cpp
+# Target rules for targets named stock_cpp_lib
 
 # Build rule for target.
-stock_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stock_cpp
-.PHONY : stock_cpp
+stock_cpp_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stock_cpp_lib
+.PHONY : stock_cpp_lib
 
 # fast build rule for target.
-stock_cpp/fast:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/build
-.PHONY : stock_cpp/fast
+stock_cpp_lib/fast:
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/build
+.PHONY : stock_cpp_lib/fast
+
+#=============================================================================
+# Target rules for targets named stock
+
+# Build rule for target.
+stock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stock
+.PHONY : stock
+
+# fast build rule for target.
+stock/fast:
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/build
+.PHONY : stock/fast
 
 #=============================================================================
 # Target rules for targets named test_stock_cpp
@@ -212,7 +225,8 @@ Genetics/FactorGeneration.o: Genetics/FactorGeneration.cpp.o
 
 # target to build an object file
 Genetics/FactorGeneration.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Genetics/FactorGeneration.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Genetics/FactorGeneration.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Genetics/FactorGeneration.cpp.o
 .PHONY : Genetics/FactorGeneration.cpp.o
 
 Genetics/FactorGeneration.i: Genetics/FactorGeneration.cpp.i
@@ -221,7 +235,8 @@ Genetics/FactorGeneration.i: Genetics/FactorGeneration.cpp.i
 
 # target to preprocess a source file
 Genetics/FactorGeneration.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Genetics/FactorGeneration.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Genetics/FactorGeneration.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Genetics/FactorGeneration.cpp.i
 .PHONY : Genetics/FactorGeneration.cpp.i
 
 Genetics/FactorGeneration.s: Genetics/FactorGeneration.cpp.s
@@ -230,7 +245,8 @@ Genetics/FactorGeneration.s: Genetics/FactorGeneration.cpp.s
 
 # target to generate assembly for a file
 Genetics/FactorGeneration.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Genetics/FactorGeneration.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Genetics/FactorGeneration.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Genetics/FactorGeneration.cpp.s
 .PHONY : Genetics/FactorGeneration.cpp.s
 
 Genetics/Generation.o: Genetics/Generation.cpp.o
@@ -239,7 +255,8 @@ Genetics/Generation.o: Genetics/Generation.cpp.o
 
 # target to build an object file
 Genetics/Generation.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Genetics/Generation.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Genetics/Generation.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Genetics/Generation.cpp.o
 .PHONY : Genetics/Generation.cpp.o
 
 Genetics/Generation.i: Genetics/Generation.cpp.i
@@ -248,7 +265,8 @@ Genetics/Generation.i: Genetics/Generation.cpp.i
 
 # target to preprocess a source file
 Genetics/Generation.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Genetics/Generation.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Genetics/Generation.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Genetics/Generation.cpp.i
 .PHONY : Genetics/Generation.cpp.i
 
 Genetics/Generation.s: Genetics/Generation.cpp.s
@@ -257,7 +275,8 @@ Genetics/Generation.s: Genetics/Generation.cpp.s
 
 # target to generate assembly for a file
 Genetics/Generation.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Genetics/Generation.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Genetics/Generation.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Genetics/Generation.cpp.s
 .PHONY : Genetics/Generation.cpp.s
 
 Helpers.o: Helpers.cpp.o
@@ -266,7 +285,8 @@ Helpers.o: Helpers.cpp.o
 
 # target to build an object file
 Helpers.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Helpers.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Helpers.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Helpers.cpp.o
 .PHONY : Helpers.cpp.o
 
 Helpers.i: Helpers.cpp.i
@@ -275,7 +295,8 @@ Helpers.i: Helpers.cpp.i
 
 # target to preprocess a source file
 Helpers.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Helpers.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Helpers.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Helpers.cpp.i
 .PHONY : Helpers.cpp.i
 
 Helpers.s: Helpers.cpp.s
@@ -284,7 +305,8 @@ Helpers.s: Helpers.cpp.s
 
 # target to generate assembly for a file
 Helpers.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Helpers.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Helpers.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Helpers.cpp.s
 .PHONY : Helpers.cpp.s
 
 Operator/Operator.o: Operator/Operator.cpp.o
@@ -293,7 +315,8 @@ Operator/Operator.o: Operator/Operator.cpp.o
 
 # target to build an object file
 Operator/Operator.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/Operator.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/Operator.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/Operator.cpp.o
 .PHONY : Operator/Operator.cpp.o
 
 Operator/Operator.i: Operator/Operator.cpp.i
@@ -302,7 +325,8 @@ Operator/Operator.i: Operator/Operator.cpp.i
 
 # target to preprocess a source file
 Operator/Operator.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/Operator.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/Operator.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/Operator.cpp.i
 .PHONY : Operator/Operator.cpp.i
 
 Operator/Operator.s: Operator/Operator.cpp.s
@@ -311,7 +335,8 @@ Operator/Operator.s: Operator/Operator.cpp.s
 
 # target to generate assembly for a file
 Operator/Operator.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/Operator.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/Operator.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/Operator.cpp.s
 .PHONY : Operator/Operator.cpp.s
 
 Operator/OperatorAdd.o: Operator/OperatorAdd.cpp.o
@@ -320,7 +345,8 @@ Operator/OperatorAdd.o: Operator/OperatorAdd.cpp.o
 
 # target to build an object file
 Operator/OperatorAdd.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorAdd.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorAdd.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorAdd.cpp.o
 .PHONY : Operator/OperatorAdd.cpp.o
 
 Operator/OperatorAdd.i: Operator/OperatorAdd.cpp.i
@@ -329,7 +355,8 @@ Operator/OperatorAdd.i: Operator/OperatorAdd.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorAdd.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorAdd.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorAdd.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorAdd.cpp.i
 .PHONY : Operator/OperatorAdd.cpp.i
 
 Operator/OperatorAdd.s: Operator/OperatorAdd.cpp.s
@@ -338,7 +365,8 @@ Operator/OperatorAdd.s: Operator/OperatorAdd.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorAdd.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorAdd.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorAdd.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorAdd.cpp.s
 .PHONY : Operator/OperatorAdd.cpp.s
 
 Operator/OperatorAtan.o: Operator/OperatorAtan.cpp.o
@@ -347,7 +375,8 @@ Operator/OperatorAtan.o: Operator/OperatorAtan.cpp.o
 
 # target to build an object file
 Operator/OperatorAtan.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorAtan.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorAtan.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorAtan.cpp.o
 .PHONY : Operator/OperatorAtan.cpp.o
 
 Operator/OperatorAtan.i: Operator/OperatorAtan.cpp.i
@@ -356,7 +385,8 @@ Operator/OperatorAtan.i: Operator/OperatorAtan.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorAtan.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorAtan.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorAtan.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorAtan.cpp.i
 .PHONY : Operator/OperatorAtan.cpp.i
 
 Operator/OperatorAtan.s: Operator/OperatorAtan.cpp.s
@@ -365,7 +395,8 @@ Operator/OperatorAtan.s: Operator/OperatorAtan.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorAtan.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorAtan.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorAtan.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorAtan.cpp.s
 .PHONY : Operator/OperatorAtan.cpp.s
 
 Operator/OperatorBinary.o: Operator/OperatorBinary.cpp.o
@@ -374,7 +405,8 @@ Operator/OperatorBinary.o: Operator/OperatorBinary.cpp.o
 
 # target to build an object file
 Operator/OperatorBinary.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorBinary.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorBinary.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorBinary.cpp.o
 .PHONY : Operator/OperatorBinary.cpp.o
 
 Operator/OperatorBinary.i: Operator/OperatorBinary.cpp.i
@@ -383,7 +415,8 @@ Operator/OperatorBinary.i: Operator/OperatorBinary.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorBinary.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorBinary.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorBinary.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorBinary.cpp.i
 .PHONY : Operator/OperatorBinary.cpp.i
 
 Operator/OperatorBinary.s: Operator/OperatorBinary.cpp.s
@@ -392,7 +425,8 @@ Operator/OperatorBinary.s: Operator/OperatorBinary.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorBinary.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorBinary.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorBinary.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorBinary.cpp.s
 .PHONY : Operator/OperatorBinary.cpp.s
 
 Operator/OperatorDivide.o: Operator/OperatorDivide.cpp.o
@@ -401,7 +435,8 @@ Operator/OperatorDivide.o: Operator/OperatorDivide.cpp.o
 
 # target to build an object file
 Operator/OperatorDivide.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorDivide.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorDivide.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorDivide.cpp.o
 .PHONY : Operator/OperatorDivide.cpp.o
 
 Operator/OperatorDivide.i: Operator/OperatorDivide.cpp.i
@@ -410,7 +445,8 @@ Operator/OperatorDivide.i: Operator/OperatorDivide.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorDivide.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorDivide.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorDivide.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorDivide.cpp.i
 .PHONY : Operator/OperatorDivide.cpp.i
 
 Operator/OperatorDivide.s: Operator/OperatorDivide.cpp.s
@@ -419,7 +455,8 @@ Operator/OperatorDivide.s: Operator/OperatorDivide.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorDivide.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorDivide.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorDivide.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorDivide.cpp.s
 .PHONY : Operator/OperatorDivide.cpp.s
 
 Operator/OperatorEma.o: Operator/OperatorEma.cpp.o
@@ -428,7 +465,8 @@ Operator/OperatorEma.o: Operator/OperatorEma.cpp.o
 
 # target to build an object file
 Operator/OperatorEma.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorEma.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorEma.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorEma.cpp.o
 .PHONY : Operator/OperatorEma.cpp.o
 
 Operator/OperatorEma.i: Operator/OperatorEma.cpp.i
@@ -437,7 +475,8 @@ Operator/OperatorEma.i: Operator/OperatorEma.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorEma.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorEma.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorEma.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorEma.cpp.i
 .PHONY : Operator/OperatorEma.cpp.i
 
 Operator/OperatorEma.s: Operator/OperatorEma.cpp.s
@@ -446,7 +485,8 @@ Operator/OperatorEma.s: Operator/OperatorEma.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorEma.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorEma.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorEma.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorEma.cpp.s
 .PHONY : Operator/OperatorEma.cpp.s
 
 Operator/OperatorLog.o: Operator/OperatorLog.cpp.o
@@ -455,7 +495,8 @@ Operator/OperatorLog.o: Operator/OperatorLog.cpp.o
 
 # target to build an object file
 Operator/OperatorLog.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorLog.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorLog.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorLog.cpp.o
 .PHONY : Operator/OperatorLog.cpp.o
 
 Operator/OperatorLog.i: Operator/OperatorLog.cpp.i
@@ -464,7 +505,8 @@ Operator/OperatorLog.i: Operator/OperatorLog.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorLog.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorLog.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorLog.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorLog.cpp.i
 .PHONY : Operator/OperatorLog.cpp.i
 
 Operator/OperatorLog.s: Operator/OperatorLog.cpp.s
@@ -473,7 +515,8 @@ Operator/OperatorLog.s: Operator/OperatorLog.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorLog.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorLog.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorLog.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorLog.cpp.s
 .PHONY : Operator/OperatorLog.cpp.s
 
 Operator/OperatorMultiply.o: Operator/OperatorMultiply.cpp.o
@@ -482,7 +525,8 @@ Operator/OperatorMultiply.o: Operator/OperatorMultiply.cpp.o
 
 # target to build an object file
 Operator/OperatorMultiply.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorMultiply.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorMultiply.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorMultiply.cpp.o
 .PHONY : Operator/OperatorMultiply.cpp.o
 
 Operator/OperatorMultiply.i: Operator/OperatorMultiply.cpp.i
@@ -491,7 +535,8 @@ Operator/OperatorMultiply.i: Operator/OperatorMultiply.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorMultiply.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorMultiply.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorMultiply.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorMultiply.cpp.i
 .PHONY : Operator/OperatorMultiply.cpp.i
 
 Operator/OperatorMultiply.s: Operator/OperatorMultiply.cpp.s
@@ -500,7 +545,8 @@ Operator/OperatorMultiply.s: Operator/OperatorMultiply.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorMultiply.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorMultiply.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorMultiply.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorMultiply.cpp.s
 .PHONY : Operator/OperatorMultiply.cpp.s
 
 Operator/OperatorNumber.o: Operator/OperatorNumber.cpp.o
@@ -509,7 +555,8 @@ Operator/OperatorNumber.o: Operator/OperatorNumber.cpp.o
 
 # target to build an object file
 Operator/OperatorNumber.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorNumber.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorNumber.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorNumber.cpp.o
 .PHONY : Operator/OperatorNumber.cpp.o
 
 Operator/OperatorNumber.i: Operator/OperatorNumber.cpp.i
@@ -518,7 +565,8 @@ Operator/OperatorNumber.i: Operator/OperatorNumber.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorNumber.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorNumber.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorNumber.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorNumber.cpp.i
 .PHONY : Operator/OperatorNumber.cpp.i
 
 Operator/OperatorNumber.s: Operator/OperatorNumber.cpp.s
@@ -527,7 +575,8 @@ Operator/OperatorNumber.s: Operator/OperatorNumber.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorNumber.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorNumber.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorNumber.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorNumber.cpp.s
 .PHONY : Operator/OperatorNumber.cpp.s
 
 Operator/OperatorSeries.o: Operator/OperatorSeries.cpp.o
@@ -536,7 +585,8 @@ Operator/OperatorSeries.o: Operator/OperatorSeries.cpp.o
 
 # target to build an object file
 Operator/OperatorSeries.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSeries.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSeries.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSeries.cpp.o
 .PHONY : Operator/OperatorSeries.cpp.o
 
 Operator/OperatorSeries.i: Operator/OperatorSeries.cpp.i
@@ -545,7 +595,8 @@ Operator/OperatorSeries.i: Operator/OperatorSeries.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorSeries.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSeries.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSeries.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSeries.cpp.i
 .PHONY : Operator/OperatorSeries.cpp.i
 
 Operator/OperatorSeries.s: Operator/OperatorSeries.cpp.s
@@ -554,7 +605,8 @@ Operator/OperatorSeries.s: Operator/OperatorSeries.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorSeries.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSeries.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSeries.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSeries.cpp.s
 .PHONY : Operator/OperatorSeries.cpp.s
 
 Operator/OperatorSma.o: Operator/OperatorSma.cpp.o
@@ -563,7 +615,8 @@ Operator/OperatorSma.o: Operator/OperatorSma.cpp.o
 
 # target to build an object file
 Operator/OperatorSma.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSma.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSma.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSma.cpp.o
 .PHONY : Operator/OperatorSma.cpp.o
 
 Operator/OperatorSma.i: Operator/OperatorSma.cpp.i
@@ -572,7 +625,8 @@ Operator/OperatorSma.i: Operator/OperatorSma.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorSma.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSma.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSma.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSma.cpp.i
 .PHONY : Operator/OperatorSma.cpp.i
 
 Operator/OperatorSma.s: Operator/OperatorSma.cpp.s
@@ -581,7 +635,8 @@ Operator/OperatorSma.s: Operator/OperatorSma.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorSma.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSma.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSma.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSma.cpp.s
 .PHONY : Operator/OperatorSma.cpp.s
 
 Operator/OperatorSubtract.o: Operator/OperatorSubtract.cpp.o
@@ -590,7 +645,8 @@ Operator/OperatorSubtract.o: Operator/OperatorSubtract.cpp.o
 
 # target to build an object file
 Operator/OperatorSubtract.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSubtract.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSubtract.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSubtract.cpp.o
 .PHONY : Operator/OperatorSubtract.cpp.o
 
 Operator/OperatorSubtract.i: Operator/OperatorSubtract.cpp.i
@@ -599,7 +655,8 @@ Operator/OperatorSubtract.i: Operator/OperatorSubtract.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorSubtract.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSubtract.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSubtract.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSubtract.cpp.i
 .PHONY : Operator/OperatorSubtract.cpp.i
 
 Operator/OperatorSubtract.s: Operator/OperatorSubtract.cpp.s
@@ -608,7 +665,8 @@ Operator/OperatorSubtract.s: Operator/OperatorSubtract.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorSubtract.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorSubtract.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorSubtract.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorSubtract.cpp.s
 .PHONY : Operator/OperatorSubtract.cpp.s
 
 Operator/OperatorUnary.o: Operator/OperatorUnary.cpp.o
@@ -617,7 +675,8 @@ Operator/OperatorUnary.o: Operator/OperatorUnary.cpp.o
 
 # target to build an object file
 Operator/OperatorUnary.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorUnary.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorUnary.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorUnary.cpp.o
 .PHONY : Operator/OperatorUnary.cpp.o
 
 Operator/OperatorUnary.i: Operator/OperatorUnary.cpp.i
@@ -626,7 +685,8 @@ Operator/OperatorUnary.i: Operator/OperatorUnary.cpp.i
 
 # target to preprocess a source file
 Operator/OperatorUnary.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorUnary.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorUnary.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorUnary.cpp.i
 .PHONY : Operator/OperatorUnary.cpp.i
 
 Operator/OperatorUnary.s: Operator/OperatorUnary.cpp.s
@@ -635,7 +695,8 @@ Operator/OperatorUnary.s: Operator/OperatorUnary.cpp.s
 
 # target to generate assembly for a file
 Operator/OperatorUnary.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Operator/OperatorUnary.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Operator/OperatorUnary.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Operator/OperatorUnary.cpp.s
 .PHONY : Operator/OperatorUnary.cpp.s
 
 Series.o: Series.cpp.o
@@ -644,7 +705,8 @@ Series.o: Series.cpp.o
 
 # target to build an object file
 Series.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Series.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Series.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Series.cpp.o
 .PHONY : Series.cpp.o
 
 Series.i: Series.cpp.i
@@ -653,7 +715,8 @@ Series.i: Series.cpp.i
 
 # target to preprocess a source file
 Series.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Series.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Series.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Series.cpp.i
 .PHONY : Series.cpp.i
 
 Series.s: Series.cpp.s
@@ -662,7 +725,8 @@ Series.s: Series.cpp.s
 
 # target to generate assembly for a file
 Series.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Series.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Series.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Series.cpp.s
 .PHONY : Series.cpp.s
 
 SeriesSampleExtended.o: SeriesSampleExtended.cpp.o
@@ -671,7 +735,8 @@ SeriesSampleExtended.o: SeriesSampleExtended.cpp.o
 
 # target to build an object file
 SeriesSampleExtended.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/SeriesSampleExtended.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/SeriesSampleExtended.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/SeriesSampleExtended.cpp.o
 .PHONY : SeriesSampleExtended.cpp.o
 
 SeriesSampleExtended.i: SeriesSampleExtended.cpp.i
@@ -680,7 +745,8 @@ SeriesSampleExtended.i: SeriesSampleExtended.cpp.i
 
 # target to preprocess a source file
 SeriesSampleExtended.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/SeriesSampleExtended.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/SeriesSampleExtended.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/SeriesSampleExtended.cpp.i
 .PHONY : SeriesSampleExtended.cpp.i
 
 SeriesSampleExtended.s: SeriesSampleExtended.cpp.s
@@ -689,7 +755,8 @@ SeriesSampleExtended.s: SeriesSampleExtended.cpp.s
 
 # target to generate assembly for a file
 SeriesSampleExtended.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/SeriesSampleExtended.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/SeriesSampleExtended.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/SeriesSampleExtended.cpp.s
 .PHONY : SeriesSampleExtended.cpp.s
 
 Strategy.o: Strategy.cpp.o
@@ -698,7 +765,8 @@ Strategy.o: Strategy.cpp.o
 
 # target to build an object file
 Strategy.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Strategy.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Strategy.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Strategy.cpp.o
 .PHONY : Strategy.cpp.o
 
 Strategy.i: Strategy.cpp.i
@@ -707,7 +775,8 @@ Strategy.i: Strategy.cpp.i
 
 # target to preprocess a source file
 Strategy.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Strategy.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Strategy.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Strategy.cpp.i
 .PHONY : Strategy.cpp.i
 
 Strategy.s: Strategy.cpp.s
@@ -716,7 +785,8 @@ Strategy.s: Strategy.cpp.s
 
 # target to generate assembly for a file
 Strategy.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Strategy.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Strategy.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Strategy.cpp.s
 .PHONY : Strategy.cpp.s
 
 Trader.o: Trader.cpp.o
@@ -725,7 +795,8 @@ Trader.o: Trader.cpp.o
 
 # target to build an object file
 Trader.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Trader.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Trader.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Trader.cpp.o
 .PHONY : Trader.cpp.o
 
 Trader.i: Trader.cpp.i
@@ -734,7 +805,8 @@ Trader.i: Trader.cpp.i
 
 # target to preprocess a source file
 Trader.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Trader.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Trader.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Trader.cpp.i
 .PHONY : Trader.cpp.i
 
 Trader.s: Trader.cpp.s
@@ -743,7 +815,8 @@ Trader.s: Trader.cpp.s
 
 # target to generate assembly for a file
 Trader.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/Trader.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/Trader.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/Trader.cpp.s
 .PHONY : Trader.cpp.s
 
 TraderOperation.o: TraderOperation.cpp.o
@@ -752,7 +825,8 @@ TraderOperation.o: TraderOperation.cpp.o
 
 # target to build an object file
 TraderOperation.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/TraderOperation.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/TraderOperation.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/TraderOperation.cpp.o
 .PHONY : TraderOperation.cpp.o
 
 TraderOperation.i: TraderOperation.cpp.i
@@ -761,7 +835,8 @@ TraderOperation.i: TraderOperation.cpp.i
 
 # target to preprocess a source file
 TraderOperation.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/TraderOperation.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/TraderOperation.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/TraderOperation.cpp.i
 .PHONY : TraderOperation.cpp.i
 
 TraderOperation.s: TraderOperation.cpp.s
@@ -770,7 +845,8 @@ TraderOperation.s: TraderOperation.cpp.s
 
 # target to generate assembly for a file
 TraderOperation.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/TraderOperation.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/TraderOperation.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/TraderOperation.cpp.s
 .PHONY : TraderOperation.cpp.s
 
 stock_cpp/main.o: stock_cpp/main.cpp.o
@@ -779,7 +855,8 @@ stock_cpp/main.o: stock_cpp/main.cpp.o
 
 # target to build an object file
 stock_cpp/main.cpp.o:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/stock_cpp/main.cpp.o
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/stock_cpp/main.cpp.o
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/stock_cpp/main.cpp.o
 .PHONY : stock_cpp/main.cpp.o
 
 stock_cpp/main.i: stock_cpp/main.cpp.i
@@ -788,7 +865,8 @@ stock_cpp/main.i: stock_cpp/main.cpp.i
 
 # target to preprocess a source file
 stock_cpp/main.cpp.i:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/stock_cpp/main.cpp.i
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/stock_cpp/main.cpp.i
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/stock_cpp/main.cpp.i
 .PHONY : stock_cpp/main.cpp.i
 
 stock_cpp/main.s: stock_cpp/main.cpp.s
@@ -797,7 +875,8 @@ stock_cpp/main.s: stock_cpp/main.cpp.s
 
 # target to generate assembly for a file
 stock_cpp/main.cpp.s:
-	$(MAKE) -f CMakeFiles/stock_cpp.dir/build.make CMakeFiles/stock_cpp.dir/stock_cpp/main.cpp.s
+	$(MAKE) -f CMakeFiles/stock_cpp_lib.dir/build.make CMakeFiles/stock_cpp_lib.dir/stock_cpp/main.cpp.s
+	$(MAKE) -f CMakeFiles/stock.dir/build.make CMakeFiles/stock.dir/stock_cpp/main.cpp.s
 .PHONY : stock_cpp/main.cpp.s
 
 # Help Target
@@ -808,11 +887,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... stock_cpp"
 	@echo "... list_install_components"
+	@echo "... install/local"
+	@echo "... stock_cpp_lib"
 	@echo "... install"
 	@echo "... install/strip"
-	@echo "... install/local"
+	@echo "... stock"
 	@echo "... test_stock_cpp"
 	@echo "... gtest_main"
 	@echo "... gtest"

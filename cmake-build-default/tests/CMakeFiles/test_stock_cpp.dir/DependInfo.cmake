@@ -20,6 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/Users/volchnik/projects/stock_cpp/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "/Users/volchnik/projects/stock_cpp/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "/Users/volchnik/projects/stock_cpp/cmake-build-default/CMakeFiles/stock_cpp_lib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

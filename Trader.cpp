@@ -236,7 +236,8 @@ Trader::operationType Trader::GetCurrentSignal(const float &trade_stock_min_valu
     update_level_cooldown_seconds = 0;
     timeout_after_deal_seconds = timeoutAfterDeal;
     return_operation = operationType::BUY;
-    limit_buy_level_fix_deal = (trade_stock_max_value + trade_stock_min_value) / 2.0;
+    limit_buy_level_fix_deal = trade_stock_min_value +
+        (trade_stock_max_value - trade_stock_min_value) * ((double) rand() / RAND_MAX);
 
   } else if ((current_position > 0 || max_position > labs(current_position)) &&
       timeout_after_deal_seconds == 0 &&
@@ -245,7 +246,8 @@ Trader::operationType Trader::GetCurrentSignal(const float &trade_stock_min_valu
     update_level_cooldown_seconds = 0;
     timeout_after_deal_seconds = timeoutAfterDeal;
     return_operation = operationType::SELL;
-    limit_sell_level_fix_deal = (trade_stock_max_value + trade_stock_min_value) / 2.0;
+    limit_sell_level_fix_deal = trade_stock_min_value +
+        (trade_stock_max_value - trade_stock_min_value) * ((double) rand() / RAND_MAX);
   }
 
   if (timeout_after_deal_seconds) {
@@ -274,8 +276,6 @@ void Trader::makeDeal(operationType signal,
 
 double Trader::CalculateTradeFitness(const Series &trade_position,
                                      const Series &trade_account,
-                                     const Series &trade_account_moment,
-                                     const Series &trade_signal,
                                      const std::shared_ptr<Operator> &strategy) {
   struct tm time_struct;
   double deal_amount_profit = 0.0;
