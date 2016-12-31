@@ -4,4 +4,4 @@ stock_cpp_bin
 .idea/*
 cmake-build-debug/*
 plot*
-cmake-build*
+cmake-build-default/*

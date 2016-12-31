@@ -18,75 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24a03f1e-079d-4323-b210-142edceaa2e6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CMakeCCompiler.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CMakeCXXCompiler.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CMakeDetermineCompilerABI_C.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CMakeSystem.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CompilerIdC/CMakeCCompilerId.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CompilerIdC/a.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/3.6.2/CompilerIdCXX/a.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/CXX.includecache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/DependInfo.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Genetics/FactorGeneration.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Genetics/Generation.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Helpers.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/Operator.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorAdd.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorAtan.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorBinary.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorDivide.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorEma.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorLog.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorMultiply.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorNumber.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorSeries.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorSma.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorSubtract.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Operator/OperatorUnary.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Series.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/SeriesSampleExtended.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Strategy.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/Trader.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/TraderOperation.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/build.make" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/cmake_clean.cmake" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/depend.internal" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/depend.make" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/flags.make" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/link.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/progress.make" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/stock_cpp.dir/stock_cpp/main.cpp.o" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Genetics/Generation.cpp" afterPath="$PROJECT_DIR$/Genetics/Generation.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trader.cpp" afterPath="$PROJECT_DIR$/Trader.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trader.h" afterPath="$PROJECT_DIR$/Trader.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeCache.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/CMakeOutput.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/Makefile.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/Makefile2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/TargetDirectories.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/clion-environment.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/clion-log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/progress.marks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/Makefile" afterPath="$PROJECT_DIR$/cmake-build-default/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/stock_cpp.cbp" afterPath="$PROJECT_DIR$/cmake-build-default/stock_cpp.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/progress.marks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/flags.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/link.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-default/tests/CMakeFiles/test_stock_cpp.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/tests/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest.dir/flags.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest_main.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/CMakeFiles/gtest_main.dir/flags.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/cmake_install.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/gtest.cbp" afterPath="$PROJECT_DIR$/cmake-build-default/tests/lib/googletest/gtest.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/tests/test_stock_cpp.cbp" afterPath="$PROJECT_DIR$/cmake-build-default/tests/test_stock_cpp.cbp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock_cpp/main.cpp" afterPath="$PROJECT_DIR$/stock_cpp/main.cpp" />
     </list>
     <ignored path="stock_cpp.iws" />
@@ -111,8 +43,8 @@
       <file leaf-file-name="Trader.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-82">
-              <caret line="239" column="46" lean-forward="true" selection-start-line="239" selection-start-column="46" selection-end-line="239" selection-end-column="46" />
+            <state relative-caret-position="135">
+              <caret line="76" column="86" lean-forward="false" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -121,18 +53,8 @@
       <file leaf-file-name="Generation.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Genetics/Generation.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="330" column="45" lean-forward="false" selection-start-line="330" selection-start-column="45" selection-end-line="330" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Trader.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Trader.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+            <state relative-caret-position="262">
+              <caret line="317" column="58" lean-forward="false" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -141,29 +63,21 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="184" column="39" lean-forward="false" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
+            <state relative-caret-position="656">
+              <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
+      <file leaf-file-name="Trader.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Trader.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16335">
-              <caret line="1089" column="0" lean-forward="false" selection-start-line="1089" selection-start-column="0" selection-end-line="1089" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server_http.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/http/server_http.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4920">
-              <caret line="328" column="0" lean-forward="false" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1080">
+              <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+              <folding>
+                <marker date="1483141882000" expanded="true" signature="211:4150" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -171,8 +85,8 @@
       <file leaf-file-name="Series.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Series.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6615">
-              <caret line="441" column="33" lean-forward="false" selection-start-line="441" selection-start-column="33" selection-end-line="441" selection-end-column="33" />
+            <state relative-caret-position="2621">
+              <caret line="397" column="51" lean-forward="false" selection-start-line="397" selection-start-column="51" selection-end-line="397" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -181,28 +95,8 @@
       <file leaf-file-name="Series.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Series.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vector" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14010">
-              <caret line="934" column="0" lean-forward="false" selection-start-line="934" selection-start-column="0" selection-end-line="934" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gtest.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21300">
-              <caret line="1420" column="0" lean-forward="false" selection-start-line="1420" selection-start-column="0" selection-end-line="1420" selection-end-column="0" />
+            <state relative-caret-position="425">
+              <caret line="80" column="59" lean-forward="false" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -222,9 +116,14 @@
       <find>pair</find>
       <find>GetCurrentSignal</find>
       <find>operationType</find>
-      <find>trader</find>
       <find>make_shared</find>
+      <find>insert</find>
+      <find>insert(</find>
+      <find>diffOffset_</find>
+      <find>trader</find>
       <find>rand</find>
+      <find>stop_loss_percent_</find>
+      <find>start_trade_offset_</find>
       <find>CalculateTradeFitness</find>
     </findStrings>
   </component>
@@ -255,9 +154,9 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/main.cpp" />
-        <option value="$PROJECT_DIR$/Trader.h" />
         <option value="$PROJECT_DIR$/Genetics/Generation.cpp" />
         <option value="$PROJECT_DIR$/Trader.cpp" />
+        <option value="$PROJECT_DIR$/Trader.h" />
         <option value="$PROJECT_DIR$/stock_cpp/main.cpp" />
       </list>
     </option>
@@ -283,12 +182,40 @@
           <State>
             <id />
           </State>
-        </expanded-state>
-        <selected-state>
           <State>
-            <id>C/C++</id>
+            <id>Bitwise operation issuesJavaScript</id>
           </State>
-        </selected-state>
+          <State>
+            <id>Code style issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JSON</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>Naming conventionsJavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
       </profile-state>
     </entry>
   </component>
@@ -353,14 +280,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-package" value="/usr/local/lib/node_modules/jscs" />
     <property name="FullScreen" value="true" />
   </component>
-  <component name="RunManager" selected="Application.stock">
+  <component name="RunManager" selected="Google Test.All in main.cpp">
     <configuration default="false" name="TraderTest.GetCurrentSignal" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_CLASS="TraderTest" TEST_METHOD="GetCurrentSignal" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -369,7 +296,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="All in main.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_PATTERN="SeriesTest.*:SeriesTest/*.*:*/SeriesTest.*/*:*/SeriesTest/*.*:TraderTest.*:TraderTest/*.*:*/TraderTest.*/*:*/TraderTest/*.*" TEST_MODE="PATTERN">
+    <configuration default="false" name="All in main.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_PATTERN="SeriesTest.*:SeriesTest/*.*:*/SeriesTest.*/*:*/SeriesTest/*.*:TraderTest.*:TraderTest/*.*:*/TraderTest.*/*:*/TraderTest/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
     </configuration>
@@ -605,15 +532,15 @@
       <workItem from="1482872268918" duration="309000" />
       <workItem from="1482878061832" duration="6621000" />
       <workItem from="1483044472758" duration="21000" />
-      <workItem from="1483044634245" duration="3367000" />
+      <workItem from="1483044634245" duration="6404000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_main_cpp - 2016.12.25 at 23h 27m 49s.xml">
+    <history-entry file="All_in_main_cpp - 2016.12.25 at 23h 28m 40s.xml">
       <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2016.12.25 at 23h 28m 40s.xml">
+    <history-entry file="All_in_main_cpp - 2016.12.31 at 02h 57m 36s.xml">
       <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
     <history-entry file="TraderTest_GetCurrentSignal - 2016.12.25 at 19h 27m 54s.xml">
@@ -642,7 +569,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67881000" />
+    <option name="totallyTimeSpent" value="70918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -650,12 +577,12 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20390625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1992032" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1992032" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -707,7 +634,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/stock_cpp/main.cpp</url>
-          <line>161</line>
+          <line>166</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -722,7 +649,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/stock_cpp/main.cpp</url>
-          <line>108</line>
+          <line>106</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -756,13 +683,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ThreadPool.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/thread">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -1006,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="451" column="38" lean-forward="false" selection-start-line="451" selection-start-column="38" selection-end-line="451" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/include/boost/throw_exception.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -1025,14 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4920">
           <caret line="328" column="0" lean-forward="false" selection-start-line="328" selection-start-column="0" selection-end-line="328" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16335">
-          <caret line="1089" column="0" lean-forward="false" selection-start-line="1089" selection-start-column="0" selection-end-line="1089" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1052,50 +956,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Series.h">
+    <entry file="file:///usr/include/math.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="33" lean-forward="false" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+        <state relative-caret-position="191">
+          <caret line="386" column="14" lean-forward="false" selection-start-line="386" selection-start-column="14" selection-end-line="386" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Series.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6615">
-          <caret line="441" column="33" lean-forward="false" selection-start-line="441" selection-start-column="33" selection-end-line="441" selection-end-column="33" />
+        <state relative-caret-position="2621">
+          <caret line="397" column="51" lean-forward="false" selection-start-line="397" selection-start-column="51" selection-end-line="397" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Trader.h">
+    <entry file="file://$PROJECT_DIR$/Series.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        <state relative-caret-position="425">
+          <caret line="80" column="59" lean-forward="false" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="882" column="25" lean-forward="false" selection-start-line="882" selection-start-column="25" selection-end-line="882" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Genetics/Generation.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="330" column="45" lean-forward="false" selection-start-line="330" selection-start-column="45" selection-end-line="330" selection-end-column="73" />
+        <state relative-caret-position="262">
+          <caret line="317" column="58" lean-forward="false" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Trader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+          <folding>
+            <marker date="1483141882000" expanded="true" signature="211:4150" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4665">
+          <caret line="322" column="9" lean-forward="false" selection-start-line="322" selection-start-column="5" selection-end-line="322" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-82">
-          <caret line="239" column="46" lean-forward="true" selection-start-line="239" selection-start-column="46" selection-end-line="239" selection-end-column="46" />
+        <state relative-caret-position="135">
+          <caret line="76" column="86" lean-forward="false" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="184" column="39" lean-forward="false" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
+        <state relative-caret-position="656">
+          <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
           <folding />
         </state>
       </provider>

@@ -91,11 +91,9 @@ bool initialize_quote_data(series_map_type &series_map, series_ptr_map_type &gen
 
   for (auto &series : series_map) {
     if (series.second.GetName().find('_') == string::npos && series.second.GetName().compare("RTSI") != 0) {
-      Series series_local =
-          100 * ((series.second - series.second.SmaIndicator(100)) / series.second.SmaIndicator(100)).LogIndicator();
+      Series series_local = (series.second - series.second.SmaIndicator(3600)) / series.second.SmaIndicator(3600);
       series_local.SetName(series.second.GetName());
-      generation_series.insert(std::pair<std::string, std::shared_ptr<Series>>(series.second.GetName(),
-                                                                               std::make_shared<Series>(series_local)));
+      generation_series.insert(pair<string, shared_ptr<Series>>(series.second.GetName(), make_shared<Series>(series_local)));
     }
   }
 
@@ -112,7 +110,14 @@ bool initialize_quote_data(series_map_type &series_map, series_ptr_map_type &gen
                        make_shared<Series>(series_map.find("RI_MIN")->second),
                        make_shared<Series>(series_map.find("RI_MAX")->second),
                        make_shared<Series>(series_map.find("Si")->second),
-                       allowSeries, 5, 10, 1, 200, 0.95, 86400);
+                       allowSeries,
+                       5, // Timeout after deal sec
+                       10, // Update limit deal interval sec
+                       1, // Max trade position
+                       200, // Величина спреда для совершения сделок по сигналу (абсолютный дифференс)
+                       0.95, // Stop loss level
+                       86400 // Start offset
+  );
   return true;
 }
 series_ptr_map_type getSubSeriesMap(const series_ptr_map_type &series_map, ulong offset, ulong interval) {
