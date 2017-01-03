@@ -183,7 +183,7 @@ int main(int argc, char **argv) {
           operatorStrategy = Operator::OperatorFromString(generation_series, request->header.find("strategy_string")->second);
       std::ostringstream strs;
 
-      int numRepeatTrade = 4;
+      int numRepeatTrade = 1;
       double fitnessSum = 0.0;
       bool plotTrade = false;
 
@@ -192,10 +192,13 @@ int main(int argc, char **argv) {
 
         if (plotTrade) {
           vector<Series> plotSeries = {std::get<2>(result)};
-          Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_account", 1);
+          Series::GenerateCharts("plot_account.csv", Series::ChartsFormat::plotly, 1, plotSeries, 1);
 
           plotSeries = {std::get<6>(result)};
-          Series::GenerateCharts("plot", Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_signal", 1);
+          Series::GenerateCharts("plot_signal.csv", Series::ChartsFormat::plotly, 1, plotSeries, 1);
+
+          plotSeries = {series_map.find("RI")->second};
+          Series::GenerateCharts("plot_ri.csv", Series::ChartsFormat::plotly, 1, plotSeries, 1);
         }
 
         fitnessSum += Generation::GetStrategyFitness(operatorStrategy, *ptrader);

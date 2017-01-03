@@ -14,15 +14,24 @@
   <component name="CMakeSettings" AUTO_RELOAD="true" ADDITIONAL_BUILD_OPTIONS="-j 4">
     <configurations>
       <configuration CONFIG_NAME="Release" GENERATION_DIR="cmake-build-default" />
+      <configuration CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24a03f1e-079d-4323-b210-142edceaa2e6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Series.cpp" afterPath="$PROJECT_DIR$/Series.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Series.h" afterPath="$PROJECT_DIR$/Series.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trader.cpp" afterPath="$PROJECT_DIR$/Trader.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-default/CMakeFiles/clion-log.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root.h" afterPath="$PROJECT_DIR$/root.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock_cpp/main.cpp" afterPath="$PROJECT_DIR$/stock_cpp/main.cpp" />
     </list>
     <ignored path="stock_cpp.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/cmake-build-default/" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +51,8 @@
       <file leaf-file-name="Trader.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="76" column="86" lean-forward="false" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
+            <state relative-caret-position="382">
+              <caret line="166" column="14" lean-forward="true" selection-start-line="166" selection-start-column="14" selection-end-line="166" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -52,8 +61,8 @@
       <file leaf-file-name="Generation.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Genetics/Generation.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="317" column="58" lean-forward="false" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
+            <state relative-caret-position="4620">
+              <caret line="308" column="12" lean-forward="false" selection-start-line="308" selection-start-column="12" selection-end-line="308" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -62,8 +71,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="93" column="107" lean-forward="false" selection-start-line="93" selection-start-column="107" selection-end-line="93" selection-end-column="107" />
+            <state relative-caret-position="150">
+              <caret line="187" column="28" lean-forward="false" selection-start-line="187" selection-start-column="28" selection-end-line="187" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -72,7 +81,7 @@
       <file leaf-file-name="Trader.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Trader.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
+            <state relative-caret-position="1110">
               <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
               <folding>
                 <marker date="1483141882000" expanded="true" signature="211:4150" ph="{...}" />
@@ -84,8 +93,38 @@
       <file leaf-file-name="Series.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Series.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2621">
-              <caret line="397" column="51" lean-forward="false" selection-start-line="397" selection-start-column="51" selection-end-line="397" selection-end-column="51" />
+            <state relative-caret-position="465">
+              <caret line="561" column="5" lean-forward="false" selection-start-line="561" selection-start-column="5" selection-end-line="561" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="time.h" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/time.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="111" column="11" lean-forward="false" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="root.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Helpers.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Helpers.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-975">
+              <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -94,9 +133,11 @@
       <file leaf-file-name="Series.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Series.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="80" column="59" lean-forward="false" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="59" />
-              <folding />
+            <state relative-caret-position="564">
+              <caret line="75" column="77" lean-forward="false" selection-start-line="75" selection-start-column="77" selection-end-line="75" selection-end-column="77" />
+              <folding>
+                <marker date="1483269090000" expanded="true" signature="322:3303" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,24 +161,28 @@
       <find>insert(</find>
       <find>diffOffset_</find>
       <find>trader</find>
-      <find>rand</find>
       <find>stop_loss_percent_</find>
       <find>start_trade_offset_</find>
       <find>CalculateTradeFitness</find>
+      <find>gmtime</find>
+      <find>rand</find>
+      <find>file_name</find>
+      <find>makeDeal</find>
+      <find>series_map</find>
+      <find>GetCurrentSigna</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Series.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/stock_cpp/main.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Operator/Operator.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Series.h" />
-        <option value="$PROJECT_DIR$/Series.cpp" />
         <option value="$PROJECT_DIR$/Operator/Operator.h" />
         <option value="$PROJECT_DIR$/Operator/OperatorBinary.h" />
         <option value="$PROJECT_DIR$/Operator/OperatorBinary.cpp" />
@@ -154,8 +199,11 @@
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/main.cpp" />
         <option value="$PROJECT_DIR$/Genetics/Generation.cpp" />
-        <option value="$PROJECT_DIR$/Trader.cpp" />
         <option value="$PROJECT_DIR$/Trader.h" />
+        <option value="$PROJECT_DIR$/Series.h" />
+        <option value="$PROJECT_DIR$/root.h" />
+        <option value="$PROJECT_DIR$/Series.cpp" />
+        <option value="$PROJECT_DIR$/Trader.cpp" />
         <option value="$PROJECT_DIR$/stock_cpp/main.cpp" />
       </list>
     </option>
@@ -279,14 +327,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-package" value="/usr/local/lib/node_modules/jscs" />
     <property name="FullScreen" value="true" />
   </component>
-  <component name="RunManager" selected="Google Test.All in main.cpp">
+  <component name="RunManager" selected="Application.stock">
     <configuration default="false" name="TraderTest.GetCurrentSignal" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="stock_cpp" TARGET_NAME="test_stock_cpp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="stock_cpp" RUN_TARGET_NAME="test_stock_cpp" TEST_CLASS="TraderTest" TEST_METHOD="GetCurrentSignal" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -531,7 +579,8 @@
       <workItem from="1482872268918" duration="309000" />
       <workItem from="1482878061832" duration="6621000" />
       <workItem from="1483044472758" duration="21000" />
-      <workItem from="1483044634245" duration="6563000" />
+      <workItem from="1483044634245" duration="10753000" />
+      <workItem from="1483267030766" duration="5884000" />
     </task>
     <servers />
   </component>
@@ -568,7 +617,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71077000" />
+    <option name="totallyTimeSpent" value="81151000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -576,12 +625,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20390625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1992032" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802126" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32802126" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -591,6 +639,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -632,11 +681,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/stock_cpp/main.cpp</url>
-          <line>166</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/tests/main.cpp</url>
           <line>414</line>
           <option name="timeStamp" value="49" />
@@ -648,32 +692,11 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/stock_cpp/main.cpp</url>
-          <line>106</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Series.cpp</url>
-          <line>465</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <condition expression="trade_allow_level &gt; 0.0" language="ObjectiveC" />
-          <url>file://$PROJECT_DIR$/Trader.cpp</url>
-          <line>152</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Trader.cpp</url>
-          <line>170</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Trader.cpp</url>
-          <line>196</line>
-          <option name="timeStamp" value="76" />
+          <line>192</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="77" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -682,20 +705,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/thread">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="337" column="0" lean-forward="false" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/random">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -889,13 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/root.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Helpers.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -921,7 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21300">
           <caret line="1420" column="0" lean-forward="false" selection-start-line="1420" selection-start-column="0" selection-end-line="1420" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14010">
           <caret line="934" column="0" lean-forward="false" selection-start-line="934" selection-start-column="0" selection-end-line="934" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,23 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="386" column="14" lean-forward="false" selection-start-line="386" selection-start-column="14" selection-end-line="386" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Series.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2621">
-          <caret line="397" column="51" lean-forward="false" selection-start-line="397" selection-start-column="51" selection-end-line="397" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Series.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="80" column="59" lean-forward="false" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,21 +966,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="882" column="25" lean-forward="false" selection-start-line="882" selection-start-column="25" selection-end-line="882" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2215">
+          <caret line="322" column="9" lean-forward="false" selection-start-line="322" selection-start-column="5" selection-end-line="322" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Genetics/Generation.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="317" column="58" lean-forward="false" selection-start-line="317" selection-start-column="58" selection-end-line="317" selection-end-column="58" />
+        <state relative-caret-position="4620">
+          <caret line="308" column="12" lean-forward="false" selection-start-line="308" selection-start-column="12" selection-end-line="308" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
+        <state relative-caret-position="1110">
           <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
           <folding>
             <marker date="1483141882000" expanded="true" signature="211:4150" ph="{...}" />
@@ -1005,26 +995,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/main.cpp">
+    <entry file="file://$PROJECT_DIR$/Series.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4665">
-          <caret line="322" column="9" lean-forward="false" selection-start-line="322" selection-start-column="5" selection-end-line="322" selection-end-column="9" />
+        <state relative-caret-position="564">
+          <caret line="75" column="77" lean-forward="false" selection-start-line="75" selection-start-column="77" selection-end-line="75" selection-end-column="77" />
+          <folding>
+            <marker date="1483269090000" expanded="true" signature="322:3303" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Helpers.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="27" column="25" lean-forward="false" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/time.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="111" column="11" lean-forward="false" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Series.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="561" column="5" lean-forward="false" selection-start-line="561" selection-start-column="5" selection-end-line="561" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Trader.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="76" column="86" lean-forward="false" selection-start-line="76" selection-start-column="86" selection-end-line="76" selection-end-column="86" />
+        <state relative-caret-position="382">
+          <caret line="166" column="14" lean-forward="true" selection-start-line="166" selection-start-column="14" selection-end-line="166" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stock_cpp/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="93" column="107" lean-forward="false" selection-start-line="93" selection-start-column="107" selection-end-line="93" selection-end-column="107" />
+        <state relative-caret-position="150">
+          <caret line="187" column="28" lean-forward="false" selection-start-line="187" selection-start-column="28" selection-end-line="187" selection-end-column="28" />
           <folding />
         </state>
       </provider>

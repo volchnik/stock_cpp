@@ -146,6 +146,8 @@ pair<double, double> Trader::GetLimitDealLevels(const std::shared_ptr<DayOfTheYe
                                                 Series &trade_limit_sell,
                                                 const bool &is_limit_trade) {
   pair<double, double> limitLevels;
+  limitLevels.first = -numeric_limits<double>::max();
+  limitLevels.second = numeric_limits<double>::max();
 
   if (update_level_cooldown_seconds == 0) {
     float trade_allow_level = tradeAllowSignal->GetValue(datetime, pday_of_year);
@@ -236,8 +238,7 @@ Trader::operationType Trader::GetCurrentSignal(const float &trade_stock_min_valu
     update_level_cooldown_seconds = 0;
     timeout_after_deal_seconds = timeoutAfterDeal;
     return_operation = operationType::BUY;
-    limit_buy_level_fix_deal = trade_stock_min_value +
-        (trade_stock_max_value - trade_stock_min_value) * ((double) rand() / RAND_MAX);
+    limit_buy_level_fix_deal = (trade_stock_max_value + trade_stock_min_value) * 0.5;
 
   } else if ((current_position > 0 || max_position > labs(current_position)) &&
       timeout_after_deal_seconds == 0 &&
@@ -246,8 +247,7 @@ Trader::operationType Trader::GetCurrentSignal(const float &trade_stock_min_valu
     update_level_cooldown_seconds = 0;
     timeout_after_deal_seconds = timeoutAfterDeal;
     return_operation = operationType::SELL;
-    limit_sell_level_fix_deal = trade_stock_min_value +
-        (trade_stock_max_value - trade_stock_min_value) * ((double) rand() / RAND_MAX);
+    limit_sell_level_fix_deal = (trade_stock_max_value + trade_stock_min_value) * 0.5;
   }
 
   if (timeout_after_deal_seconds) {
@@ -266,10 +266,11 @@ void Trader::makeDeal(operationType signal,
                       double si,
                       std::shared_ptr<DayOfTheYear> pday_of_year) const {
   if (signal != operationType::STAY) {
-    current_account += ((signal == operationType::BUY) ? (-1 * limit_buy_level) : limit_sell_level);
+    current_account += ((signal == operationType::BUY) ? (-1 * limit_buy_level) : limit_sell_level) -
+        (2.0 / ((double) si / (double) 5000.0)) * GetMinimalQuoteStep(pday_of_year);
     current_position += ((signal == operationType::BUY) ? 1 : -1);
     if (current_position == 0) {
-      current_profit = current_account - (4.0 / ((double) si / (double) 5000.0)) * GetMinimalQuoteStep(pday_of_year);
+      current_profit = current_account;
     }
   }
 }
