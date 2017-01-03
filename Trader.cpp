@@ -286,7 +286,9 @@ double Trader::CalculateTradeFitness(const Series &trade_position,
   long positive_deal_count = 0;
 
   for (auto &datetime_series : trade_position.datetime_map_) {
-    unsigned long offset = 0;
+    ulong offset = 0;
+    ulong deal_start_offset = 0;
+
     bool deal_started = false;
     std::shared_ptr<DayOfTheYear> pday_of_year =
         std::make_shared<DayOfTheYear>(DayOfTheYear(Helpers::gmtime(&datetime_series.second.begin_interval, &time_struct)));
@@ -295,10 +297,15 @@ double Trader::CalculateTradeFitness(const Series &trade_position,
       float trade_position_current = trade_position.GetValue(datetime_series.second.begin_interval + offset, pday_of_year);
       if (!deal_started && trade_position_current != 0) {
         deal_started = true;
+        deal_start_offset = offset;
       } else if (deal_started && trade_position_current == 0) {
         deal_started = false;
         double amount_diff = trade_account.GetValue(datetime_series.second.begin_interval + offset, pday_of_year) -
             trade_account.GetValue(datetime_series.second.begin_interval + offset - 1, pday_of_year);
+
+        if (amount_diff > 0) {
+          amount_diff /= max((ulong)MAX_DEAL_TIME_PENALTY, (offset - deal_start_offset)) / (double)MAX_DEAL_TIME_PENALTY;
+        }
 
         deal_amount_profit += amount_diff;
 

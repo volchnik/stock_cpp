@@ -11,6 +11,8 @@
 #ifndef TRADER_H
 #define TRADER_H
 
+#define MAX_DEAL_TIME_PENALTY 3600
+
 class Trader {
  public:
   Trader(std::shared_ptr<Series> stock,
