@@ -91,7 +91,7 @@ bool initialize_quote_data(series_map_type &series_map, series_ptr_map_type &gen
 
   for (auto &series : series_map) {
     if (series.second.GetName().find('_') == string::npos && series.second.GetName().compare("RTSI") != 0) {
-      Series series_local = (series.second - series.second.SmaIndicator(60)) / series.second.SmaIndicator(60);
+      Series series_local = (series.second - series.second.SmaIndicator(120)) / (0.001 * series.second.SmaIndicator(120));
       series_local.SetName(series.second.GetName());
       generation_series.insert(pair<string, shared_ptr<Series>>(series.second.GetName(), make_shared<Series>(series_local)));
     }
