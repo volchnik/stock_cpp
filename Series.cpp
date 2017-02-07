@@ -407,7 +407,7 @@ const Series Series::LogIndicator() const {
 
   for (auto &datetime_series : copy.datetime_map_) {
     for (auto &sample : datetime_series.second.series_) {
-      sample.value = log(sample.value + 1.0);
+      sample.value = (sample.value > 0 ? 1.0f : -1.0f) * log(fabs(sample.value) + 1.0f);
     }
   }
 
