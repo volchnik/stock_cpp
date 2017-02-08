@@ -111,7 +111,7 @@ bool initialize_quote_data(series_map_type &series_map, series_ptr_map_type &gen
                        make_shared<Series>(series_map.find("RI_MAX")->second),
                        make_shared<Series>(series_map.find("Si")->second),
                        allowSeries,
-                       5, // Timeout after deal sec
+                       60, // Timeout after deal sec
                        10, // Update limit deal interval sec
                        1, // Max trade position
                        200, // Величина спреда для совершения сделок по сигналу (абсолютный дифференс)

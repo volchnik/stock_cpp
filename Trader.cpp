@@ -305,6 +305,7 @@ double Trader::CalculateTradeFitness(const Series &trade_position,
 
         if (amount_diff > 0) {
           amount_diff /= max((ulong)MAX_DEAL_TIME_PENALTY, (offset - deal_start_offset)) / (double)MAX_DEAL_TIME_PENALTY;
+          amount_diff *= min((ulong)MIN_DEAL_TIME_PENALTY, (offset - deal_start_offset)) / (double)MIN_DEAL_TIME_PENALTY;
         }
 
         deal_amount_profit += amount_diff;

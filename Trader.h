@@ -12,6 +12,7 @@
 #define TRADER_H
 
 #define MAX_DEAL_TIME_PENALTY 3600
+#define MIN_DEAL_TIME_PENALTY 180
 
 class Trader {
  public:
