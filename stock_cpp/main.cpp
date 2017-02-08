@@ -218,89 +218,60 @@ int main(int argc, char **argv) {
     server.start();
   });
 
-  while (true) {
+  /*while (true) {
     sleep(1);
-  }
+  }*/
 
   // return 0;
 
-  /*//series_ptr_map_type current_series = generation_series;
-  day_offset = 3;
-  cout << "Gen: " << day_offset << endl;
+  //series_ptr_map_type current_series = generation_series;
 
   //series_ptr_map_type current_series = generation_series;
   //ptrader->SetStock(current_series.find("RI")->second);
 
-  current_series = getSubSeriesMap(generation_series, day_offset, 6*//*78*//*);
-    ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, 6),
-                      series_map.find("RI_MIN")->second.getSubSeries(day_offset, 6),
-                      series_map.find("RI_MAX")->second.getSubSeries(day_offset, 6),
-                      series_map.find("Si")->second.getSubSeries(day_offset, 6));
+  Generation generation_test(600, generation_series, *ptrader, true);
 
-    //ptrader->SetAllowSeries(allowSeries->getSubSeries(day_offset, 3));
+  generation_test.GenerateRandomSeed();
 
-    Generation generation_test(30, current_series, *ptrader, true);
-    
-    generation_test.GenerateRandomSeed();
-    
-    int generation_counter = 0;
-    bool recalc_generation = false;
-    
-    while(++generation_counter) {
-        cout << "Iteration: " << generation_counter << endl;
-        generation_test.IterateGeneration(recalc_generation);
-        recalc_generation = false;
-        
-        if(generation_counter % 25 == 0) {
-            for (unsigned long index = 0; index < floor((double)generation_test.GetGenerationCount() / 2.0); index+=60) {
-                FactorGeneration factor_generation(generation_test.GetStrategy(index).first, generation_test.GetStrategy(index).second, 24, *ptrader);
-                
-                factor_generation.GenerateRandomSeed();
-                for (int fi = 0; fi < 16; fi ++) {
-                    generation_test.UpdateStrategy(index, pair<shared_ptr<Operator>, double>(generation_test.GetStrategy(index).first, factor_generation.IterateGeneration()));
-                }
-                
-                std::shared_ptr<Operator> operator_optimized = generation_test.GetStrategy(index).first;
-                Operator::SimplifyOperator(operator_optimized);
-        
-                cout << "Optimization result: " << generation_test.GetStrategy(index).first->ToString() << " " << generation_test.GetStrategy(index).second << std::endl;
-            }
-            
-            generation_test.SortStrategy();
+  int generation_counter = 0;
+  bool recalc_generation = false;
+
+  while (++generation_counter) {
+    cout << "Iteration: " << generation_counter << endl;
+    generation_test.IterateGeneration(recalc_generation);
+    recalc_generation = false;
+
+    if (generation_counter % 25 == 0) {
+      for (unsigned long index = 0; index < floor((double) generation_test.GetGenerationCount() / 2.0); index += 60) {
+        FactorGeneration
+            factor_generation(generation_test.GetStrategy(index).first, generation_test.GetStrategy(index).second, 24, *ptrader);
+
+        factor_generation.GenerateRandomSeed();
+        for (int fi = 0; fi < 16; fi++) {
+          generation_test.UpdateStrategy(index,
+                                         pair<shared_ptr<Operator>, double>(generation_test.GetStrategy(index).first,
+                                                                            factor_generation.IterateGeneration()));
         }
-        
-        std::tuple<double, Series, Series, Series, Series, Series, Series> result = ptrader->Trade(generation_test.GetLeaderStrategy().first);
-        
-        OperatorAdd resultOperatorAdd(std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())), generation_test.GetLeaderStrategy().first);
-        std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
-        
-        vector<Series> plotSeries = {*//*std::get<1>(result),*//* std::get<2>(result)*//*, *dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};//std::get<3>(result), std::get<4>(result)*//*};
 
-        string fname("plot_");
-        fname += to_string(generation_counter);
-        Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plotSeries, "plot_result");
+        std::shared_ptr<Operator> operator_optimized = generation_test.GetStrategy(index).first;
+        Operator::SimplifyOperator(operator_optimized);
 
-        //vector<Series> plot_series_result = {*(generation_series.find("RI")->second), *(generation_series.find("YM")->second), *(generation_series.find("SPFB.Si")->second)};
+        cout << "Optimization result: " << generation_test.GetStrategy(index).first->ToString() << " "
+             << generation_test.GetStrategy(index).second << std::endl;
+      }
 
-        *//*vector<Series> plot_ri_result = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
-        Series::GenerateCharts(fname, Series::ChartsFormat::gnuplot, 1, plot_ri_result, "plot_strategy", 1);*//*
-
-        if (generation_counter % 20015 == 0) {
-            day_offset++;
-            cout << "Change gen: " << day_offset << endl;
-            current_series = getSubSeriesMap(generation_series, day_offset, 20);
-            cout << "Setting stock" << endl;
-            ptrader->SetStock(series_map.find("RI")->second.getSubSeries(day_offset, 20),
-                              series_map.find("RI_MIN")->second.getSubSeries(day_offset, 20),
-                              series_map.find("RI_MAX")->second.getSubSeries(day_offset, 20),
-                              series_map.find("Si")->second.getSubSeries(day_offset, 20));
-            //ptrader->SetAllowSeries(allowSeries->getSubSeries(day_offset, 3));
-            cout << "Setting collection" << endl;
-            generation_test.SetSeriesCollection(current_series);
-            recalc_generation = true;
-
-        }
+      generation_test.SortStrategy();
     }
+
+    std::tuple<double, Series, Series, Series, Series, Series, Series>
+        result = ptrader->Trade(generation_test.GetLeaderStrategy().first);
+
+    OperatorAdd resultOperatorAdd
+        (std::make_shared<OperatorSeries>(std::make_shared<Series>(series_map.find("RI")->second.GenerateZeroBaseSeries())),
+         generation_test.GetLeaderStrategy().first);
+    std::shared_ptr<Operator> resultOperator = resultOperatorAdd.perform();
+
+  }
     
 //    vector<Series> plotSeries = {trader.GetTradeLimitBuy(), trader.GetTradeLimitSell(), seriesRI, 
 //        allowSeries * 1000.0 + 120000.0, signal_series * 1000 + 120000.0, 
@@ -309,6 +280,6 @@ int main(int argc, char **argv) {
     //vector<Series> plotSeries = {*dynamic_cast<OperatorSeries*>(resultOperator.get())->getSeries()};
 //    Series::PlotGnu(1, plotSeries);
     
-    return 0;*/
+    return 0;
 }
 
