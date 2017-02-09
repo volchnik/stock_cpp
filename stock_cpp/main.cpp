@@ -229,7 +229,7 @@ int main(int argc, char **argv) {
   //series_ptr_map_type current_series = generation_series;
   //ptrader->SetStock(current_series.find("RI")->second);
 
-  Generation generation_test(600, generation_series, *ptrader, true);
+  Generation generation_test(150, generation_series, *ptrader, true);
 
   generation_test.GenerateRandomSeed();
 
@@ -241,7 +241,7 @@ int main(int argc, char **argv) {
     generation_test.IterateGeneration(recalc_generation);
     recalc_generation = false;
 
-    if (generation_counter % 25 == 0) {
+    if (generation_counter % 10 == 0) {
       for (unsigned long index = 0; index < floor((double) generation_test.GetGenerationCount() / 2.0); index += 60) {
         FactorGeneration
             factor_generation(generation_test.GetStrategy(index).first, generation_test.GetStrategy(index).second, 24, *ptrader);

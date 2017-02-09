@@ -29,8 +29,8 @@ public:
     static const unsigned long operator_binary_subtract_distribution_ = 4;//2;//2;//4;
     static const unsigned long operator_binary_divide_distribution_ = 1;//1;//1;//1;
     
-    static const unsigned long operator_unary_sma_distribution_ = 1;//1;//1;//1;
-    static const unsigned long operator_unary_ema_distribution_ = 1;//1;//1;//1;
+    static const unsigned long operator_unary_sma_distribution_ = 0;//1;//1;//1;
+    static const unsigned long operator_unary_ema_distribution_ = 0;//1;//1;//1;
     static const unsigned long operator_unary_atan_distribution_ = 1;
     
     static const unsigned long operator_finite_series_distribution_ = 1;//2;//2;//2;

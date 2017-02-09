@@ -203,7 +203,7 @@ std::pair<std::shared_ptr<Operator>, double> Generation::GetLeaderStrategy() {
 }
 
 std::pair<std::shared_ptr<Operator>, double> Generation::GetStrategy(unsigned long index) {
-  return std::pair<std::shared_ptr<Operator>, double>((pair<shared_ptr<Operator>, double> &&) this->strategy_.at(index));
+  return std::pair<std::shared_ptr<Operator>, double>(this->strategy_.at(index));
 }
 
 void Generation::UpdateStrategy(unsigned long index, pair<std::shared_ptr<Operator>, double> update_strategy) {
