@@ -6,15 +6,6 @@
  */
 #include "Series.h"
 
-#define SERIES_SECONDS_STEP 60
-
-void insertIntoNormalizedSeries(SeriesSample &sample_insert,
-                                vector<SeriesSample> &normalized_series,
-                                map<DayOfTheYear, SeriesInterval> &datetime_map,
-                                long datetime_sample,
-                                long series_time_start,
-                                long series_time_end);
-
 Series::Series(const std::string &series_name) : series_name_(series_name) {
   if (series_name_.empty()) {
     throw std::invalid_argument("series_name can't be empty");
@@ -103,8 +94,12 @@ void Series::Normalize(const vector<SeriesSampleExtended> &series) {
   for (auto &sample : series) {
     if (Helpers::gmtime(&sample.datetime, &time_struct_1)->tm_yday
         != Helpers::gmtime(&datetime_sample, &time_struct_2)->tm_yday) {
-      insertIntoNormalizedSeries(sample_insert, normalized_series, datetime_map_, datetime_sample,
-                                 series_time_start, series_time_start + normalized_series.size() - 1);
+      normalized_series.push_back(sample_insert);
+      InsertIntoDateTimeMap(&datetime_map_,
+                            datetime_sample,
+                            normalized_series,
+                            series_time_start,
+                            series_time_start + normalized_series.size() - 1);
       series_time_start = sample.datetime;
     } else {
       for (long time_delta = 0; time_delta < sample.datetime - datetime_sample; time_delta++) {
@@ -117,48 +112,12 @@ void Series::Normalize(const vector<SeriesSampleExtended> &series) {
   }
 
   if (series.size()) {
-    insertIntoNormalizedSeries(sample_insert, normalized_series, datetime_map_, datetime_sample,
-                               series_time_start, series_time_start + normalized_series.size() - 1);
-  }
-}
-
-void insertIntoNormalizedSeries(SeriesSample &sample_insert,
-                                vector<SeriesSample> &normalized_series,
-                                map<DayOfTheYear, SeriesInterval> &datetime_map,
-                                long datetime_sample,
-                                long series_time_start,
-                                long series_time_end) {
-  normalized_series.push_back(sample_insert);
-
-  if (SERIES_SECONDS_STEP > 1) {
-    vector<SeriesSample> normalized_final_series;
-    long counterTime = series_time_start;
-    SeriesSample seriesSampleFixed = *normalized_series.begin();
-    SeriesSample seriesSamplePrev = seriesSampleFixed;
-
-    for (SeriesSample seriesSample : normalized_series) {
-      if (counterTime % SERIES_SECONDS_STEP == 0) {
-        seriesSampleFixed = seriesSamplePrev;
-      }
-      normalized_final_series.push_back(seriesSampleFixed);
-      counterTime++;
-
-      seriesSamplePrev = seriesSample;
-    }
-    normalized_series.clear();
-    if (!normalized_final_series.empty()) {
-      InsertIntoDateTimeMap(&datetime_map,
-                            datetime_sample,
-                            normalized_final_series,
-                            series_time_start,
-                            series_time_end);
-    }
-  } else {
-    InsertIntoDateTimeMap(&datetime_map,
+    normalized_series.push_back(sample_insert);
+    InsertIntoDateTimeMap(&datetime_map_,
                           datetime_sample,
                           normalized_series,
                           series_time_start,
-                          series_time_end);
+                          series_time_start + normalized_series.size() - 1);
   }
 }
 
